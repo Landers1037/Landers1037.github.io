@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="环境：SQL server Postgresql 实验一：（postgre）根据供应商表完成数据库操作建表 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import psycopg2import sysimport jsonclass sql():    def">
+<meta name="keywords" content="sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库实验1">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/sqltest1/index.html">
+<meta property="og:site_name" content="Landers1037">
+<meta property="og:description" content="环境：SQL server Postgresql 实验一：（postgre）根据供应商表完成数据库操作建表 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import psycopg2import sysimport jsonclass sql():    def">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-27T12:20:38.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库实验1">
+<meta name="twitter:description" content="环境：SQL server Postgresql 实验一：（postgre）根据供应商表完成数据库操作建表 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import psycopg2import sysimport jsonclass sql():    def">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/03/27/sqltest1/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据库实验1 | Landers1037</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Landers1037</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">河汉清且浅 相去复几许</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-thanks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/thanks/" rel="section"><i class="menu-item-icon fa fa-fw fa-at"></i> <br>感谢</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-me">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/me/" rel="section"><i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>共勉</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-something">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/something/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>随记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-ftp">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/ftp/" rel="section"><i class="menu-item-icon fa fa-fw fa-cube"></i> <br>FTP</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/sqltest1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">数据库实验1
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-27 18:36:11 / 修改时间：20:20:38" itemprop="dateCreated datePublished" datetime="2019-03-27T18:36:11+08:00">2019-03-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h1><p>SQL server</p>
+<p>Postgresql</p>
+<h2 id="实验一：（postgre）"><a href="#实验一：（postgre）" class="headerlink" title="实验一：（postgre）"></a>实验一：（postgre）</h2><p>根据供应商表完成数据库操作<br>建表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> psycopg2</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sql</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="comment">#连接数据库</span></span><br><span class="line">        self.db = psycopg2.connect(host=<span class="string">'localhost'</span>,user=<span class="string">'postgres'</span>,password=<span class="string">'123456'</span>,database=<span class="string">'db1'</span>,port=<span class="string">'5432'</span>)</span><br><span class="line">        self.cursor = self.db.cursor()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">roll</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.db.rollback()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">creat_table</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.connect()</span><br><span class="line">        sql = <span class="string">'CREATE TABLE IF NOT EXISTS \</span></span><br><span class="line"><span class="string">            S(SNO VARCHAR (100) NOT NULL ,\</span></span><br><span class="line"><span class="string">            SNAME VARCHAR (100) NOT NULL,\</span></span><br><span class="line"><span class="string">            STATUS INT NOT NULL ,\</span></span><br><span class="line"><span class="string">            CITY VARCHAR (100) NOT NULL,\</span></span><br><span class="line"><span class="string">            PRIMARY KEY (SNO))'</span></span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line"></span><br><span class="line">        sql = <span class="string">'create table if not exists \</span></span><br><span class="line"><span class="string">            p(pno varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            pname varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            color varchar(100) not null ,\</span></span><br><span class="line"><span class="string">            weight varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            primary key(pno))'</span></span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line"></span><br><span class="line">        sql = <span class="string">'create table if not exists \</span></span><br><span class="line"><span class="string">            j(jno varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            jname varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            city varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            primary key(jno))'</span></span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line"></span><br><span class="line">        sql = <span class="string">'create table if not exists \</span></span><br><span class="line"><span class="string">            spj(sno varchar (100)not null ,\</span></span><br><span class="line"><span class="string">            pno varchar (100)not null ,\</span></span><br><span class="line"><span class="string">            jno varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            qty varchar (100)not null ,\</span></span><br><span class="line"><span class="string">            primary key(sno,pno,jno) ,\</span></span><br><span class="line"><span class="string">            foreign key(sno)references S(sno),\</span></span><br><span class="line"><span class="string">            foreign key(pno)references p(pno),\</span></span><br><span class="line"><span class="string">            foreign key(jno)references j(jno))'</span></span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line"></span><br><span class="line">        self.db.commit()</span><br></pre></td></tr></table></figure>
+<p>输入数据</p>
+<p>找出所有供应商的姓名和所在城市</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sname,city <span class="keyword">from</span> s</span><br></pre></td></tr></table></figure>
+<p>所有零件的名称，颜色和重量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pname,color,weight <span class="keyword">from</span> p</span><br></pre></td></tr></table></figure>
+<p>S1提供的零件的工程号码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> jno <span class="keyword">from</span> spj <span class="keyword">where</span> sno=<span class="string">'s1'</span></span><br></pre></td></tr></table></figure>
+<p>J2项目使用的各种零件的名称和重量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pname,qty <span class="keyword">from</span> spj,p <span class="keyword">where</span> spj.pno=p.pno <span class="keyword">and</span> spj.jno=<span class="string">'j2'</span></span><br></pre></td></tr></table></figure>
+<p>上海厂商提供的所有零件号码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pno <span class="keyword">from</span> spj,s <span class="keyword">where</span> spj.sno=s.sno <span class="keyword">and</span> s.city=<span class="string">'上海'</span></span><br></pre></td></tr></table></figure>
+<p>使用上海零件的工程名称</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> jname <span class="keyword">from</span> j,spj,s <span class="keyword">where</span> spj.sno=s.sno <span class="keyword">and</span> spj.jno=j.jno <span class="keyword">and</span> s.sno=<span class="string">'s5'</span></span><br></pre></td></tr></table></figure>
+<p>没有使用天津零件的工程号码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> jno <span class="keyword">from</span> spj,s <span class="keyword">where</span> spj.sno=s.sno <span class="keyword">and</span> <span class="keyword">not</span> s.city=<span class="string">'天津'</span></span><br></pre></td></tr></table></figure>
+<p>把红色零件全部换为蓝色</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> p <span class="keyword">set</span> color=<span class="string">'蓝'</span> <span class="keyword">where</span> color=<span class="string">'红'</span></span><br></pre></td></tr></table></figure>
+<p>把由s5供给s4零件p6改为由s3提供</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> spj <span class="keyword">set</span> sno=<span class="string">'s3'</span> <span class="keyword">where</span> sno=<span class="string">'s5'</span><span class="keyword">and</span> pno=’p6<span class="string">' and jno='</span>j4<span class="string">'</span></span><br></pre></td></tr></table></figure>
+<p>从供应商关系中删除s2，并从供应情况关系中删除相应记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> spj <span class="keyword">where</span> sno=<span class="string">'s2'</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> s <span class="keyword">where</span> sno=<span class="string">'s2'</span></span><br><span class="line"><span class="comment">#涉及外键</span></span><br></pre></td></tr></table></figure>
+<p>插入数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> spj (sno,jno,pno,qty)<span class="keyword">values</span> (<span class="string">'s2'</span>,<span class="string">'j4'</span>,<span class="string">'p6'</span>,<span class="string">'200'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="实验二（sql-server2012）"><a href="#实验二（sql-server2012）" class="headerlink" title="实验二（sql server2012）"></a>实验二（sql server2012）</h2><p>统计数学的成绩分布，按照分段统计</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> <span class="keyword">count</span></span><br><span class="line">@hcname <span class="built_in">char</span>(<span class="number">20</span>)</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(sno) <span class="keyword">as</span> 优秀人数</span><br><span class="line"><span class="keyword">from</span> course,sc</span><br><span class="line"><span class="keyword">where</span> course.cno=sc.cno <span class="keyword">and</span> cname=@hcname <span class="keyword">and</span> grade <span class="keyword">between</span> <span class="number">90</span> <span class="keyword">and</span> <span class="number">100</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(sno) <span class="keyword">as</span> 良好人数</span><br><span class="line"><span class="keyword">from</span> course,sc</span><br><span class="line"><span class="keyword">where</span> course.cno=sc.cno <span class="keyword">and</span> cname=@hcname <span class="keyword">and</span> grade <span class="keyword">between</span> <span class="number">80</span> <span class="keyword">and</span> <span class="number">90</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(sno) <span class="keyword">as</span> 一般人数</span><br><span class="line"><span class="keyword">from</span> course,sc</span><br><span class="line"><span class="keyword">where</span> course.cno=sc.cno <span class="keyword">and</span> cname=@hcname <span class="keyword">and</span> grade <span class="keyword">between</span> <span class="number">70</span> <span class="keyword">and</span> <span class="number">80</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(sno) <span class="keyword">as</span> 及格人数</span><br><span class="line"><span class="keyword">from</span> course,sc</span><br><span class="line"><span class="keyword">where</span> course.cno=sc.cno <span class="keyword">and</span> cname=@hcname <span class="keyword">and</span> grade <span class="keyword">between</span> <span class="number">60</span> <span class="keyword">and</span> <span class="number">70</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(sno) <span class="keyword">as</span> 不及格人数</span><br><span class="line"><span class="keyword">from</span> course,sc</span><br><span class="line"><span class="keyword">where</span> course.cno=sc.cno <span class="keyword">and</span> cname=@hcname <span class="keyword">and</span> grade <span class="keyword">between</span> <span class="number">0</span> <span class="keyword">and</span> <span class="number">60</span></span><br><span class="line">exec <span class="keyword">count</span> <span class="string">"数学"</span></span><br></pre></td></tr></table></figure>
+<p>统计任意一门课平均成绩</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> <span class="keyword">avg</span></span><br><span class="line">@hcourse <span class="built_in">char</span>(<span class="number">20</span>)</span><br><span class="line"><span class="keyword">as</span> <span class="keyword">declare</span> @grade_avg <span class="built_in">float</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">select</span> cname,<span class="keyword">avg</span>(grade*<span class="number">1.0</span>)<span class="keyword">from</span> sc,course <span class="keyword">where</span> sc.cno=course.cno <span class="keyword">and</span> @hcourse=course.cname <span class="keyword">group</span> <span class="keyword">by</span> cname</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">exec <span class="keyword">avg</span> <span class="string">"数学"</span></span><br></pre></td></tr></table></figure>
+<p>将成绩从百分制变为ABCDE</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> abcde</span><br><span class="line"><span class="keyword">as</span> </span><br><span class="line"><span class="keyword">declare</span> @sno <span class="built_in">char</span>(<span class="number">10</span>),@cno <span class="built_in">char</span>(<span class="number">4</span>),@grade <span class="built_in">smallint</span>,@grade_char <span class="built_in">char</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">declare</span> cur_grade <span class="keyword">cursor</span> <span class="keyword">for</span> <span class="keyword">select</span> sno,cno,grade</span><br><span class="line"><span class="keyword">from</span> sc</span><br><span class="line"><span class="keyword">open</span> cur_grade</span><br><span class="line"><span class="keyword">fetch</span> <span class="keyword">next</span> <span class="keyword">from</span> cur_grade <span class="keyword">into</span> @sno,@cno,@grade</span><br><span class="line"><span class="keyword">while</span> @@FETCH_STATUS=<span class="number">0</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">if</span> @grade&gt;<span class="number">90</span> <span class="keyword">and</span> @grade&lt;<span class="number">100</span> <span class="keyword">set</span> @grade_char=<span class="string">'A'</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> @grade&gt;<span class="number">80</span> <span class="keyword">and</span> @grade&lt;=<span class="number">90</span> <span class="keyword">set</span> @grade_char=<span class="string">'B'</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> @grade&gt;<span class="number">70</span> <span class="keyword">and</span> @grade&lt;=<span class="number">80</span> <span class="keyword">set</span> @grade_char=<span class="string">'C'</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> @grade&gt;<span class="number">60</span> <span class="keyword">and</span> @grade&lt;=<span class="number">70</span> <span class="keyword">set</span> @grade_char=<span class="string">'D'</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> @grade&lt;<span class="number">60</span> <span class="keyword">set</span> @grade_char=<span class="string">'E'</span></span><br><span class="line"><span class="keyword">update</span> sc</span><br><span class="line"><span class="keyword">set</span> newgrade=@grade_char</span><br><span class="line"><span class="keyword">where</span> sno=@sno <span class="keyword">and</span> cno=@cno</span><br><span class="line"><span class="keyword">fetch</span> <span class="keyword">next</span> <span class="keyword">from</span> cur_grade <span class="keyword">into</span> @sno,@cno,@grade</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">close</span> cur_grade</span><br><span class="line"><span class="keyword">deallocate</span> cur_grade</span><br><span class="line"></span><br><span class="line">exec abcde</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="Landers 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="Landers 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sql/" rel="tag"># sql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/26/centos-python/" rel="next" title="Centos安装python3">
+                <i class="fa fa-chevron-left"></i> Centos安装python3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/nginx-conf/" rel="prev" title="Nginx配置">
+                Nginx配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/Landers.jpg" alt="Landers">
+            
+              <p class="site-author-name" itemprop="name">Landers</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/landers1037" title="GitHub &rarr; https://github.com/landers1037" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://gitee.com/lrjgood" title="Gitee &rarr; https://gitee.com/lrjgood" rel="noopener" target="_blank"><i class="fa fa-fw fa-envira"></i>Gitee</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:liaorenj@gmail.com" title="Gmail &rarr; mailto:liaorenj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/laolens.landers" title="FB Page &rarr; https://www.facebook.com/laolens.landers" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://youtube.com/opsad831143" title="YouTube &rarr; https://youtube.com/opsad831143" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境："><span class="nav-number">1.</span> <span class="nav-text">环境：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验一：（postgre）"><span class="nav-number">1.1.</span> <span class="nav-text">实验一：（postgre）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验二（sql-server2012）"><span class="nav-number">1.2.</span> <span class="nav-text">实验二（sql server2012）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

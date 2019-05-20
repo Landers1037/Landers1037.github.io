@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。是Velleman与Von Neumann等人在20世纪40年代为研制核武器提出来的，已大量地运用于计算机仿真试验。随机模拟的典型步骤： 1、根据问题构建模拟系统 2、仿真系统中各种分布的随机变量 3、运行模拟系统，进行统计测量 4、分析数据，输出结果 主要工具 基本工具：C、C++等编程模拟、matlab 网络模拟：OPNET Mo">
+<meta name="keywords" content="技术,c++,随机过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="随机过程编程实验（C++）">
+<meta property="og:url" content="http://yoursite.com/2018/05/11/e9-9a-8f-e6-9c-ba-e8-bf-87-e7-a8-8b-e7-bc-96-e7-a8-8b-e5-ae-9e-e9-aa-8c-ef-bc-88c-ef-bc-89/index.html">
+<meta property="og:site_name" content="Landers1037">
+<meta property="og:description" content="随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。是Velleman与Von Neumann等人在20世纪40年代为研制核武器提出来的，已大量地运用于计算机仿真试验。随机模拟的典型步骤： 1、根据问题构建模拟系统 2、仿真系统中各种分布的随机变量 3、运行模拟系统，进行统计测量 4、分析数据，输出结果 主要工具 基本工具：C、C++等编程模拟、matlab 网络模拟：OPNET Mo">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/11/CBZN0s.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26nG8.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26URU.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26JI0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26BL9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26Gaq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26rZR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26tiV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26NGT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26azF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C26wM4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/21/C260sJ.png">
+<meta property="og:updated_time" content="2019-02-02T05:49:42.022Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="随机过程编程实验（C++）">
+<meta name="twitter:description" content="随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。是Velleman与Von Neumann等人在20世纪40年代为研制核武器提出来的，已大量地运用于计算机仿真试验。随机模拟的典型步骤： 1、根据问题构建模拟系统 2、仿真系统中各种分布的随机变量 3、运行模拟系统，进行统计测量 4、分析数据，输出结果 主要工具 基本工具：C、C++等编程模拟、matlab 网络模拟：OPNET Mo">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/05/11/CBZN0s.md.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2018/05/11/e9-9a-8f-e6-9c-ba-e8-bf-87-e7-a8-8b-e7-bc-96-e7-a8-8b-e5-ae-9e-e9-aa-8c-ef-bc-88c-ef-bc-89/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>随机过程编程实验（C++） | Landers1037</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Landers1037</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">河汉清且浅 相去复几许</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-thanks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/thanks/" rel="section"><i class="menu-item-icon fa fa-fw fa-at"></i> <br>感谢</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-me">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/me/" rel="section"><i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>共勉</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-something">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/something/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>随记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-ftp">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/ftp/" rel="section"><i class="menu-item-icon fa fa-fw fa-cube"></i> <br>FTP</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/e9-9a-8f-e6-9c-ba-e8-bf-87-e7-a8-8b-e7-bc-96-e7-a8-8b-e5-ae-9e-e9-aa-8c-ef-bc-88c-ef-bc-89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">随机过程编程实验（C++）
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-11 23:00:35" itemprop="dateCreated datePublished" datetime="2018-05-11T23:00:35+08:00">2018-05-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-02 13:49:42" itemprop="dateModified" datetime="2019-02-02T13:49:42+08:00">2019-02-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="随机模拟的基本方法又称为蒙特卡罗（Monte-Carlo）方法。"><a href="#随机模拟的基本方法又称为蒙特卡罗（Monte-Carlo）方法。" class="headerlink" title="随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。"></a><strong>随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。</strong></h5><p>是Velleman与Von Neumann等人在20世纪40年代为研制核武器提出来的，已大量地运用于计算机仿真试验。随机模拟的典型步骤： 1、根据问题构建模拟系统 2、仿真系统中各种分布的随机变量 3、运行模拟系统，进行统计测量 4、分析数据，输出结果 主要工具 基本工具：C、C++等编程模拟、matlab 网络模拟：OPNET Modeler、NS2：大型网络仿真</p>
+<h3 id="伪随机数"><a href="#伪随机数" class="headerlink" title="伪随机数"></a>伪随机数</h3><ul>
+<li><strong>伪随机数的产生：</strong>用户只需给定一个初始的 随机数（种子值），调用该算法，即可按某个固定的公式计算出下一个“随机”数。随后，以新产生出来的“随机”数作为种子，再计算出新的“随机”数。重复调用该算法即可产生出一系列的“随机”数，以满足系统仿真的需要。</li>
+<li>伪随机数本质上不是随机的。但只要计算公式选择得当，通过比较严格地统计检验，仍然可以产生出一系列近似于U(0,1)分布并且相对独立的随机数流，这种随机数流对于大多数仿真模型，是能满足需要的。因此，仍然是目前广泛应用的工程方法。</li>
+</ul>
+<p><strong>伪随机数产生方法</strong> 线性同余法 1）设置y0，即设置种子 2）yn=kyn-1(mod N)，un=yn/N 三组常见的参数 N=1010，k=7，周期≈5×107 （IBM随机数发生器）N=231，k=216+3，周期≈5×108 （ran0） N=231-1，k=75，周期≈2×109 <strong>泊松分布</strong>   <strong>正态分布</strong></p>
+<h3 id="实验平台"><a href="#实验平台" class="headerlink" title="实验平台"></a>实验平台</h3><p><img src="https://s1.ax1x.com/2018/05/11/CBZN0s.md.png" alt="CBZN0s.png"></p>
+<h3 id="实验平台介绍"><a href="#实验平台介绍" class="headerlink" title="实验平台介绍"></a>实验平台介绍</h3><blockquote>
+<p>实验平台包含的源文件 –StdAfx.cpp：VC工程自带文件，不能修改 –random.cpp和random.h：工程主文件，不能修改 –Scope.cpp和Scope.h ：画图程序，不能修改 –randomDlg.cpp和randomDlg.h：主界面程序，包括对各个按钮的动作的响应，还包括对各种随机变量的输入参数的设定 –MyRand.cpp和MyRand.h：各种分布的随机变量的产生程序，实验过程中主要完成MyRand.cpp中的函数即可</p>
+</blockquote>
+<p>我们只需要修改myrand.cpp中的代码即可 <strong>原始代码如下：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyRand.cpp: implementation of the CMyRand class.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"random.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyRand.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> THIS_FILE</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> THIS_FILE[]=__FILE__;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> new DEBUG_NEW</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Construction/Destruction</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">CMyRand::CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CMyRand::~CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CMyRand::MyRandInit(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	N = <span class="number">0x7FFFFFFF</span>; <span class="comment">//2^31-1</span></span><br><span class="line">	K = <span class="number">16807</span>;      <span class="comment">//7^5</span></span><br><span class="line">	seed = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，采用线性同余法，根据输入的种子数产生一个伪随机数，如果种子不变，</span></span><br><span class="line"><span class="comment">  则将可以重复调用产生一个伪随机序列</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  利用CMyRand类中定义的全局变量：S, K, N, Y。</span></span><br><span class="line"><span class="comment">  其中K和N为算法参数，S用于保存种子数，Y为产生的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::MyRand(<span class="keyword">unsigned</span> <span class="keyword">int</span> seed)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//添加伪随机数产生代码</span></span><br></pre></td></tr></table></figure>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生一个在min~max范围内精度为4位小数的平均分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::AverageRandom(<span class="keyword">double</span> min,<span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加均匀分布随机变量产生代码</span></span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，在min 到max 范围内产生正态分布的随机数</span></span><br><span class="line"><span class="comment">miu,最大概率密度处的随机变量，即产生的随机数中,概率最大的那个</span></span><br><span class="line"><span class="comment">sigma</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::NormalRandom(<span class="keyword">double</span> miu, <span class="keyword">double</span> sigma, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加正态分布随机变量产生代码</span></span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生指数分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::ExpRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult = <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加指数分布随机变量产生代码</span></span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生泊松分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::PoisonRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> dResult = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加泊松分布随机变量产生代码</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数功能，计算任意分布的随机过程的均值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::Ex(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> Ex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加均值计算代码</span></span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Ex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，计算随机过程的自相关序列</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span>* CMyRand::Rx(<span class="keyword">double</span> lambda, <span class="keyword">int</span> points)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> m,I;</span><br><span class="line">	<span class="keyword">double</span> *Rx = (<span class="keyword">double</span>*)<span class="built_in">malloc</span>((<span class="number">2</span>*points+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">double</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加自相关序列产生代码</span></span><br><span class="line">	<span class="comment">//产生的自相关序列存入Rx中，Rx可当作数组使用</span></span><br><span class="line">	<span class="comment">//不要在本函数中释放该数组!</span></span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Rx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>修改后的代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyRand.cpp: implementation of the CMyRand class.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"random.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyRand.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> THIS_FILE</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> THIS_FILE[]=__FILE__;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> new DEBUG_NEW</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Construction/Destruction</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">CMyRand::CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CMyRand::~CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CMyRand::MyRandInit(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	N = <span class="number">0x7FFFFFFF</span>; <span class="comment">//2^31-1</span></span><br><span class="line">	K = <span class="number">16807</span>;      <span class="comment">//7^5</span></span><br><span class="line">	seed = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，采用线性同余法，根据输入的种子数产生一个伪随机数，如果种子不变，</span></span><br><span class="line"><span class="comment">  则将可以重复调用产生一个伪随机序列</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  利用CMyRand类中定义的全局变量：S, K, N, Y。</span></span><br><span class="line"><span class="comment">  其中K和N为算法参数，S用于保存种子数，Y为产生的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::MyRand(<span class="keyword">unsigned</span> <span class="keyword">int</span> seed)</span><br><span class="line">&#123;   <span class="keyword">if</span>(S==seed)</span><br><span class="line">      Y=K*Y%N;</span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">	 &#123; </span><br><span class="line">		 S=seed;</span><br><span class="line">		 Y=K*seed%N;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加伪随机数产生代码</span></span><br></pre></td></tr></table></figure>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生一个在min~max范围内精度为4位小数的平均分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::AverageRandom(<span class="keyword">double</span> min,<span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line">	dResult=(<span class="keyword">double</span>)MyRand(seed)/N;</span><br><span class="line">	dResult=dResult*(max-min)+min;</span><br></pre></td></tr></table></figure></p>
+<p>​<br>        //添加均匀分布随机变量产生代码</p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，在min 到max 范围内产生正态分布的随机数</span></span><br><span class="line"><span class="comment">miu,最大概率密度处的随机变量，即产生的随机数中,概率最大的那个</span></span><br><span class="line"><span class="comment">sigma</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::NormalRandom(<span class="keyword">double</span> miu, <span class="keyword">double</span> sigma, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++)</span><br><span class="line">		 dResult+=AverageRandom(min,max);</span><br><span class="line">	     dResult=(dResult<span class="number">-6</span>)/(max-min);</span><br><span class="line">		 dResult=dResult*sigma+miu;</span><br></pre></td></tr></table></figure></p>
+<p>​    </p>
+<pre><code>//添加正态分布随机变量产生代码
+</code></pre><p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生指数分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::ExpRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult = <span class="number">0.0</span>;</span><br><span class="line">	<span class="keyword">while</span>(dResult&lt;<span class="number">0.01</span>)</span><br><span class="line">	&#123;  dResult=AverageRandom(min,max);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	dResult=<span class="number">-1.0</span>*<span class="built_in">log</span>(dResult)/lambda;</span><br></pre></td></tr></table></figure></p>
+<p>​<br>        //添加指数分布随机变量产生代码</p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生泊松分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::PoisonRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> dResult = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> u=AverageRandom(min,max);</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> p=<span class="built_in">exp</span>(<span class="number">-1</span>*lambda);</span><br><span class="line">	<span class="keyword">double</span> F=p;</span><br><span class="line">	<span class="keyword">while</span>(u&gt;=F)</span><br><span class="line">	&#123; p=lambda*p/(i+<span class="number">1</span>);</span><br><span class="line">	  F+=p;</span><br><span class="line">	  i++;</span><br><span class="line">	&#125;</span><br><span class="line">	dResult=i;</span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//添加泊松分布随机变量产生代码</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数功能，计算任意分布的随机过程的均值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::Ex(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> Ex = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> m;</span><br><span class="line">	<span class="keyword">double</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (m=<span class="number">0</span>;m&lt;<span class="number">1000</span>;m++)</span><br><span class="line">	&#123; sum+=NormalRandom(<span class="number">0</span>,<span class="number">1.4</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">	 </span><br><span class="line">	&#125;</span><br><span class="line">     Ex=sum/m;</span><br></pre></td></tr></table></figure></p>
+<p>​    </p>
+<pre><code>//添加均值计算代码
+</code></pre><p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Ex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数功能，计算随机过程的自相关序列</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span>* CMyRand::Rx(<span class="keyword">double</span> lambda, <span class="keyword">int</span> points)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> m,I=<span class="number">5</span>;</span><br><span class="line">	<span class="keyword">double</span> *Rx = (<span class="keyword">double</span>*)<span class="built_in">malloc</span>((<span class="number">2</span>*points+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">double</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加自相关序列产生代码</span></span><br><span class="line">	<span class="comment">//产生的自相关序列存入Rx中，Rx可当作数组使用</span></span><br><span class="line">	<span class="comment">//不要在本函数中释放该数组!</span></span><br><span class="line">   <span class="keyword">for</span>(m=-points;m&lt;points;m++)</span><br><span class="line">   &#123;  Rx[(m+points)]=I*I*<span class="built_in">exp</span>(<span class="number">-2</span>*lambda*<span class="built_in">abs</span>(m));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>​<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> Rx;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://s1.ax1x.com/2018/05/21/C26nG8.jpg" alt> 提供源代码和流程图 <strong>最终的代码随机模拟结果如图（上为随机数，下为分布曲线）</strong> <img src="https://s1.ax1x.com/2018/05/21/C26URU.png" alt="C26URU.png"> <img src="https://s1.ax1x.com/2018/05/21/C26JI0.png" alt="C26JI0.png"> <img src="https://s1.ax1x.com/2018/05/21/C26BL9.png" alt="C26BL9.png"> <img src="https://s1.ax1x.com/2018/05/21/C26Gaq.png" alt="C26Gaq.png"> <img src="https://s1.ax1x.com/2018/05/21/C26rZR.png" alt="C26rZR.png"> <img src="https://s1.ax1x.com/2018/05/21/C26tiV.png" alt="C26tiV.png"> <img src="https://s1.ax1x.com/2018/05/21/C26NGT.png" alt="C26NGT.png"> <img src="https://s1.ax1x.com/2018/05/21/C26azF.png" alt="C26azF.png"> <img src="https://s1.ax1x.com/2018/05/21/C26wM4.png" alt="C26wM4.png"> <img src="https://s1.ax1x.com/2018/05/21/C260sJ.png" alt="C260sJ.png"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="Landers 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="Landers 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/c/" rel="tag"># c++</a>
+          
+            <a href="/tags/随机过程/" rel="tag"># 随机过程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/11/verilog-e8-af-ad-e8-a8-80-e5-b0-86-e5-ad-a6-e5-8f-b7-e8-be-93-e5-85-a5-e5-88-b0ip-e5-86-85-e6-a0-b8-e4-b8-ad/" rel="next" title="verilog语言将学号输入到ip内核中">
+                <i class="fa fa-chevron-left"></i> verilog语言将学号输入到ip内核中
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/13/e5-a4-a7-e5-8d-ab-e6-88-88-e5-b0-94-e7-9a-84-e4-b8-80-e7-94-9f-e5-bd-b1-e8-af-84/" rel="prev" title="大卫戈尔的一生影评">
+                大卫戈尔的一生影评 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/Landers.jpg" alt="Landers">
+            
+              <p class="site-author-name" itemprop="name">Landers</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/landers1037" title="GitHub &rarr; https://github.com/landers1037" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://gitee.com/lrjgood" title="Gitee &rarr; https://gitee.com/lrjgood" rel="noopener" target="_blank"><i class="fa fa-fw fa-envira"></i>Gitee</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:liaorenj@gmail.com" title="Gmail &rarr; mailto:liaorenj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>Gmail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/laolens.landers" title="FB Page &rarr; https://www.facebook.com/laolens.landers" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://youtube.com/opsad831143" title="YouTube &rarr; https://youtube.com/opsad831143" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#随机模拟的基本方法又称为蒙特卡罗（Monte-Carlo）方法。"><span class="nav-number">1.</span> <span class="nav-text">随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#伪随机数"><span class="nav-number"></span> <span class="nav-text">伪随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验平台"><span class="nav-number"></span> <span class="nav-text">实验平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验平台介绍"><span class="nav-number"></span> <span class="nav-text">实验平台介绍</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
