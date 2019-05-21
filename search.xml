@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vsftpd服务器添加用户]]></title>
+    <url>%2F2019%2F05%2F21%2Flinux-vsftpd-user%2F</url>
+    <content type="text"><![CDATA[Centos7禁用匿名用户1234567//安全起见禁用匿名用户上传权限和写权限nano /etc/vsftpd/vsftpd.confanonymous_enable=YES //开启匿名//禁用匿名上传，写权限，但是可以下载#anon_upload_enable=YES#anon_mkdir_write_enable=YES#anon_other_write_enable=YES 添加用户12adduser namepasswd name 禁止用户ssh登录123456cd /etc/sshnano sshd_config//最后加上DenyUsers name//重启ssh服务systemctl restart sshd 用户配置123456在/etc/vsftpd/vsftpd.conf下修改chroot_local_user=YES#chroot_list_enable=YESallow_writeable_chroot=YESchroot_list_file=/etc/vsftpd/chroot_listuser_config_dir=/etc/vsftpd/userconfig user_config_dir是用户配置信息目录cd /etc/vsftpd mkdir userconfig进入userconfig下创建配置文件nano name 1local_root=/var/ftp/name systemctl restart vsftpd.service 注意chroot_local_user=YES一旦添加，用户根目录就会被锁定为/home/name不能改变如果想要新建的用户根目录为pub公共目录下，必须注释上述项 更改根目录所属 cd /var/ftp chown -R name:name name 测试使用ssh连接用户，出现550禁止登录使用ftp登录pub目录，可以上传下载使用匿名用户登录pub，不能上传，可以下载]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux上为hexo添加git远程部署]]></title>
     <url>%2F2019%2F05%2F21%2Fhexo-git-push%2F</url>
     <content type="text"><![CDATA[安装git1yum install -y git 创建git用户12adduser gitpasswd git #记住自己的密码 创建公钥123456git config --global user.name "name"git config --global user.email "xxx@gmail.com"//添加用户名 邮箱ssh-keygen -t rsa -C "your mail"//生成ssh公私钥cat ~/.ssh/id_rsa.pub //查看公钥 上传公钥123cd ~/.sshnano authorized_keys//把本地的公钥复制进来 初始化git仓库1234cd /home/gitmkdir hexo.gitcd hexo.gitgit init --bare //初始化 创建钩子1234567cd /home/git/hexo.git/hooksnano post-receive//加入内容#!/bin/shgit --work-tree=/home/git --git-dir=/home/git/hexo.git checkout -f//其中目录为你的服务器部署hexo的web目录chmod +x post-receive 注意服务器上的公钥所有者应为git用户权限 chmod 600 ~/.ssh/authorized_keys chmod 700 ~/.ssh]]></content>
@@ -22,7 +33,7 @@
   <entry>
     <title><![CDATA[linux搭建的vsftpd服务器解决匿名上传和下载]]></title>
     <url>%2F2019%2F05%2F19%2Flinux-vsftpd-ans%2F</url>
-    <content type="text"><![CDATA[开启匿名上传下载12345anon_upload_enable=YES# Uncomment this if you want the anonymous FTP user to be able to create# new directories.anon_mkdir_write_enable=YESanon_other_write_enable=YES #这句话不加匿名用户不能重命名和修改子目录 解决匿名用户上传后不能直接下载12chown_uploads=NO#匿名用户上传文件的权限问题，修改后文件权限所属从root改为ftp]]></content>
+    <content type="text"><![CDATA[开启匿名上传下载12345anon_upload_enable=YES# Uncomment this if you want the anonymous FTP user to be able to create# new directories.anon_mkdir_write_enable=YESanon_other_write_enable=YES #这句话不加匿名用户不能重命名和修改子目录 解决匿名用户上传后不能直接下载1234chown_uploads=NO#匿名用户上传文件的权限问题，修改后文件权限所属从root改为ftp#根本解决问题，修改umask默认umask为022，最终权限为600，修改umask为000，最终权限为666 ##]]></content>
       <categories>
         <category>linux</category>
       </categories>
