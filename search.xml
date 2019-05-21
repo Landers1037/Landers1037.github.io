@@ -15,7 +15,12 @@
     <title><![CDATA[Linux上为hexo添加git远程部署]]></title>
     <url>%2F2019%2F05%2F21%2Fhexo-git-push%2F</url>
     <content type="text"><![CDATA[安装git1yum install -y git 创建git用户12adduser gitpasswd git #记住自己的密码 创建公钥123456git config --global user.name "name"git config --global user.email "xxx@gmail.com"//添加用户名 邮箱ssh-keygen -t rsa -C "your mail"//生成ssh公私钥cat ~/.ssh/id_rsa.pub //查看公钥 上传公钥123cd ~/.sshnano authorized_keys//把本地的公钥复制进来 初始化git仓库1234cd /home/gitmkdir hexo.gitcd hexo.gitgit init --bare //初始化 创建钩子1234567cd /home/git/hexo.git/hooksnano post-receive//加入内容#!/bin/shgit --work-tree=/home/git --git-dir=/home/git/hexo.git checkout -f//其中目录为你的服务器部署hexo的web目录chmod +x post-receive 注意服务器上的公钥所有者应为git用户权限 chmod 600 ~/.ssh/authorized_keys chmod 700 ~/.ssh]]></content>
+      <categories>
+        <category>hexo</category>
+        <category>linux</category>
+      </categories>
       <tags>
+        <tag>linux</tag>
         <tag>hexo</tag>
       </tags>
   </entry>
