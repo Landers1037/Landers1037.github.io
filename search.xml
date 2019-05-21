@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux上为hexo添加git远程部署]]></title>
+    <url>%2F2019%2F05%2F21%2Fhexo-git-push%2F</url>
+    <content type="text"><![CDATA[安装git1yum install -y git 创建git用户12adduser gitpasswd git #记住自己的密码 创建公钥123456git config --global user.name "name"git config --global user.email "xxx@gmail.com"//添加用户名 邮箱ssh-keygen -t rsa -C "your mail"//生成ssh公私钥cat ~/.ssh/id_rsa.pub //查看公钥 上传公钥123cd ~/.sshnano authorized_keys//把本地的公钥复制进来 初始化git仓库1234cd /home/gitmkdir hexo.gitcd hexo.gitgit init --bare //初始化 创建钩子1234567cd /home/git/hexo.git/hooksnano post-receive//加入内容#!/bin/shgit --work-tree=/home/git --git-dir=/home/git/hexo.git checkout -f//其中目录为你的服务器部署hexo的web目录chmod +x post-receive 注意服务器上的公钥所有者应为git用户权限 chmod 600 ~/.ssh/authorized_keys chmod 700 ~/.ssh]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo的NEXT主题配置]]></title>
     <url>%2F2019%2F05%2F21%2Fhexo-next%2F</url>
     <content type="text"><![CDATA[hexo安装next主题 官网 主题配置好朋友：百度一下 部分详细配置语言默认非中文，在博客目录的_config中language后加上zh-CN 侧边栏项目1hexo new page xxx 使用该命令创建一个新的分类目录，目录位置/source/xxx修改next主题目录下的_config.yml，添加刚生成的xxx目录，||后面的名称是图标文件的名称，详见next使用的图标源 12345678menu: home: / || home tags: /tags/ || tags #categories: /categories/ || archive archives: /archives/ || archive #schedule: /schedule/ || calendar #sitemap: /sitemap.xml || sitemap #commonweal: /404/ || heartbeat 社交图标123social: GitHub: https://github.com/xxx || github Gitee: https://gitee.com/xxx || envira 阅读人数统计123456789busuanzi_count: enable: true total_visitors: true total_visitors_icon: user total_views: true total_views_icon: eye post_views: true post_views_icon: eye //开启busuanzi不需要注册其他的统计网站账户，比较方便 主题背景设置123456//主题目录source/css/custom下// Custom styles.body&#123; background:url(/images/nap.jpg); background-attachment:fixed; background-size:cover;&#125; 添加头像12345avatar: # In theme directory (source/images): /images/avatar.gif # In site directory (source/uploads): /uploads/avatar.gif # You can also use other linking images. url: /images/Landers.jpg]]></content>
@@ -880,7 +888,7 @@
   <entry>
     <title><![CDATA[Hexo 搭建静态页面的心得]]></title>
     <url>%2F2019%2F02%2F01%2Fhexo-study%2F</url>
-    <content type="text"><![CDATA[Hexo+Github安装环境node.js github账户 第一步：使用npm安装hexo 12$ npm install -g hexo-cli $ npm install hexo-server --save 第二步：在硬盘新建文件夹blog ，进入，安装hexo 12345$ npm install hexo-cli -g$ hexo init blog$ cd blog$ npm install$ hexo server 第三步：测试 在浏览器中输入localhost:4000查看生成的网页 如果出现访问错误，检查是否使用hexo s的命令，server一定要是处于开启的状态 如果还有错误，检查电脑的4000端口是否被占用，根据网上反馈，安装有foxit阅读器的用户，需要关闭它的服务，或者使用下面的命令改变端口 1hexo s -p 5000 运行正常即可在本地查看网页 第四步：远程发布至github 新建一个仓库，命名规则：用户名.github.io 每一个用户只能建立一个这样的仓库，然后进入仓库复制自己的ssh地址 在本地的博客目录下找到_config.yml文件，翻到最下面，如下填写 1234deploy: type: git repo: https://github.com/你的用户名/你的用户名.github.io.git branch: master 配置完成后使用如下命令发布到github 123hexo cleanhexo ghexo d 或者使用hexo d -g]]></content>
+    <content type="text"><![CDATA[Hexo+Github安装环境node.js github账户 第一步：使用npm安装hexo 12$ npm install -g hexo-cli $ npm install hexo-server --save 第二步：在硬盘新建文件夹blog ，进入，安装hexo 12345$ npm install hexo-cli -g$ hexo init blog$ cd blog$ npm install$ hexo server 第三步：测试 在浏览器中输入localhost:4000查看生成的网页 如果出现访问错误，检查是否使用hexo s的命令，server一定要是处于开启的状态 如果还有错误，检查电脑的4000端口是否被占用，根据网上反馈，安装有foxit阅读器的用户，需要关闭它的服务，或者使用下面的命令改变端口 1hexo s -p 5000 运行正常即可在本地查看网页 第四步：远程发布至github 新建一个仓库，命名规则：用户名.github.io 每一个用户只能建立一个这样的仓库，然后进入仓库复制自己的ssh地址 在本地的博客目录下找到_config.yml文件，翻到最下面，如下填写 1234deploy: type: git repo: https://github.com/你的用户名/你的用户名.github.io.git branch: master 配置完成后使用如下命令发布到github 123hexo cleanhexo ghexo d 或者使用hexo d -g 上传文章出现warning：CRLF问题 1git config –-global core.autocrlf false]]></content>
       <tags>
         <tag>-经验</tag>
       </tags>
