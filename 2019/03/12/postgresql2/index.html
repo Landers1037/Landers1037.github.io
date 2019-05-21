@@ -49,13 +49,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.1">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Landers1037">
 <meta property="og:description" content="Python使用psycopg2库对postgresql数据库进行连接连接数据库 1234def connect(self):    #连接数据库	self.db = psycopg2.connect(host=&apos;localhost&apos;,user=&apos;postgres&apos;,password=&apos;123456&apos;,database=&apos;db1&apos;,port=&apos;5432&apos;)    self.cursor = sel">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T07:25:40.839Z">
+<meta property="og:updated_time" content="2019-05-20T16:29:22.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="postgresql使用">
 <meta name="twitter:description" content="Python使用psycopg2库对postgresql数据库进行连接连接数据库 1234def connect(self):    #连接数据库	self.db = psycopg2.connect(host=&apos;localhost&apos;,user=&apos;postgres&apos;,password=&apos;123456&apos;,database=&apos;db1&apos;,port=&apos;5432&apos;)    self.cursor = sel">
@@ -327,7 +327,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-atom"></i> <br>关于</a>
 
   </li>
         
@@ -485,7 +485,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-13 15:25:40" itemprop="dateModified" datetime="2019-03-13T15:25:40+08:00">2019-03-13</time>
+                <time title="修改时间：2019-05-21 00:29:22" itemprop="dateModified" datetime="2019-05-21T00:29:22+08:00">2019-05-21</time>
               
             
           </span>
@@ -500,6 +500,13 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -521,7 +528,7 @@
       
         <h4 id="Python使用psycopg2库对postgresql数据库进行连接"><a href="#Python使用psycopg2库对postgresql数据库进行连接" class="headerlink" title="Python使用psycopg2库对postgresql数据库进行连接"></a>Python使用psycopg2库对postgresql数据库进行连接</h4><p>连接数据库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="comment">#连接数据库</span></span><br><span class="line">	self.db = psycopg2.connect(host=<span class="string">'localhost'</span>,user=<span class="string">'postgres'</span>,password=<span class="string">'123456'</span>,database=<span class="string">'db1'</span>,port=<span class="string">'5432'</span>)</span><br><span class="line">    self.cursor = self.db.cursor()</span><br></pre></td></tr></table></figure>
-<h2 id="对数据库进行操作"><a href="#对数据库进行操作" class="headerlink" title="对数据库进行操作"></a>对数据库进行操作</h2><h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sql = <span class="string">'CREATE TABLE IF NOT EXISTS \</span></span><br><span class="line"><span class="string">            S(SNO VARCHAR (100) NOT NULL ,\</span></span><br><span class="line"><span class="string">            SNAME VARCHAR (100) NOT NULL,\</span></span><br><span class="line"><span class="string">            STATUS INT NOT NULL ,\</span></span><br><span class="line"><span class="string">            CITY VARCHAR (100) NOT NULL,\</span></span><br><span class="line"><span class="string">            PRIMARY KEY (SNO))'</span></span><br><span class="line">        self.cursor.execute(sql)</span><br></pre></td></tr></table></figure>
+<h2 id="对数据库进行操作"><a href="#对数据库进行操作" class="headerlink" title="对数据库进行操作"></a><a id="more"></a>对数据库进行操作</h2><h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sql = <span class="string">'CREATE TABLE IF NOT EXISTS \</span></span><br><span class="line"><span class="string">            S(SNO VARCHAR (100) NOT NULL ,\</span></span><br><span class="line"><span class="string">            SNAME VARCHAR (100) NOT NULL,\</span></span><br><span class="line"><span class="string">            STATUS INT NOT NULL ,\</span></span><br><span class="line"><span class="string">            CITY VARCHAR (100) NOT NULL,\</span></span><br><span class="line"><span class="string">            PRIMARY KEY (SNO))'</span></span><br><span class="line">        self.cursor.execute(sql)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sql = <span class="string">'create table if not exists \</span></span><br><span class="line"><span class="string">            spj(sno varchar (100)not null ,\</span></span><br><span class="line"><span class="string">            pno varchar (100)not null ,\</span></span><br><span class="line"><span class="string">            jno varchar (100) not null ,\</span></span><br><span class="line"><span class="string">            qty varchar (100)not null ,\</span></span><br><span class="line"><span class="string">            primary key(sno,pno,jno) ,\</span></span><br><span class="line"><span class="string">            foreign key(sno)references S(sno),\</span></span><br><span class="line"><span class="string">            foreign key(pno)references p(pno),\</span></span><br><span class="line"><span class="string">            foreign key(jno)references j(jno))'</span></span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line">    <span class="comment"># 同时指定外键 用于和其他的表建立参照完整性</span></span><br></pre></td></tr></table></figure>
 <h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql = <span class="string">'select sname,city from s'</span></span><br><span class="line">self.cursor.execute(sql)</span><br><span class="line"><span class="comment"># 从表s中查询sname和city字段信息</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> sql = <span class="string">'select jno from spj where sno=\'s1\''</span></span><br><span class="line"> self.cursor.execute(sql)</span><br><span class="line"><span class="comment"># 查询符合sno=s1条件的字段信息</span></span><br></pre></td></tr></table></figure>
@@ -684,7 +691,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-count">162</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -743,7 +750,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -906,7 +915,7 @@
                   
                     
                   
-                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-docker"></i>Docker</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -983,7 +992,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-apple"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+  <span class="author" itemprop="copyrightHolder">Landers | Waterboy from HUST</span>
 
   
 
@@ -999,6 +1008,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 

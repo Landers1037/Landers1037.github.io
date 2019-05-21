@@ -49,13 +49,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.1">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Centos7+vsftpd安装1sudo yum install -y vsftpd #安装 配置123cd /etc/vsftpdsystemctl enable vsftpd.service #开机启动systemctl start vsftpd.service #启动服务 最重要的配置文件是vsftpd.conf 设置FTP打开conf文件 123456789101112131415161">
+  <meta name="description" content="Centos7+vsftpd安装1sudo yum install -y vsftpd #安装">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vsftpd的搭建">
 <meta property="og:url" content="http://yoursite.com/2019/03/20/centos3/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="Centos7+vsftpd安装1sudo yum install -y vsftpd #安装 配置123cd /etc/vsftpdsystemctl enable vsftpd.service #开机启动systemctl start vsftpd.service #启动服务 最重要的配置文件是vsftpd.conf 设置FTP打开conf文件 123456789101112131415161">
+<meta property="og:description" content="Centos7+vsftpd安装1sudo yum install -y vsftpd #安装">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-20T10:46:22.190Z">
+<meta property="og:updated_time" content="2019-05-20T16:09:56.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vsftpd的搭建">
-<meta name="twitter:description" content="Centos7+vsftpd安装1sudo yum install -y vsftpd #安装 配置123cd /etc/vsftpdsystemctl enable vsftpd.service #开机启动systemctl start vsftpd.service #启动服务 最重要的配置文件是vsftpd.conf 设置FTP打开conf文件 123456789101112131415161">
+<meta name="twitter:description" content="Centos7+vsftpd安装1sudo yum install -y vsftpd #安装">
 
 
 
@@ -327,7 +327,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-atom"></i> <br>关于</a>
 
   </li>
         
@@ -468,12 +468,24 @@
                 
               
 
-              <time title="创建时间：2019-03-20 16:43:20 / 修改时间：18:46:22" itemprop="dateCreated datePublished" datetime="2019-03-20T16:43:20+08:00">2019-03-20</time>
+              <time title="创建时间：2019-03-20 16:43:20" itemprop="dateCreated datePublished" datetime="2019-03-20T16:43:20+08:00">2019-03-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-21 00:09:56" itemprop="dateModified" datetime="2019-05-21T00:09:56+08:00">2019-05-21</time>
               
             
           </span>
@@ -507,6 +519,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -526,6 +545,7 @@
 
       
         <h1 id="Centos7-vsftpd"><a href="#Centos7-vsftpd" class="headerlink" title="Centos7+vsftpd"></a>Centos7+vsftpd</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y vsftpd <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/vsftpd</span><br><span class="line">systemctl <span class="built_in">enable</span> vsftpd.service <span class="comment">#开机启动</span></span><br><span class="line">systemctl start vsftpd.service <span class="comment">#启动服务</span></span><br></pre></td></tr></table></figure>
 <p>最重要的配置文件是vsftpd.conf</p>
 <h2 id="设置FTP"><a href="#设置FTP" class="headerlink" title="设置FTP"></a>设置FTP</h2><p>打开conf文件</p>
@@ -696,7 +716,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-count">162</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -755,7 +775,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -918,7 +940,7 @@
                   
                     
                   
-                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-docker"></i>Docker</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -995,7 +1017,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-apple"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+  <span class="author" itemprop="copyrightHolder">Landers | Waterboy from HUST</span>
 
   
 
@@ -1011,6 +1033,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 

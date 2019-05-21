@@ -49,13 +49,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.1">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="使用Tsql语句描述汉诺塔汉诺塔简介：参考 使用sql server的tsql语句 利用存储过程实现 123456789101112131415161718create procedure hannuo(@num int,@a char,@b char,@c char)as declare    @numm int    select @numm=@num-1    begin        if">
+  <meta name="description" content="使用Tsql语句描述汉诺塔汉诺塔简介：参考 使用sql server的tsql语句 利用存储过程实现">
 <meta name="keywords" content="sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库实验二">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/sqltest2/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="使用Tsql语句描述汉诺塔汉诺塔简介：参考 使用sql server的tsql语句 利用存储过程实现 123456789101112131415161718create procedure hannuo(@num int,@a char,@b char,@c char)as declare    @numm int    select @numm=@num-1    begin        if">
+<meta property="og:description" content="使用Tsql语句描述汉诺塔汉诺塔简介：参考 使用sql server的tsql语句 利用存储过程实现">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T12:56:43.136Z">
+<meta property="og:updated_time" content="2019-05-20T16:37:01.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库实验二">
-<meta name="twitter:description" content="使用Tsql语句描述汉诺塔汉诺塔简介：参考 使用sql server的tsql语句 利用存储过程实现 123456789101112131415161718create procedure hannuo(@num int,@a char,@b char,@c char)as declare    @numm int    select @numm=@num-1    begin        if">
+<meta name="twitter:description" content="使用Tsql语句描述汉诺塔汉诺塔简介：参考 使用sql server的tsql语句 利用存储过程实现">
 
 
 
@@ -327,7 +327,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-atom"></i> <br>关于</a>
 
   </li>
         
@@ -468,12 +468,24 @@
                 
               
 
-              <time title="创建时间：2019-04-14 20:48:52 / 修改时间：20:56:43" itemprop="dateCreated datePublished" datetime="2019-04-14T20:48:52+08:00">2019-04-14</time>
+              <time title="创建时间：2019-04-14 20:48:52" itemprop="dateCreated datePublished" datetime="2019-04-14T20:48:52+08:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-21 00:37:01" itemprop="dateModified" datetime="2019-05-21T00:37:01+08:00">2019-05-21</time>
               
             
           </span>
@@ -488,6 +500,13 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -508,7 +527,7 @@
 
       
         <h2 id="使用Tsql语句描述汉诺塔"><a href="#使用Tsql语句描述汉诺塔" class="headerlink" title="使用Tsql语句描述汉诺塔"></a>使用Tsql语句描述汉诺塔</h2><p>汉诺塔简介：<a href="https://blog.csdn.net/qq_37873310/article/details/80461767" target="_blank" rel="noopener">参考</a></p>
-<p>使用sql server的tsql语句 利用存储过程实现</p>
+<p>使用sql server的tsql语句 利用存储过程实现<a id="more"></a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> hannuo(@<span class="keyword">num</span> <span class="built_in">int</span>,@a <span class="built_in">char</span>,@b <span class="built_in">char</span>,@c <span class="built_in">char</span>)</span><br><span class="line"><span class="keyword">as</span> <span class="keyword">declare</span></span><br><span class="line">    @numm <span class="built_in">int</span></span><br><span class="line">    <span class="keyword">select</span> @numm=@<span class="keyword">num</span><span class="number">-1</span></span><br><span class="line">    <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> @<span class="keyword">num</span>=<span class="number">1</span></span><br><span class="line">            <span class="keyword">begin</span></span><br><span class="line">            print <span class="string">'move'</span>+<span class="keyword">convert</span>(<span class="built_in">char</span>,@<span class="keyword">num</span>)+<span class="string">' from  '</span>+@a+<span class="string">'  to  '</span>+@c</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">begin</span></span><br><span class="line">            exec hannuo @numm,@a,@c,@b</span><br><span class="line">            print <span class="string">'move'</span>+<span class="keyword">convert</span>(<span class="built_in">char</span>,@numm)+<span class="string">' from  '</span>+@a+<span class="string">'  to  '</span>+@c</span><br><span class="line">            exec hannuo @numm,@b,@a,@c</span><br><span class="line">			<span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">exec hannuo <span class="number">10</span> ,a,b,c</span><br></pre></td></tr></table></figure>
 <p>存储过程的变量分别为num盘子数目，abc为柱子的名称</p>
 <h2 id="使用Tsql语句描述猫鼠问题"><a href="#使用Tsql语句描述猫鼠问题" class="headerlink" title="使用Tsql语句描述猫鼠问题"></a>使用Tsql语句描述猫鼠问题</h2><p>猫鼠问题简介：在一个m*n的方格中，老鼠位于最顶端的1*1方格内，猫位于一个特定的方格内，出口在最右下角，老鼠每次移动一格，只能向右和向下移动，不能碰到猫。求解一共有多少条路径</p>
@@ -666,7 +685,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-count">162</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -725,7 +744,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -888,7 +909,7 @@
                   
                     
                   
-                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-docker"></i>Docker</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -965,7 +986,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-apple"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+  <span class="author" itemprop="copyrightHolder">Landers | Waterboy from HUST</span>
 
   
 
@@ -981,6 +1002,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 

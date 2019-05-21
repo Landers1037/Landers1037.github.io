@@ -1811,7 +1811,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #ff2fc7;
 }
 .feed-link,
 .chat {
@@ -3002,4 +3002,9 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+body {
+  background: url("/images/nap.jpg");
+  background-attachment: fixed;
+  background-size: cover;
 }

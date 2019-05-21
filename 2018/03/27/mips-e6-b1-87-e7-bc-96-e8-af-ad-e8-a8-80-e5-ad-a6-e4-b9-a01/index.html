@@ -49,13 +49,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.1">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="1.显示16进制数字 .data#显示16进制数字 str:byte 0x20,0x30,0x78 hex:.space 8 .byte 0x00 .text main:      li $v0,0x12AF5678      la $s0,hex      addi $s0,$s0,7      li $s1,8 rep:andi $s2,$v0,0xf     addi $s2,$s2,0x3">
+  <meta name="description" content="1.显示16进制数字">
 <meta name="keywords" content="mips汇编学习,汇编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mips汇编语言练习">
 <meta property="og:url" content="http://yoursite.com/2018/03/27/mips-e6-b1-87-e7-bc-96-e8-af-ad-e8-a8-80-e5-ad-a6-e4-b9-a01/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="1.显示16进制数字 .data#显示16进制数字 str:byte 0x20,0x30,0x78 hex:.space 8 .byte 0x00 .text main:      li $v0,0x12AF5678      la $s0,hex      addi $s0,$s0,7      li $s1,8 rep:andi $s2,$v0,0xf     addi $s2,$s2,0x3">
+<meta property="og:description" content="1.显示16进制数字">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-01T08:03:01.470Z">
+<meta property="og:updated_time" content="2019-05-20T16:24:46.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mips汇编语言练习">
-<meta name="twitter:description" content="1.显示16进制数字 .data#显示16进制数字 str:byte 0x20,0x30,0x78 hex:.space 8 .byte 0x00 .text main:      li $v0,0x12AF5678      la $s0,hex      addi $s0,$s0,7      li $s1,8 rep:andi $s2,$v0,0xf     addi $s2,$s2,0x3">
+<meta name="twitter:description" content="1.显示16进制数字">
 
 
 
@@ -327,7 +327,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-atom"></i> <br>关于</a>
 
   </li>
         
@@ -485,7 +485,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-01 16:03:01" itemprop="dateModified" datetime="2019-02-01T16:03:01+08:00">2019-02-01</time>
+                <time title="修改时间：2019-05-21 00:24:46" itemprop="dateModified" datetime="2019-05-21T00:24:46+08:00">2019-05-21</time>
               
             
           </span>
@@ -519,6 +519,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -537,216 +544,17 @@
       
 
       
-        <p>1.显示16进制数字</p>
-<pre><code>.data#显示16进制数字
-str:byte 0x20,0x30,0x78
-hex:.space 8
-.byte 0x00
-.text
-main:
-     li $v0,0x12AF5678
-     la $s0,hex
-     addi $s0,$s0,7
-     li $s1,8
-rep:andi $s2,$v0,0xf
-    addi $s2,$s2,0x30
-    slti $t0,$s2,0x3a
-    bne $t0,$0,less
-    addi $s2,$s2,0x07
-less:sb $s2,0($s0)
-     addi $s0,$s0,-1
-     addi $s1,$s1,-1
-     srl $v0,$v0,4
-     slti $t0,$s1,1
-     beq $t0,$0,rep
-     li $v0,4
-     la $a0,str
-     syscall
-     li $v0,10
-     syscall
-2.输入16进制数字    
-
-
-.data#input 16进制数字
-str:.space 11
-err:asciiz &quot;input error&quot;
-.text
-main:li $v0,8
-    la $a0,str
-    li $s1,11
-    syscall
-    lbu $t1,0($a0)
-    li $t0,0x30
-    bne $t1,$t0,printerr
-    lbu $t1,1($a0)
-    li $t0,0x78
-    bne $t1,$t0,printer
-    addi $a0,$a0,2
-    li $v0,0
-rep:lb $t0,0($a0)
-    li $t2,0x0a
-    beq $t0,$t2,exit
-    addi $t0,$t0,-48
-    slti $t1,$t0,0
-    bne $t1,$0,printerr
-    slti $t1,$t0,10
-    beq $t1,$0,upper
-    j convert
-upper:addi $t0,$t0,-7
-      slti $t1，$t0,10
-      bne $t1,$0,printerr
-      slti $t1,$t0,16
-      beq $t1,$0,lower
-      j convert
-lower:addi $t0,$t0,-32
-      slti $t1,$t0,10
-      bne $t1,$0,printerr
-      slti $t1,$t0,16
-      beq $t1,$0,printerr
-convert:sll $v0,$v0,4
-       or $v0,$v0,$t0
-       addi $a0,$a0,1
-       j rep
-printerr:li $v0,4
-         la $a0,err
-         syscall
-exit :li $v0,10
-        syscall
-</code></pre><p>3.显示10进制无符号数字</p>
-<pre><code>.data#显示十进制数无符号数
-str:.space 10
-null:     .byte 0
-.text 
-main: li $a0,0xffffffff
-    la $t0,10
-    la $s0,null
-rep:addi $s0,$s0,-1
-    divu $a0,$t0
-    mfhi $t1
-    addi $t1,$t1,0x30
-    sb $t1,0($s0)
-    mflo $a0
-    beq $a0,$0,print
-    j rep
-print: add $a0,$s0,$0
-     li $v0,4
-     syscall
-     li $v0,10
-     syscall
-</code></pre><p>4.显示十进制符号数字</p>
-<pre><code>.data#signed 10
-str:.space 11
-null: .byte 0
-.text
-main: li $a0,0xffffffff
-      add $a1,$a0,$0
-      slt $t1,$a0,$0
-      beq $t1,$0,posi
-      addi $a0,$a0,-1
-      li $t2,0xffffffff
-      xor $a1,$a0,$t2
-posi:la $t0,10
-     la $s0,null
-rep:addi $s0,$s0,-1
-    divu $a1,$t0
-    mfhi $t1
-    addi $t1,$t1,0x30
-    sb $t1,0($s0)
-    mflo $a1
-    beq $a1,$0,print
-    j rep
-
-print:slt $t1,$a0,$0
-      beq $t1,$0,printposi
-      addi $s0,$s0,-1
-      li $t1,0x2d
-      sb $t1,0($s0)
-printposi: add $a0,$s0,$0
-          li $v0,4
-          syscall
-          li $v0,10
-          syscall
-</code></pre><p>5.输入10进制数</p>
-<pre><code>.data#input 10 count
-str:.space 12
-err:.asciiz&quot;input error&quot;
-.text
-main: li $v0,8
-      la $a0,str
-      li $a1,12
-      syscall
-      lbu $t1,0($a0)
-      li $t0,0x2d
-      bne $t1,$t0,posi
-      addi $a0,$a0,1
-posi:li $v1,0
-     li $t2,10
-rep:lb $t0,0($a0)
-    li $t2,0x0a
-    beq $t0,$t2,exit
-    addi $t0,$t0,-48
-    slti $t1,$t0,0
-    bne $t1,0,printerr
-    slti $t1,$t0,10
-    beq $t1,$0,printerr
-convert:multu $v1,$t2
-        mflo $v1
-        mfhi $t2
-        bne $t2,0,printerr
-        add $v1,$v1,$t0
-        addi $a0,$a0,1
-        j rep
-printerr:li $v0,4
-         la $a0,err
-         syscall
-exit:la $a0,str
-     lbu $t1,0($a0)
-     li $t0,0x2d
-     bne $t1,$t0,return
-     li $t2,0xffffffff
-     xor $v1,$v1,$t2
-     addi $v1,$v1,1
-return: li $v0,10
-        syscall
-</code></pre><p>6.对数组的正数和负数求和</p>
-<pre><code>.data#data count
-array:.word -1,3,4,-5
-posi:.asciiz&quot;\nthe sun of positive numbers are:&quot;     
-nega:.asciiz&quot;\nthe sun of negative numbers are:&quot;
-.text
-main:
-     li $v0,4
-     la $a0,posi
-     syscall
-     la $a0,array
-     li $a1,4
-     jal sum
-     add $a0,$v0,$0
-     li $v0,1
-     syscall
-     li $v0,4
-     la $a0,nega
-     syscall
-     add $a0,$v1,$0
-     li $v0,1
-     syscall
-     li $v0,10
-     syscall
-
-sum:li $v0,0
-    li $v1,0
-loop:
-    blez $a1,retzz
-    addi $a1,$a1 ,-1
-    lw $t0,0($a0)
-    addi $a0,$a0,4
-    bltz $t0,negg
-    add $v0,$v0,$t0
-    b loop
-negg:add $v1,$v1,$t0
-     b loop
-retzz: jr $ra
-</code></pre>
+        <p>1.显示16进制数字<br><a id="more"></a></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">.data</span>#显示<span class="number">16</span>进制数字</span><br><span class="line">str:<span class="keyword">byte</span> <span class="number">0</span>x20,<span class="number">0</span>x30,<span class="number">0</span>x78</span><br><span class="line">hex:<span class="variable">.space</span> <span class="number">8</span></span><br><span class="line"><span class="variable">.byte</span> <span class="number">0</span>x00</span><br><span class="line"><span class="variable">.text</span></span><br><span class="line">main:</span><br><span class="line">     li $v0,<span class="number">0</span>x12AF5678</span><br><span class="line">	 la $s0,hex</span><br><span class="line">	 addi $s0,$s0,<span class="number">7</span></span><br><span class="line">	 li $s1,<span class="number">8</span></span><br><span class="line">rep:andi $s2,$v0,<span class="number">0</span>xf</span><br><span class="line">    addi $s2,$s2,<span class="number">0</span>x30</span><br><span class="line">	slti $t0,$s2,<span class="number">0</span>x3a</span><br><span class="line">	bne $t0,$<span class="number">0</span>,less</span><br><span class="line">	addi $s2,$s2,<span class="number">0</span>x07</span><br><span class="line">less:sb $s2,<span class="number">0</span>($s0)</span><br><span class="line">     addi $s0,$s0,-<span class="number">1</span></span><br><span class="line">	 addi $s1,$s1,-<span class="number">1</span></span><br><span class="line">	 srl $v0,$v0,<span class="number">4</span></span><br><span class="line">	 slti $t0,$s1,<span class="number">1</span></span><br><span class="line">	 beq $t0,$<span class="number">0</span>,rep</span><br><span class="line">	 li $v0,<span class="number">4</span></span><br><span class="line">	 la $a0,str</span><br><span class="line">	 syscall</span><br><span class="line">	 li $v0,<span class="number">10</span></span><br><span class="line">	 syscall</span><br><span class="line"><span class="number">2</span>.输入<span class="number">16</span>进制数字</span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">.data</span>#<span class="keyword">input</span> <span class="number">16</span>进制数字</span><br><span class="line">str:<span class="variable">.space</span> <span class="number">11</span></span><br><span class="line">err:asciiz <span class="string">"input error"</span></span><br><span class="line"><span class="variable">.text</span></span><br><span class="line">main:li $v0,<span class="number">8</span></span><br><span class="line">	la $a0,str</span><br><span class="line">	li $s1,<span class="number">11</span></span><br><span class="line">	syscall</span><br><span class="line">	lbu $t1,<span class="number">0</span>($a0)</span><br><span class="line">	li $t0,<span class="number">0</span>x30</span><br><span class="line">	bne $t1,$t0,printerr</span><br><span class="line">	lbu $t1,<span class="number">1</span>($a0)</span><br><span class="line">	li $t0,<span class="number">0</span>x78</span><br><span class="line">	bne $t1,$t0,printer</span><br><span class="line">	addi $a0,$a0,<span class="number">2</span></span><br><span class="line">	li $v0,<span class="number">0</span></span><br><span class="line">rep:lb $t0,<span class="number">0</span>($a0)</span><br><span class="line">	li $t2,<span class="number">0</span>x0a</span><br><span class="line">	beq $t0,$t2,exit</span><br><span class="line">	addi $t0,$t0,-<span class="number">48</span></span><br><span class="line">	slti $t1,$t0,<span class="number">0</span></span><br><span class="line">	bne $t1,$<span class="number">0</span>,printerr</span><br><span class="line">	slti $t1,$t0,<span class="number">10</span></span><br><span class="line">	beq $t1,$<span class="number">0</span>,upper</span><br><span class="line">	j convert</span><br><span class="line">upper:addi $t0,$t0,-<span class="number">7</span></span><br><span class="line">	  slti $t1，$t0,<span class="number">10</span></span><br><span class="line">	  bne $t1,$<span class="number">0</span>,printerr</span><br><span class="line">	  slti $t1,$t0,<span class="number">16</span></span><br><span class="line">	  beq $t1,$<span class="number">0</span>,lower</span><br><span class="line">	  j convert</span><br><span class="line">lower:addi $t0,$t0,-<span class="number">32</span></span><br><span class="line">	  slti $t1,$t0,<span class="number">10</span></span><br><span class="line">	  bne $t1,$<span class="number">0</span>,printerr</span><br><span class="line">	  slti $t1,$t0,<span class="number">16</span></span><br><span class="line">	  beq $t1,$<span class="number">0</span>,printerr</span><br><span class="line">convert:sll $v0,$v0,<span class="number">4</span></span><br><span class="line">	   <span class="keyword">or</span> $v0,$v0,$t0</span><br><span class="line">	   addi $a0,$a0,<span class="number">1</span></span><br><span class="line">	   j rep</span><br><span class="line">printerr:li $v0,<span class="number">4</span></span><br><span class="line">		 la $a0,err</span><br><span class="line">		 syscall</span><br><span class="line">exit :li $v0,<span class="number">10</span></span><br><span class="line">		syscall</span><br></pre></td></tr></table></figure>
+<p>3.显示10进制无符号数字</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">.data</span>#显示十进制数无符号数</span><br><span class="line">str:<span class="variable">.space</span> <span class="number">10</span></span><br><span class="line"><span class="literal">null</span>:     <span class="variable">.byte</span> <span class="number">0</span></span><br><span class="line"><span class="variable">.text</span> </span><br><span class="line">main: li $a0,<span class="number">0</span>xffffffff</span><br><span class="line">	la $t0,<span class="number">10</span></span><br><span class="line">	la $s0,<span class="literal">null</span></span><br><span class="line">rep:addi $s0,$s0,-<span class="number">1</span></span><br><span class="line">	divu $a0,$t0</span><br><span class="line">	mfhi $t1</span><br><span class="line">	addi $t1,$t1,<span class="number">0</span>x30</span><br><span class="line">	sb $t1,<span class="number">0</span>($s0)</span><br><span class="line">	mflo $a0</span><br><span class="line">	beq $a0,$<span class="number">0</span>,print</span><br><span class="line">	j rep</span><br><span class="line">print: add $a0,$s0,$<span class="number">0</span></span><br><span class="line">     li $v0,<span class="number">4</span></span><br><span class="line">	 syscall</span><br><span class="line">	 li $v0,<span class="number">10</span></span><br><span class="line">     syscall</span><br></pre></td></tr></table></figure>
+<p>4.显示十进制符号数字</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">.data</span>#<span class="keyword">signed</span> <span class="number">10</span></span><br><span class="line">str:<span class="variable">.space</span> <span class="number">11</span></span><br><span class="line"><span class="literal">null</span>: <span class="variable">.byte</span> <span class="number">0</span></span><br><span class="line"><span class="variable">.text</span></span><br><span class="line">main: li $a0,<span class="number">0</span>xffffffff</span><br><span class="line">      add $a1,$a0,$<span class="number">0</span></span><br><span class="line">	  slt $t1,$a0,$<span class="number">0</span></span><br><span class="line">	  beq $t1,$<span class="number">0</span>,posi</span><br><span class="line">	  addi $a0,$a0,-<span class="number">1</span></span><br><span class="line">	  li $t2,<span class="number">0</span>xffffffff</span><br><span class="line">	  <span class="keyword">xor</span> $a1,$a0,$t2</span><br><span class="line">posi:la $t0,<span class="number">10</span></span><br><span class="line">     la $s0,<span class="literal">null</span></span><br><span class="line">rep:addi $s0,$s0,-<span class="number">1</span></span><br><span class="line">    divu $a1,$t0</span><br><span class="line">	mfhi $t1</span><br><span class="line">	addi $t1,$t1,<span class="number">0</span>x30</span><br><span class="line">	sb $t1,<span class="number">0</span>($s0)</span><br><span class="line">	mflo $a1</span><br><span class="line">	beq $a1,$<span class="number">0</span>,print</span><br><span class="line">	j rep</span><br><span class="line">      	  </span><br><span class="line">print:slt $t1,$a0,$<span class="number">0</span></span><br><span class="line">      beq $t1,$<span class="number">0</span>,printposi</span><br><span class="line">	  addi $s0,$s0,-<span class="number">1</span></span><br><span class="line">	  li $t1,<span class="number">0</span>x2d</span><br><span class="line">	  sb $t1,<span class="number">0</span>($s0)</span><br><span class="line">printposi: add $a0,$s0,$<span class="number">0</span></span><br><span class="line">          li $v0,<span class="number">4</span></span><br><span class="line">		  syscall</span><br><span class="line">		  li $v0,<span class="number">10</span></span><br><span class="line">		  syscall</span><br></pre></td></tr></table></figure>
+<p>5.输入10进制数</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">.data</span>#<span class="keyword">input</span> <span class="number">10</span> count</span><br><span class="line">str:<span class="variable">.space</span> <span class="number">12</span></span><br><span class="line">err:<span class="variable">.asciiz</span><span class="string">"input error"</span></span><br><span class="line"><span class="variable">.text</span></span><br><span class="line">main: li $v0,<span class="number">8</span></span><br><span class="line">      la $a0,str</span><br><span class="line">	  li $a1,<span class="number">12</span></span><br><span class="line">	  syscall</span><br><span class="line">	  lbu $t1,<span class="number">0</span>($a0)</span><br><span class="line">	  li $t0,<span class="number">0</span>x2d</span><br><span class="line">	  bne $t1,$t0,posi</span><br><span class="line">	  addi $a0,$a0,<span class="number">1</span></span><br><span class="line">posi:li $v1,<span class="number">0</span></span><br><span class="line">     li $t2,<span class="number">10</span></span><br><span class="line">rep:lb $t0,<span class="number">0</span>($a0)</span><br><span class="line">    li $t2,<span class="number">0</span>x0a</span><br><span class="line">	beq $t0,$t2,exit</span><br><span class="line">	addi $t0,$t0,-<span class="number">48</span></span><br><span class="line">	slti $t1,$t0,<span class="number">0</span></span><br><span class="line">	bne $t1,<span class="number">0</span>,printerr</span><br><span class="line">	slti $t1,$t0,<span class="number">10</span></span><br><span class="line">	beq $t1,$<span class="number">0</span>,printerr</span><br><span class="line">convert:multu $v1,$t2</span><br><span class="line">        mflo $v1</span><br><span class="line">		mfhi $t2</span><br><span class="line">		bne $t2,<span class="number">0</span>,printerr</span><br><span class="line">		add $v1,$v1,$t0</span><br><span class="line">		addi $a0,$a0,<span class="number">1</span></span><br><span class="line">		j rep</span><br><span class="line">printerr:li $v0,<span class="number">4</span></span><br><span class="line">         la $a0,err</span><br><span class="line">		 syscall</span><br><span class="line">exit:la $a0,str</span><br><span class="line">     lbu $t1,<span class="number">0</span>($a0)</span><br><span class="line">	 li $t0,<span class="number">0</span>x2d</span><br><span class="line">	 bne $t1,$t0,<span class="keyword">return</span></span><br><span class="line">	 li $t2,<span class="number">0</span>xffffffff</span><br><span class="line">	 <span class="keyword">xor</span> $v1,$v1,$t2</span><br><span class="line">	 addi $v1,$v1,<span class="number">1</span></span><br><span class="line"><span class="keyword">return</span>: li $v0,<span class="number">10</span></span><br><span class="line">        syscall</span><br></pre></td></tr></table></figure>
+<p>6.对数组的正数和负数求和</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">.data</span>#data count</span><br><span class="line">array:<span class="variable">.word</span> -<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,-<span class="number">5</span></span><br><span class="line">posi:<span class="variable">.asciiz</span><span class="string">"\nthe sun of positive numbers are:"</span>	 </span><br><span class="line">nega:<span class="variable">.asciiz</span><span class="string">"\nthe sun of negative numbers are:"</span></span><br><span class="line"><span class="variable">.text</span></span><br><span class="line">main:</span><br><span class="line">     li $v0,<span class="number">4</span></span><br><span class="line">	 la $a0,posi</span><br><span class="line">	 syscall</span><br><span class="line">	 la $a0,array</span><br><span class="line">	 li $a1,<span class="number">4</span></span><br><span class="line">	 jal sum</span><br><span class="line">	 add $a0,$v0,$<span class="number">0</span></span><br><span class="line">	 li $v0,<span class="number">1</span></span><br><span class="line">	 syscall</span><br><span class="line">	 li $v0,<span class="number">4</span></span><br><span class="line">	 la $a0,nega</span><br><span class="line">	 syscall</span><br><span class="line">	 add $a0,$v1,$<span class="number">0</span></span><br><span class="line">	 li $v0,<span class="number">1</span></span><br><span class="line">	 syscall</span><br><span class="line">	 li $v0,<span class="number">10</span></span><br><span class="line">	 syscall</span><br><span class="line">	 </span><br><span class="line">sum:li $v0,<span class="number">0</span></span><br><span class="line">    li $v1,<span class="number">0</span></span><br><span class="line">loop:</span><br><span class="line">    blez $a1,retzz</span><br><span class="line">    addi $a1,$a1 ,-<span class="number">1</span></span><br><span class="line">    lw $t0,<span class="number">0</span>($a0)</span><br><span class="line">    addi $a0,$a0,<span class="number">4</span></span><br><span class="line">    bltz $t0,negg</span><br><span class="line">    add $v0,$v0,$t0</span><br><span class="line">    b loop</span><br><span class="line">negg:add $v1,$v1,$t0</span><br><span class="line">     b loop</span><br><span class="line">retzz: jr $ra</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -891,7 +699,7 @@ retzz: jr $ra
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-count">162</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -950,7 +758,9 @@ retzz: jr $ra
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1113,7 +923,7 @@ retzz: jr $ra
                   
                     
                   
-                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-docker"></i>Docker</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1173,7 +983,7 @@ retzz: jr $ra
   <span class="with-love" id="animate">
     <i class="fa fa-apple"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+  <span class="author" itemprop="copyrightHolder">Landers | Waterboy from HUST</span>
 
   
 
@@ -1189,6 +999,32 @@ retzz: jr $ra
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 

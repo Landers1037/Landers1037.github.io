@@ -49,13 +49,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.1">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Landers1037">
 <meta property="og:description" content="开启匿名上传下载12345anon_upload_enable=YES# Uncomment this if you want the anonymous FTP user to be able to create# new directories.anon_mkdir_write_enable=YESanon_other_write_enable=YES #这句话不加匿名用户不能重命名和修改子目">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-19T14:04:37.227Z">
+<meta property="og:updated_time" content="2019-05-20T16:07:27.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux搭建的vsftpd服务器解决匿名上传和下载">
 <meta name="twitter:description" content="开启匿名上传下载12345anon_upload_enable=YES# Uncomment this if you want the anonymous FTP user to be able to create# new directories.anon_mkdir_write_enable=YESanon_other_write_enable=YES #这句话不加匿名用户不能重命名和修改子目">
@@ -327,7 +327,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-atom"></i> <br>关于</a>
 
   </li>
         
@@ -468,12 +468,24 @@
                 
               
 
-              <time title="创建时间：2019-05-19 21:54:40 / 修改时间：22:04:37" itemprop="dateCreated datePublished" datetime="2019-05-19T21:54:40+08:00">2019-05-19</time>
+              <time title="创建时间：2019-05-19 21:54:40" itemprop="dateCreated datePublished" datetime="2019-05-19T21:54:40+08:00">2019-05-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-21 00:07:27" itemprop="dateModified" datetime="2019-05-21T00:07:27+08:00">2019-05-21</time>
               
             
           </span>
@@ -507,6 +519,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -526,6 +545,7 @@
 
       
         <h2 id="开启匿名上传下载"><a href="#开启匿名上传下载" class="headerlink" title="开启匿名上传下载"></a>开启匿名上传下载</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">anon_upload_enable=YES</span></span><br><span class="line"><span class="comment"># Uncomment this if you want the anonymous FTP user to be able to create</span></span><br><span class="line"><span class="comment"># new directories.</span></span><br><span class="line"><span class="string">anon_mkdir_write_enable=YES</span></span><br><span class="line"><span class="string">anon_other_write_enable=YES</span> <span class="comment">#这句话不加匿名用户不能重命名和修改子目录</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="解决匿名用户上传后不能直接下载"><a href="#解决匿名用户上传后不能直接下载" class="headerlink" title="解决匿名用户上传后不能直接下载"></a>解决匿名用户上传后不能直接下载</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">chown_uploads=NO</span></span><br><span class="line"><span class="comment">#匿名用户上传文件的权限问题，修改后文件权限所属从root改为ftp</span></span><br></pre></td></tr></table></figure>
 
       
@@ -606,6 +626,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/05/21/hexo-next/" rel="prev" title="hexo的NEXT主题配置">
+                hexo的NEXT主题配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -675,7 +699,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-count">162</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -734,7 +758,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -897,7 +923,7 @@
                   
                     
                   
-                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-docker"></i>Docker</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -974,7 +1000,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-apple"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+  <span class="author" itemprop="copyrightHolder">Landers | Waterboy from HUST</span>
 
   
 
@@ -990,6 +1016,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 

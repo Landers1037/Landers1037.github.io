@@ -49,13 +49,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.1">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="环境：python3查看网页源代码得知，头条的网页使用ajax刷新获取网页资源，不能使用简单的html分析，定位网页的ajax请求,分析得到图片的cdn地址 保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率 123456789101112131415161718192021222324252627282930313233343536373839404142434">
+  <meta name="description" content="环境：python3查看网页源代码得知，头条的网页使用ajax刷新获取网页资源，不能使用简单的html分析，定位网页的ajax请求,分析得到图片的cdn地址 保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率">
 <meta name="keywords" content="python,爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python简单爬虫之抓取头条图片">
 <meta property="og:url" content="http://yoursite.com/2019/02/02/spider2/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="环境：python3查看网页源代码得知，头条的网页使用ajax刷新获取网页资源，不能使用简单的html分析，定位网页的ajax请求,分析得到图片的cdn地址 保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率 123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta property="og:description" content="环境：python3查看网页源代码得知，头条的网页使用ajax刷新获取网页资源，不能使用简单的html分析，定位网页的ajax请求,分析得到图片的cdn地址 保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-02T10:53:53.844Z">
+<meta property="og:updated_time" content="2019-05-20T16:35:05.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python简单爬虫之抓取头条图片">
-<meta name="twitter:description" content="环境：python3查看网页源代码得知，头条的网页使用ajax刷新获取网页资源，不能使用简单的html分析，定位网页的ajax请求,分析得到图片的cdn地址 保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率 123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta name="twitter:description" content="环境：python3查看网页源代码得知，头条的网页使用ajax刷新获取网页资源，不能使用简单的html分析，定位网页的ajax请求,分析得到图片的cdn地址 保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率">
 
 
 
@@ -327,7 +327,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-atom"></i> <br>关于</a>
 
   </li>
         
@@ -468,12 +468,24 @@
                 
               
 
-              <time title="创建时间：2019-02-02 18:42:31 / 修改时间：18:53:53" itemprop="dateCreated datePublished" datetime="2019-02-02T18:42:31+08:00">2019-02-02</time>
+              <time title="创建时间：2019-02-02 18:42:31" itemprop="dateCreated datePublished" datetime="2019-02-02T18:42:31+08:00">2019-02-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-21 00:35:05" itemprop="dateModified" datetime="2019-05-21T00:35:05+08:00">2019-05-21</time>
               
             
           </span>
@@ -507,6 +519,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -526,7 +545,7 @@
 
       
         <h1 id="环境：python3"><a href="#环境：python3" class="headerlink" title="环境：python3"></a>环境：python3</h1><p>查看网页源代码得知，头条的网页使用ajax刷新获取网页资源，不能使用简单的html分析，定位网页的ajax请求,分析得到图片的cdn地址</p>
-<p>保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率</p>
+<p>保存时自动获取图片的md5值作为图片的名称避免命名重复，使用多线程池抓取图片提高效率<a id="more"></a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#爬取今日头条的图片</span></span><br><span class="line"><span class="comment">#爬取data的图片的原地址数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlencode</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> md5</span><br><span class="line"><span class="keyword">from</span> multiprocessing.pool <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_page</span><span class="params">(offset)</span>:</span></span><br><span class="line">    params=&#123;</span><br><span class="line">        <span class="string">'offset'</span>:offset,</span><br><span class="line">        <span class="string">'format'</span>:<span class="string">'json'</span>,</span><br><span class="line">        <span class="string">'keyword'</span>:<span class="string">'街拍'</span>,</span><br><span class="line">        <span class="string">'autoload'</span>:<span class="string">'true'</span>,</span><br><span class="line">        <span class="string">'count'</span>:<span class="string">'20'</span>,</span><br><span class="line">        <span class="string">'cur_tab'</span>:<span class="string">'3'</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    		      url=<span class="string">'https://www.toutiao.com/api/search/content/?'</span>+urlencode(params)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response=requests.get(url)</span><br><span class="line">        <span class="keyword">if</span> response.status_code==<span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> response.json() <span class="comment">#encoding to json</span></span><br><span class="line">    <span class="keyword">except</span> requests.ConnectionError:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_images</span><span class="params">(json)</span>:</span> <span class="comment">#迭代器返回一个生成器</span></span><br><span class="line">    <span class="keyword">if</span> json.get(<span class="string">'data'</span>):</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> json.get(<span class="string">'data'</span>): <span class="comment">#先找到页面的分类0-20</span></span><br><span class="line">            title=item.get(<span class="string">'title'</span>)</span><br><span class="line">            images=item.get(<span class="string">'image_list'</span>)</span><br><span class="line">            <span class="keyword">for</span> image <span class="keyword">in</span> images:</span><br><span class="line">                 <span class="keyword">yield</span> &#123;</span><br><span class="line">                    <span class="string">'image_url'</span>:image.get(<span class="string">'url'</span>),</span><br><span class="line">                    <span class="string">'title'</span>:title</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_images</span><span class="params">(item)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(item.get(<span class="string">'title'</span>)):</span><br><span class="line">        os.mkdir(item.get(<span class="string">'title'</span>))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response=requests.get(item.get(<span class="string">'image_url'</span>))</span><br><span class="line">        <span class="keyword">if</span> response.status_code==<span class="number">200</span>:</span><br><span class="line">            file_path=<span class="string">'&#123;0&#125;/&#123;1&#125;.&#123;2&#125;'</span>.format(item.get(<span class="string">'title'</span>),md5(response.content).hexdigest(),<span class="string">'jpg'</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(file_path):</span><br><span class="line">                <span class="keyword">with</span> open(file_path,<span class="string">'wb'</span>)<span class="keyword">as</span> f:</span><br><span class="line">                    f.write(response.content)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">'alreadly download'</span>,file_path)</span><br><span class="line">    <span class="keyword">except</span> requests.ConnectionError:</span><br><span class="line">        print(<span class="string">'Failed to save'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(offset)</span>:</span></span><br><span class="line">    json=get_page(offset)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> get_images(json):</span><br><span class="line">        print(item)</span><br><span class="line">        save_images(item)</span><br><span class="line"></span><br><span class="line">GROUP_START = <span class="number">1</span></span><br><span class="line">GROUP_END = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    pool=Pool()</span><br><span class="line">    groups=([x*<span class="number">20</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(GROUP_START,GROUP_END+<span class="number">1</span>)])</span><br><span class="line">    pool.map(main,groups)</span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br></pre></td></tr></table></figure>
 
       
@@ -682,7 +701,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-count">162</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -741,7 +760,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -904,7 +925,7 @@
                   
                     
                   
-                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Docker</a>
+                  <a href="https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" title="Docker &rarr; https://hub.docker.com/r/landers1037/ubuntu-test?utm_source=docker4win_2.0.0.3&utm_medium=repo_open&utm_campaign=referral" rel="noopener" target="_blank"><i class="fa fa-fw fa-docker"></i>Docker</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -981,7 +1002,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-apple"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Landers | a waterboy from HUST</span>
+  <span class="author" itemprop="copyrightHolder">Landers | Waterboy from HUST</span>
 
   
 
@@ -997,6 +1018,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
