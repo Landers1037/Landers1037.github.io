@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[docker新建保存容器]]></title>
+    <url>%2F2019%2F05%2F23%2Fdocker-new%2F</url>
+    <content type="text"><![CDATA[Docker容器的使用新建镜像docker run ubuntudocker默认从本地仓库寻找镜像，如果找不到就会自动从docker hub下载docker pull ubuntu 这句话是直接从远程仓库下载Ubuntu公共镜像 查看镜像docker images 启动docker run ubuntudocker run -it ubuntu /bin/bash 启动并进入shell界面 修改镜像进入shell后可以运行bash指令 apt upgradeapt install treeexit 退出镜像 保存修改镜像docker commit &#39;容器id&#39; myubuntu 将运行的容器保存名为myubuntu的新镜像docker ps -a 可以查看所有的容器以及其中运行的镜像，找到运行ubuntu的容器id即可]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ssr开启失败，1080端口被占用]]></title>
     <url>%2F2019%2F05%2F23%2Fssr-not-run-1080%2F</url>
     <content type="text"><![CDATA[检查端口占用cmd运行 netstat -ano，找到占用程序关闭 没发现端口占用windows10的Hyber虚拟机服务默认监听1080端口，开启了WSL或者Hyber服务则1080端口被占用 关闭Hyber服务，或者修改ssr的本地监听端口为其他端口（注意不能和正在运行的其他服务端口冲突）]]></content>
