@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ssr开启失败，1080端口被占用]]></title>
+    <url>%2F2019%2F05%2F23%2Fssr-not-run-1080%2F</url>
+    <content type="text"><![CDATA[检查端口占用cmd运行 netstat -ano，找到占用程序关闭 没发现端口占用windows10的Hyber虚拟机服务默认监听1080端口，开启了WSL或者Hyber服务则1080端口被占用 关闭Hyber服务，或者修改ssr的本地监听端口为其他端口（注意不能和正在运行的其他服务端口冲突）]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[vsftpd无法登录问题解决]]></title>
+    <url>%2F2019%2F05%2F23%2Fvsftpd-user-login%2F</url>
+    <content type="text"><![CDATA[在安装完vsftpd之后，添加用户ftp，然后无法使用filezila登录 检查21端口是否开启firewall-cmd --list-ports 检查ftp配置文件/etc/vsftpd/vsftpd.conf是否开启local_user 使用主动模式可以登录使用filezila的主动模式可以登录但是被动模式不能登录firewall-cmd --zone=public --add-port=4000-5000/tcp --permanent修改配置文件vsftpd.conf添加pasv_enable=YESpasv_max_port=5000pasv_min_port=4000 允许用户修改/etc/vsftpd/user_list 删除nobody 重启ftp服务systemctl restart vsftpd.servie]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>vsftpd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[centos7的防火墙设置]]></title>
+    <url>%2F2019%2F05%2F23%2Fcentos7-firewall%2F</url>
+    <content type="text"><![CDATA[centos7开始使用firewalld服务作为防火墙 启动与停止123systemctl start firewalld.service #开启服务systemctl stop firewall.service #停止服务systemctl disable firewall.service #禁用服务，重启生效 查看开启的端口firewall-cmd --list-ports 查询http和ssh是否开启firewall-cmd --zone=public --query-service=sshfirewall-cmd --zone=public --query-service=http 规则策略permanent 永久生效runtime 运行时生效 添加端口firewall-cmd --zone=public --add-service=https --permanent 开放https规则端口 firewall-cmd --zone=public --add-port=80/tcp --permanent 开放80端口 firewall-cmd --zone=public --add-port=8000-8080/tcp --permantent 开放8000-8080端口 删除端口firewall-cmd --zone=public --remove-service=https --permanent firewall-cmd --zone=public --remove-port=80/tcp 查看端口是否开启firewall-cmd --query-port=80/tcp 使规则生效firewall-cmd --reloadsystemctl restart firewalld.service]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[利用cloudflare的cdn加速]]></title>
+    <url>%2F2019%2F05%2F23%2Fcloudflare-cdn%2F</url>
+    <content type="text"><![CDATA[申请域名在域名商处申请域名，绑定自己的服务器ip地址如果是对GitHub Pages进行加速，使用CNAME记录，添加自己的Github.io地址进入dns管理，等待后续操作 注册cloufalre进入cloudflare官网，点击添加域名，添加刚才注册的域名，选择计划free plan 设置dns 如果是GitHub Pages 添加A记录，指向Github page服务的ip地址（具体ip在github page帮助页面有） 添加CNAME记录@，指向你的GitHub.io地址 ​ 如果是服务器，添加A记录@，指向你的服务器ip地址。添加www记录指向你的ip地址​ 如果你有自己的ssl证书，在cytro界面选择full，没有且想使用ssl加密选择flexible，不使用选off 设置dns在cloudflare的dns界面，会提供给两个cloudflare的dns地址，进入自己的域名商dns设置界面，删除原来的dns服务器地址，添加cloudflare的地址，完成 遇到的问题 为什么全部配置完成却不能之际通过域名访问服务器？ 一般等待120s 为什么访问域名提示error521，host没有运行？ 检查服务器是否可以通过ip访问，可以则检查域名是否有ssl证书，没有就不要在cloudflare的ssl处开启full 使用cloudflare后访问更慢了？ 加速只针对国外及部分运营商的部分地区，cloudflare主要还提供ddos攻击防护]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[matlab使用超松弛迭代法求解电容]]></title>
     <url>%2F2019%2F05%2F22%2Fmatlab7%2F</url>
     <content type="text"><![CDATA[计算电磁学利用matlab超松弛迭代法求解微带线的电容 题目一块为正方形微带线 外围尺寸2cm，内部尺寸1cm，要求的电容误差10e-9，松弛系数1.9 设参数a,b,c,d分别为微带线的尺寸，n是迭代次数，tol为所需要的误差，rel为松弛迭代系数 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667%第二次作业function cap = capacitor(a,b,c,d,n,tol,rel)h = 0.5*c/n;na = round(0.5*a/h);x= linspace(0,0.5*c,n+1);m = round(0.5*d/h);mb = round(0.5*b/h);y = linspace(0,0.5*d,m+1);%给定tol是电容的误差，rel是超松弛的参数f = zeros(n+1,m+1); %全零矩阵mask = ones(n+1,m+1)*rel; %全一矩阵for i = 1:na+1 %对矩阵简化后求解 for j = 1:mb+1 mask(i,j) = 0; f(i,j) = 1; endend%高斯迭代法oldcap = 0;for iter = 1:1000 f = seidel(f,mask,n,m); %计算迭代法得到松弛迭代后的矩阵 cap = gauss(n,m,h,f); %计算电容 if (abs(cap-oldcap)/cap&lt;tol) %计算小于误差的时候得到电容的大小 break else oldcap = cap; endendstr = sprintf('number of iterations = %4i', iter);disp(str) %输出最后的迭代次数disp(cap)endfunction f = seidel(f,mask,n,m) for i = 2:n for j = 2:m f(i,j) = f(i,j) + mask(i,j)*(0.25*(f(i-1,j) + f(i+1,j) + f(i,j-1) + f(i,j+1)) - f(i,j)); end end i = 1; for j = 2:m f(i,j) = f(i,j) + mask(i,j)*(0.25*(f(i+1,j) + f(i+1,j)+ f(i,j-1) + f(i,j+1)) - f(i,j)); end j = 1; for i = 2:n f(i,j) = f(i,j) + mask(i,j)*(0.25*(f(i-1,j) + f(i+1,j)+ f(i,j+1) + f(i,j+1)) - f(i,j)); endendfunction cap = gauss(n,m,h,f) q = 0; for i =1:n q = q + (f(i,m)+f(i+1,m))*0.5; end for j = 1:m q = q + (f(n,j)+f(n,j+1))*0.5; end cap = q*4; cap = cap*8.854187;end 假设迭代次数为20次，在命令行运行 capacitor(1,1,2,2,20,10e-9,1.9)]]></content>
@@ -32,12 +74,13 @@
       </categories>
       <tags>
         <tag>linux</tag>
+        <tag>vsftpd</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux上为hexo添加git远程部署]]></title>
     <url>%2F2019%2F05%2F21%2Fhexo-git-push%2F</url>
-    <content type="text"><![CDATA[安装git1yum install -y git 创建git用户12adduser gitpasswd git #记住自己的密码 创建公钥123456git config --global user.name "name"git config --global user.email "xxx@gmail.com"//添加用户名 邮箱ssh-keygen -t rsa -C "your mail"//生成ssh公私钥cat ~/.ssh/id_rsa.pub //查看公钥 上传公钥123cd ~/.sshnano authorized_keys//把本地的公钥复制进来 初始化git仓库1234cd /home/gitmkdir hexo.gitcd hexo.gitgit init --bare //初始化 创建钩子1234567cd /home/git/hexo.git/hooksnano post-receive//加入内容#!/bin/shgit --work-tree=/home/git --git-dir=/home/git/hexo.git checkout -f//其中目录为你的服务器部署hexo的web目录chmod +x post-receive 注意服务器上的公钥所有者应为git用户权限 chmod 600 ~/.ssh/authorized_keys chmod 700 ~/.ssh]]></content>
+    <content type="text"><![CDATA[安装git1yum install -y git 创建git用户12adduser gitpasswd git #记住自己的密码 创建公钥123456git config --global user.name "name"git config --global user.email "xxx@gmail.com"//添加用户名 邮箱ssh-keygen -t rsa -C "your mail"//生成ssh公私钥cat ~/.ssh/id_rsa.pub //查看公钥 上传公钥1234mkdir /home/git/.sshcd /home/git/.sshnano authorized_keys//把本地的公钥复制进来 初始化git仓库1234cd /home/gitmkdir hexo.gitcd hexo.gitgit init --bare //初始化 创建钩子1234567cd /home/git/hexo.git/hooksnano post-receive//加入内容#!/bin/shgit --work-tree=/home/git --git-dir=/home/git/hexo.git checkout -f//其中目录为你的服务器部署hexo的web目录chmod +x post-receive 注意服务器上的公钥所有者应为git用户权限 chmod 600 ~/.ssh/authorized_keys chmod 700 ~/.ssh]]></content>
       <categories>
         <category>hexo</category>
         <category>linux</category>
@@ -67,6 +110,7 @@
       </categories>
       <tags>
         <tag>linux</tag>
+        <tag>vsftpd</tag>
       </tags>
   </entry>
   <entry>
