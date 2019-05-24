@@ -549,26 +549,39 @@
 
       
         <h1 id="为linux学习打基础"><a href="#为linux学习打基础" class="headerlink" title="为linux学习打基础"></a>为linux学习打基础</h1><h2 id="环境：centos7-3"><a href="#环境：centos7-3" class="headerlink" title="环境：centos7.3"></a>环境：centos7.3</h2><a id="more"></a>
+
 <h2 id="阿里云ECS"><a href="#阿里云ECS" class="headerlink" title="阿里云ECS"></a>阿里云ECS</h2><h2 id="git环境"><a href="#git环境" class="headerlink" title="git环境"></a>git环境</h2><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="安装git在服务器上"><a href="#安装git在服务器上" class="headerlink" title="安装git在服务器上"></a>安装git在服务器上</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install git-core <span class="comment"># 适用centos redhat</span></span><br><span class="line">apt-get install git-core <span class="comment"># 使用ubuntu</span></span><br></pre></td></tr></table></figure>
+
 <p>权限不够使用sudo权限</p>
 <h3 id="安装nginx服务器"><a href="#安装nginx服务器" class="headerlink" title="安装nginx服务器"></a>安装nginx服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br></pre></td></tr></table></figure>
+
 <p>启动服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
+
 <p>在浏览器输入服务器的ip 应该会出现nginx的测试界面</p>
 <h3 id="建立git仓库"><a href="#建立git仓库" class="headerlink" title="建立git仓库"></a>建立git仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser git <span class="comment"># 添加用户</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git <span class="comment"># 初始化hexo.git文件夹</span></span><br><span class="line">git init --bare hexo.git</span><br><span class="line">chown -R git:git hexo.git</span><br></pre></td></tr></table></figure>
+
 <p>创建一个密匙验证文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /home/git/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
 <p>这时文件会自动打开，进入<code>C:\Users\Administrator\.ssh</code>文件夹下，用记事本打开<code>id_rsa.pub</code>公匙文件，把里面的内容拷贝到刚才新建的<code>authorized_keys</code>文件内保存</p>
 <p>ssh密匙的生成参考 <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374385852170d9c7adf13c30429b9660d0eb689dd43a000" target="_blank" rel="noopener">廖雪峰</a></p>
 <h3 id="配置Nginx服务"><a href="#配置Nginx服务" class="headerlink" title="配置Nginx服务"></a>配置Nginx服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t <span class="comment">#列出配置文件的路径</span></span><br><span class="line">vi /etc/nginx/nginx.conf <span class="comment"># 打开配置文件</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">listen</span>       <span class="number">80</span><span class="string">;</span></span><br><span class="line"><span class="string">root</span>   <span class="string">/home/git;</span> <span class="comment"># 网站的根目录</span></span><br><span class="line"><span class="string">server_name</span>  <span class="string">localhost;</span></span><br><span class="line"></span><br><span class="line"><span class="string">location</span> <span class="string">/</span> <span class="string">&#123;</span></span><br><span class="line">  <span class="string">index</span>  <span class="string">index.html</span> <span class="string">index.htm;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart <span class="comment"># 重启服务</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>遇到的问题</strong><br>访问网站时遇到403 forbidden<br>问题分析：使用sudo安装nginx时，用户是root，打开nginx的配置文件，首行发现user是nginx，修改为root即可</p>
 <h3 id="配置git文件"><a href="#配置git文件" class="headerlink" title="配置git文件"></a>配置git文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git/hexo.git/hooks</span><br><span class="line"><span class="comment"># 新建增量更新文件配置</span></span><br><span class="line">vi post-update</span><br><span class="line"><span class="comment"># 添加如下内容</span></span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/home/git --git-dir=/home/git/hexo.git checkout -f</span><br><span class="line"><span class="comment"># 赋予可执行权限</span></span><br><span class="line">chmod +x post-update</span><br></pre></td></tr></table></figure>
+
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>在本机hexo根目录下找到config.yml文件，修改deploy</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> </span><br><span class="line"><span class="attr">    github:</span> <span class="string">git@github.com:Landers1037/Landers1037.github.io.git</span></span><br><span class="line"><span class="attr">    aliyun:</span> <span class="string">git@服务器ip或域名:/home/git/hexo.git</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
 <p>再次在浏览器输入ip地址，部署成功</p>
 
       
@@ -722,7 +735,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -557,9 +557,14 @@
       
         <h2 id="通用爬虫爬取页面深层链接"><a href="#通用爬虫爬取页面深层链接" class="headerlink" title="通用爬虫爬取页面深层链接"></a>通用爬虫爬取页面深层链接</h2><p>出现以下错误</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'str' object has no attribute 'iter'</span><br></pre></td></tr></table></figure>
-<a id="more"></a>查看css选择器的部分<br><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rule(LinkExtractor(allow=<span class="string">r'/photo.*'</span>,restrict_css=<span class="string">'li div a::attr(href)'</span>),callback=<span class="string">'parse_item'</span>)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>查看css选择器的部分
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rule(LinkExtractor(allow=<span class="string">r'/photo.*'</span>,restrict_css=<span class="string">'li div a::attr(href)'</span>),callback=<span class="string">'parse_item'</span>)</span><br></pre></td></tr></table></figure>
+
 <p>解析：<br>scrapy的css提取链接不需要指定属性，如果链接存在于属性href中，则只需要提取包含它的元素a</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rule(LinkExtractor(allow=<span class="string">r'/photo.*'</span>,restrict_css=<span class="string">'li div a'</span>),callback=<span class="string">'parse_item'</span>)</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -712,7 +717,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -100,18 +100,18 @@
 
 
 
-  <meta name="description" content="环境：Python 3.7库的安装和使用1pip install *** 使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内">
+  <meta name="description" content="环境：Python 3.7库的安装和使用1pip install ***  使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内">
 <meta name="keywords" content="学习笔记,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python入门指南">
 <meta property="og:url" content="http://landers1037.top/2019/02/02/py1/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="环境：Python 3.7库的安装和使用1pip install *** 使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内">
+<meta property="og:description" content="环境：Python 3.7库的安装和使用1pip install ***  使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-20T16:29:44.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python入门指南">
-<meta name="twitter:description" content="环境：Python 3.7库的安装和使用1pip install *** 使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内">
+<meta name="twitter:description" content="环境：Python 3.7库的安装和使用1pip install ***  使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内">
 
 
 
@@ -549,21 +549,30 @@
 
       
         <h1 id="环境：Python-3-7"><a href="#环境：Python-3-7" class="headerlink" title="环境：Python 3.7"></a>环境：Python 3.7</h1><h2 id="库的安装和使用"><a href="#库的安装和使用" class="headerlink" title="库的安装和使用"></a>库的安装和使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ***</span><br></pre></td></tr></table></figure>
-<p>使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内<br><a id="more"></a><br>有的时候使用pip安装会出现各种环境错误，这个时候使用离线库文件.whl安装<br>第三方python库：<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">点击进入</a><br>下载对应的库后，安装方法</p>
+
+<p>使用这种方法安装库的前提是，python的路径已经安装在了环境变量里。python的所有第三方库都在安装目录的Lib文件夹内</p>
+<a id="more"></a>
+<p>有的时候使用pip安装会出现各种环境错误，这个时候使用离线库文件.whl安装<br>第三方python库：<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">点击进入</a><br>下载对应的库后，安装方法</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /存放whl文件的目录</span><br><span class="line">pip install ***.whl</span><br></pre></td></tr></table></figure>
+
 <p>导入安装好的库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PyQt5 <span class="comment">#导入这个类</span></span><br><span class="line"><span class="keyword">from</span> PyQt5.Qwidget <span class="keyword">import</span> QApp <span class="comment">#从库中导入一个类</span></span><br><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span>* <span class="comment">#从库中导入全部初始类</span></span><br><span class="line"><span class="comment"># 第三句仅仅是导入在PyQt5下面init的所有类，不包括其他的类</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="模块的相互调用"><a href="#模块的相互调用" class="headerlink" title="模块的相互调用"></a>模块的相互调用</h2><p>自定义一个模块后，怎么在其他的类中使用</p>
 <p>例如：定义了一个son.py</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> son <span class="keyword">import</span> son</span><br></pre></td></tr></table></figure>
+
 <h2 id="习惯操作"><a href="#习惯操作" class="headerlink" title="习惯操作"></a>习惯操作</h2><p>我们定义一个main（）函数作为程序的入口，在有调用关系的时候，如果只是想测试当前的模块，常常使用惯例写法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><p>python模块解释器默认从当前文件夹开始寻找是否有在模块中调用的库，如果你的package命名和内置的库名称一致，就会优先调用用户定义的库，这个时候就会出错</p>
 <h2 id="定义根目录"><a href="#定义根目录" class="headerlink" title="定义根目录"></a>定义根目录</h2><p>自带的根目录是src，如果你在下面还建立了多个package，在引入第三方的库时会有错误提示但是运行不会出问题，使用pycharm在当前的package下mark directory as source即可</p>
 <h2 id="文件相对路径"><a href="#文件相对路径" class="headerlink" title="文件相对路径"></a>文件相对路径</h2><p>如果在运行代码的目录下放置图片资源1.jpg，调用的时候使用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（‘<span class="number">1.j</span>pg<span class="string">')</span></span><br></pre></td></tr></table></figure>
+
 <p>如果在src下的例如img目录下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（’src/img/<span class="number">1.</span>png<span class="string">')</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h2><p>Pycharm跟据操作系统默认的编码是GBK，进入settings，找到code encoding，设置为UTF-8</p>
 
       
@@ -719,7 +728,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

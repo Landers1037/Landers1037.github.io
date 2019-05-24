@@ -572,8 +572,7 @@ TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
 NET&quot;CLK&quot;  LOC=&quot;E3&quot;|IOSTANDARD =&quot;LVCMOS33&quot;;
 NET&quot;RESET&quot;  LOC=&quot;E16&quot;|IOSTANDARD =&quot;LVCMOS33&quot;;
 NET&quot;RsRx&quot;  LOC=&quot;C4&quot;|IOSTANDARD =&quot;LVCMOS33&quot;;
-NET&quot;RsTx&quot;  LOC=&quot;D4&quot;|IOSTANDARD =&quot;LVCMOS33&quot;;
-</code></pre><p>保存</p>
+NET&quot;RsTx&quot;  LOC=&quot;D4&quot;|IOSTANDARD =&quot;LVCMOS33&quot;;</code></pre><p>保存</p>
 <h4 id="接下来使用SDK设计程序输出最小系统到程序"><a href="#接下来使用SDK设计程序输出最小系统到程序" class="headerlink" title="接下来使用SDK设计程序输出最小系统到程序"></a><strong>接下来使用SDK设计程序输出最小系统到程序</strong></h4><p>在xps的主界面选择project&gt;export hardware design to SDK，选择export&amp;launch按钮 <img src="https://s1.ax1x.com/2018/05/18/CcQQPO.png" alt="CcQQPO.png"> </p>
 <p>在工程文件夹中建立一个用来放SDK的文件夹，选择该路径然后点击ok 在主界面file下选择new，xilinx board support package并设置参数 选择standalone后点击finish 接下来弹出窗口，选择ok 进入创建窗口，依次点击file下的new，application project选项 在Board support package项选择Using existing language选择c语言然后点击next，选择hello world作为模板，点击finish</p>
 <h4 id="到这里实现了建立最小系统，接下来需要在SDK里写入c语言程序然后在我们的系统里运行。"><a href="#到这里实现了建立最小系统，接下来需要在SDK里写入c语言程序然后在我们的系统里运行。" class="headerlink" title="到这里实现了建立最小系统，接下来需要在SDK里写入c语言程序然后在我们的系统里运行。"></a>到这里实现了建立最小系统，接下来需要在SDK里写入c语言程序然后在我们的系统里运行。</h4>
@@ -730,7 +729,7 @@ NET&quot;RsTx&quot;  LOC=&quot;D4&quot;|IOSTANDARD =&quot;LVCMOS33&quot;;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

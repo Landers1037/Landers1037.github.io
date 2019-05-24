@@ -531,26 +531,34 @@
 
       
         <h1 id="Hexo-Github"><a href="#Hexo-Github" class="headerlink" title="Hexo+Github"></a>Hexo+Github</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>node.js</p>
-<p>github账户<br><a id="more"></a></p>
+<p>github账户</p>
+<a id="more"></a>
+
 <p>第一步：使用npm安装hexo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli  </span><br><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+
 <p>第二步：在硬盘新建文件夹blog ，进入，安装hexo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
 <p>第三步：测试</p>
 <p>在浏览器中输入localhost:4000查看生成的网页</p>
 <p>如果出现访问错误，检查是否使用hexo s的命令，server一定要是处于开启的状态</p>
 <p>如果还有错误，检查电脑的4000端口是否被占用，根据网上反馈，安装有foxit阅读器的用户，需要关闭它的服务，或者使用下面的命令改变端口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+
 <p>运行正常即可在本地查看网页</p>
 <p>第四步：远程发布至github</p>
 <p>新建一个仓库，命名规则：用户名.github.io</p>
 <p>每一个用户只能建立一个这样的仓库，然后进入仓库复制自己的ssh地址</p>
 <p>在本地的博客目录下找到_config.yml文件，翻到最下面，如下填写</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/你的用户名/你的用户名.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
 <p>配置完成后使用如下命令发布到github</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d 或者使用hexo d -g</span><br></pre></td></tr></table></figure>
+
 <p>上传文章出现warning：CRLF问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config –-global core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -703,7 +711,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

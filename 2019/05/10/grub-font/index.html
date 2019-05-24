@@ -550,12 +550,15 @@
       
         <h2 id="字体生成"><a href="#字体生成" class="headerlink" title="字体生成"></a>字体生成</h2><p>使用如下的命令可以创建用于开机启动界面的字体文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkfont -o name.pf2 -s=25 /usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <p>-o  指定输出的字体文件名称<br>-s 指定输出的字体的大小<br>最后为字体文件的路径</p>
 <p>在fonts目录下选择自己喜欢的字体，修改后，把生成的pf2二进制字体文件放入主题目录下，在theme.txt中修改即可，命名与theme主题目录下的pf2文件名称相同即可</p>
 <h2 id="grub界面顺序文字调整"><a href="#grub界面顺序文字调整" class="headerlink" title="grub界面顺序文字调整"></a>grub界面顺序文字调整</h2><p>默认第一项为ubuntu，ubuntu高级选项，windows boot manager</p>
 <p>需要调整顺序，只需要修改grub配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /boot/grub</span><br><span class="line">sudo nano grub.cfg</span><br></pre></td></tr></table></figure>
+
 <p>查找启动项名称的语句，在“ ”间修改自己想要的名称即可，不需要使用<code>update-grub</code>更新引导文件</p>
 
       
@@ -709,7 +712,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

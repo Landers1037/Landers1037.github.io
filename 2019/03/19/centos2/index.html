@@ -549,13 +549,21 @@
 
       
         <h1 id="CentOS测试"><a href="#CentOS测试" class="headerlink" title="CentOS测试"></a>CentOS测试</h1><h2 id="文件夹"><a href="#文件夹" class="headerlink" title="文件夹"></a>文件夹</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成文件夹test</span></span><br><span class="line">mkdir <span class="built_in">test</span></span><br><span class="line"><span class="comment">#生成特定目录下文件夹</span></span><br><span class="line">mkdir /home/<span class="built_in">test</span></span><br><span class="line"><span class="comment">#删除</span></span><br><span class="line">rm <span class="built_in">test</span></span><br><span class="line">rm -r <span class="built_in">test</span> <span class="comment">#删除test以及下面的子目录</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成key文件</span></span><br><span class="line">vi key</span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line">rm key</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ***</span><br><span class="line"><span class="comment">#不提示用户直接删除，慎用</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv tmp/1.test /home/<span class="built_in">test</span></span><br><span class="line"><span class="comment">#移动tmp下的1.test文件到home/test下</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp 1.test /home/<span class="built_in">test</span></span><br><span class="line">cp 1.test 2.test <span class="comment">#把1中的内容复制到2中</span></span><br><span class="line">cp -b 1.test 2.test <span class="comment">#创建1.test的副本名为2.test</span></span><br><span class="line">cp -R <span class="built_in">test</span> /home/test2 <span class="comment">#复制test以及子目录到test2中</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls <span class="comment">#遍历列出当前文件夹下的所有文件</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="vim编辑器"><a href="#vim编辑器" class="headerlink" title="vim编辑器"></a>vim编辑器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用vi编辑文件内容时</span></span><br><span class="line">i <span class="comment">#进入插入编辑模式，移动光标插入内容</span></span><br><span class="line">a <span class="comment">#在光标后面插入内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ESC键退出编辑模式</span></span><br><span class="line">: <span class="comment">#输入指令</span></span><br><span class="line">q <span class="comment">#退出</span></span><br><span class="line">wq <span class="comment">#保存退出</span></span><br><span class="line">q! <span class="comment">#强制退出</span></span><br><span class="line">wq！ <span class="comment">#强制保存退出</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -708,7 +716,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

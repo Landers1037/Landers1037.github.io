@@ -549,19 +549,28 @@
 
       
         <h1 id="感谢主题的设计者"><a href="#感谢主题的设计者" class="headerlink" title="感谢主题的设计者"></a>感谢主题的设计者</h1><p>针对主题的模板文件修改，找到layout下的ejs文件</p>
-<p>网页左侧的信息栏    <code>base-profile.ejs</code><br>网页底部标题    <code>base-footer.ejs</code><br>网页侧边栏      <code>base-sidebar.ejs</code><br><a id="more"></a></p>
+<p>网页左侧的信息栏    <code>base-profile.ejs</code><br>网页底部标题    <code>base-footer.ejs</code><br>网页侧边栏      <code>base-sidebar.ejs</code></p>
+<a id="more"></a>
+
 <h2 id="在信息栏添加自己喜欢的文字"><a href="#在信息栏添加自己喜欢的文字" class="headerlink" title="在信息栏添加自己喜欢的文字"></a>在信息栏添加自己喜欢的文字</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span>(theme.school.enable) &#123; %&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"school"</span>&gt;</span><br><span class="line">            &lt;a href = <span class="string">"&lt;%- url_for("</span>http:<span class="comment">//www.hust.edu.cn/") %&gt;" &gt;&amp;nbsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;thinsp;HUST 1037&lt;/a&gt;</span></span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;% &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>然后只需要在主题配置文件_config.yml中添加</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">school:</span><br><span class="line">  enable: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="在css文件中修改文字样式"><a href="#在css文件中修改文字样式" class="headerlink" title="在css文件中修改文字样式"></a>在css文件中修改文字样式</h2><p>找到<code>D:\Github Page\themes\archer\src\scss\_partial\_partial\profile.scss</code><br>添加内容</p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.school</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.5rem</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">  <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.2rem</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="空格修改网页元素的位置"><a href="#空格修改网页元素的位置" class="headerlink" title="空格修改网页元素的位置"></a>空格修改网页元素的位置</h2><h3 id="html常用的空格样式"><a href="#html常用的空格样式" class="headerlink" title="html常用的空格样式"></a>html常用的空格样式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;nbsp; #牛逼空格是最常用的空格</span><br><span class="line">&amp;ensp; #嗯空格是1/2的中文字符长度</span><br><span class="line">&amp;emsp; #恶魔空格是1格中文字符长度</span><br><span class="line">&amp;thinsp; #瘦子空格是一个很窄的空格</span><br><span class="line">#记住不要忘记分号</span><br></pre></td></tr></table></figure>
+
 <h3 id="html常用的分割线"><a href="#html常用的分割线" class="headerlink" title="html常用的分割线"></a>html常用的分割线</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span> # 一条分割线</span><br><span class="line"><span class="tag">&lt;<span class="name">HR</span> <span class="attr">style</span>=<span class="string">"FILTER: alpha(opacity=100,finishopacity=0,style=3)"</span> <span class="attr">width</span>=<span class="string">"80%"</span> <span class="attr">color</span>=<span class="string">#987cb9</span> <span class="attr">SIZE</span>=<span class="string">3</span>&gt;</span> # 一条颜色渐变的分割线</span><br><span class="line"><span class="tag">&lt;<span class="name">HR</span> <span class="attr">style</span>=<span class="string">"FILTER: alpha(opacity=100,finishopacity=0,style=1)"</span> <span class="attr">width</span>=<span class="string">"80%"</span> <span class="attr">color</span>=<span class="string">#987cb9</span> <span class="attr">SIZE</span>=<span class="string">3</span>&gt;</span> # 一边颜色渐变的分割线</span><br></pre></td></tr></table></figure>
+
 <h2 id="添加人数统计"><a href="#添加人数统计" class="headerlink" title="添加人数统计"></a>添加人数统计</h2><p>旋转地球统计 <a href="https://www.revolvermaps.com/" target="_blank" rel="noopener">官网</a></p>
 <p>快速插入js代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"//ra.revolvermaps.com/0/0/6.js?i=0n29o7blvb7&amp;amp;m=7&amp;amp;c=e63100&amp;amp;cr1=ffffff&amp;amp;f=arial&amp;amp;l=0&amp;amp;bv=90&amp;amp;lx=-420&amp;amp;ly=420&amp;amp;hi=20&amp;amp;he=7&amp;amp;hc=a8ddff&amp;amp;rs=80"</span> <span class="keyword">async</span>=<span class="string">"async"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
 <h2 id="压缩hexo的css和html文件"><a href="#压缩hexo的css和html文件" class="headerlink" title="压缩hexo的css和html文件"></a>压缩hexo的css和html文件</h2><p>安装插件 <code>all_minifier</code><br>修改hexo目录下的配置文件，添加<code>all_minifier: true</code></p>
 <h2 id="禁止git自动转义LF到CRLF"><a href="#禁止git自动转义LF到CRLF" class="headerlink" title="禁止git自动转义LF到CRLF"></a>禁止git自动转义LF到CRLF</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf flase</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -714,7 +723,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

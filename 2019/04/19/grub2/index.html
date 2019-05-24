@@ -548,16 +548,22 @@
 
       
         <h2 id="用于windows与ubuntu的双系统"><a href="#用于windows与ubuntu的双系统" class="headerlink" title="用于windows与ubuntu的双系统"></a>用于windows与ubuntu的双系统</h2><p>引导界面太丑美化一下</p>
-<p>美化包下载：<a href="https://www.gnome-look.org" target="_blank" rel="noopener">链接</a><br><a id="more"></a></p>
+<p>美化包下载：<a href="https://www.gnome-look.org" target="_blank" rel="noopener">链接</a></p>
+<a id="more"></a>
+
 <p>下载到系统后解压</p>
 <p>创建主题文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /boot/grub/themes <span class="comment">#新建一个主题文件夹</span></span><br><span class="line">sudo cp -R 主题文件夹名称 /boot/grub/themes</span><br></pre></td></tr></table></figure>
+
 <p>修改grub引导配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/grub.d</span><br><span class="line">sudo nano 00_header</span><br></pre></td></tr></table></figure>
+
 <p>在注释下面的第一行写入</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">GRUB_THEME="/boot/grub/themes/主题包名/theme.txt"</span></span><br><span class="line"><span class="string">GRUB_GFXMODE="1920x1080"</span> <span class="string">或者为"auto"</span></span><br></pre></td></tr></table></figure>
+
 <p>更新grub</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
+
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>一个themes文件夹下不能有多个主题包，否则只会生效第一次配置的那个</p>
 <h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2>
       
@@ -705,7 +711,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

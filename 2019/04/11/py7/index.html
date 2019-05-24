@@ -100,18 +100,18 @@
 
 
 
-  <meta name="description" content="datatime模块使用datatime模块获取系统的时间 12import datatimetime = datatime.datatime.now() 将获取的时间格式化为字符串">
+  <meta name="description" content="datatime模块使用datatime模块获取系统的时间 12import datatimetime = datatime.datatime.now()  将获取的时间格式化为字符串">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python的时间模块和数学取整">
 <meta property="og:url" content="http://landers1037.top/2019/04/11/py7/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="datatime模块使用datatime模块获取系统的时间 12import datatimetime = datatime.datatime.now() 将获取的时间格式化为字符串">
+<meta property="og:description" content="datatime模块使用datatime模块获取系统的时间 12import datatimetime = datatime.datatime.now()  将获取的时间格式化为字符串">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-20T16:30:51.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python的时间模块和数学取整">
-<meta name="twitter:description" content="datatime模块使用datatime模块获取系统的时间 12import datatimetime = datatime.datatime.now() 将获取的时间格式化为字符串">
+<meta name="twitter:description" content="datatime模块使用datatime模块获取系统的时间 12import datatimetime = datatime.datatime.now()  将获取的时间格式化为字符串">
 
 
 
@@ -550,16 +550,22 @@
       
         <h2 id="datatime模块"><a href="#datatime模块" class="headerlink" title="datatime模块"></a>datatime模块</h2><p>使用datatime模块获取系统的时间</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datatime</span><br><span class="line">time = datatime.datatime.now()</span><br></pre></td></tr></table></figure>
+
 <p>将获取的时间格式化为字符串<a id="more"></a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">time.strftime(<span class="string">'%Y-%m-%d-%H-%M-%S'</span>)</span><br><span class="line"><span class="comment">#格式化为年-月-日 -小时 -分钟- 秒</span></span><br></pre></td></tr></table></figure>
+
 <p>字符串转化为时间</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time = datetime.datetime.strptime(string,<span class="string">'%Y-%m-%d %H:%M:%S'</span>)</span><br></pre></td></tr></table></figure>
+
 <p>格式</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">%a 星期几的简写</span><br><span class="line">%A 星期几的全称</span><br><span class="line">%b 月分的简写</span><br><span class="line">%B 月份的全称</span><br><span class="line">%c 标准的日期的时间串</span><br><span class="line">%C 年份的后两位数字</span><br><span class="line">%d 十进制表示的每月的第几天</span><br><span class="line">%D 月/天/年</span><br><span class="line">%e 在两字符域中，十进制表示的每月的第几天</span><br><span class="line">%F 年-月-日</span><br><span class="line">%g 年份的后两位数字，使用基于周的年</span><br><span class="line">%G 年分，使用基于周的年</span><br><span class="line">%h 简写的月份名</span><br><span class="line">%H <span class="number">24</span>小时制的小时</span><br><span class="line">%I <span class="number">12</span>小时制的小时</span><br><span class="line">%j 十进制表示的每年的第几天</span><br><span class="line">%m 十进制表示的月份</span><br><span class="line">%M 十时制表示的分钟数</span><br><span class="line">%n 新行符</span><br><span class="line">%p 本地的AM或PM的等价显示</span><br><span class="line">%r <span class="number">12</span>小时的时间</span><br><span class="line">%R 显示小时和分钟：hh:mm</span><br><span class="line">%S 十进制的秒数</span><br><span class="line">%t 水平制表符</span><br><span class="line">%T 显示时分秒：hh:mm:ss</span><br><span class="line">%u 每周的第几天，星期一为第一天 （值从<span class="number">0</span>到<span class="number">6</span>，星期一为<span class="number">0</span>）</span><br><span class="line">%U 第年的第几周，把星期日做为第一天（值从<span class="number">0</span>到<span class="number">53</span>）</span><br><span class="line">%V 每年的第几周，使用基于周的年</span><br><span class="line">%w 十进制表示的星期几（值从<span class="number">0</span>到<span class="number">6</span>，星期天为<span class="number">0</span>）</span><br><span class="line">%W 每年的第几周，把星期一做为第一天（值从<span class="number">0</span>到<span class="number">53</span>）</span><br><span class="line">%x 标准的日期串</span><br><span class="line">%X 标准的时间串</span><br><span class="line">%y 不带世纪的十进制年份（值从<span class="number">0</span>到<span class="number">99</span>）</span><br><span class="line">%Y 带世纪部分的十制年份</span><br><span class="line">%z，%Z 时区名称，如果不能得到时区名称则返回空字符。</span><br><span class="line">%% 百分号</span><br></pre></td></tr></table></figure>
+
 <h2 id="math模块"><a href="#math模块" class="headerlink" title="math模块"></a>math模块</h2><p>python的数值计算取整import math库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="comment">#取整</span></span><br><span class="line">n = <span class="number">3.25</span></span><br><span class="line">print(int(n))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">3</span> </span><br><span class="line"><span class="comment">#向上取整</span></span><br><span class="line">print(math.ceil(n))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">4</span> </span><br><span class="line"><span class="comment">#向下取整</span></span><br><span class="line">print(math.floor(n))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">3</span> </span><br><span class="line"><span class="comment">#四舍五入</span></span><br><span class="line">a = <span class="number">3.25</span></span><br><span class="line">b = <span class="number">3.75</span></span><br><span class="line">print(math.round(a))</span><br><span class="line">print(math.round(b))</span><br><span class="line"><span class="comment">#取整数和小数部分</span></span><br><span class="line">n = <span class="number">3.75</span></span><br><span class="line">print(math.modf(n))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="number">0.75</span>, <span class="number">3.0</span>)</span><br></pre></td></tr></table></figure>
+
 <p>保留一位小数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(format((<span class="number">10</span>/<span class="number">3</span>),<span class="string">'.1f'</span>))</span><br><span class="line">print(<span class="string">'%.1f'</span>%(<span class="number">10</span>/<span class="number">3</span>))</span><br><span class="line">print(round(<span class="number">10</span>/<span class="number">3</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -712,7 +718,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

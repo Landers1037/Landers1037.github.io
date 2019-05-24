@@ -552,7 +552,9 @@
       
         <h1 id="Xilinx-ARM-Linux-ZYNQ"><a href="#Xilinx-ARM-Linux-ZYNQ" class="headerlink" title="Xilinx-ARM-Linux-ZYNQ"></a>Xilinx-ARM-Linux-ZYNQ</h1><p>项目的源代码已经上传至托管平台</p>
 <p><a href="https://gitee.com/lrjgood/Xilinx-ARM-Linux-ZYNQ" target="_blank" rel="noopener">gitee</a></p>
-<p><a href="https://github.com/Landers1037/arm-linux-zybo" target="_blank" rel="noopener">github</a><br><a id="more"></a></p>
+<p><a href="https://github.com/Landers1037/arm-linux-zybo" target="_blank" rel="noopener">github</a></p>
+<a id="more"></a>
+
 <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>Xilinx公司的base system 硬件平台生成的，基于arm架构重新编译的linux板载操作系统</p>
 <h4 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h4><p>软件架构说明</p>
 <ul>
@@ -564,6 +566,9 @@
 <p>devicetree.dtb文件为设备树二进制文件，用于加载硬件设备</p>
 <p>​    </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#编译设备树文件</span></span><br><span class="line"><span class="comment">#利用base-system生成的dts文件，在linux下生成二进制文件</span></span><br><span class="line"><span class="comment">#在设备树中修改的启动参数如下</span></span><br><span class="line">1:修改内核参数为CONFIG_CMDLINE=<span class="string">"console=ttyS0,115200 mem=108M rdinit=/linuxrc root=/dev/mtdblock2"</span></span><br><span class="line">2：修改bootargs参数 bootargs=<span class="string">"console=ttyPS0,115200 root=/dev/mmcblk0p2 rw earlyprintk rootfstyle=ext4 rootwait devtmpfs.mount=1"</span>;</span><br><span class="line">apt install device-tree-compiler</span><br><span class="line">dtc -I dts -O dtb -o /home/devicetree.dtb /home/system-top.dts</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
@@ -762,7 +767,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

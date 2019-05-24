@@ -549,7 +549,9 @@
 
       
         <h2 id="ssh连接sd卡启动的linux系统"><a href="#ssh连接sd卡启动的linux系统" class="headerlink" title="ssh连接sd卡启动的linux系统"></a>ssh连接sd卡启动的linux系统<a id="more"></a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/network/interfaces</span><br><span class="line"><span class="comment">#修改为静态ip</span></span><br><span class="line">iface eth0 static</span><br><span class="line">address 192.168.0.1</span><br><span class="line">netmask 255.255.255.0</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改后</span></span><br><span class="line">sudo /etc/init.d/networking</span><br></pre></td></tr></table></figure>
+
 <h2 id="激活网卡"><a href="#激活网卡" class="headerlink" title="激活网卡"></a>激活网卡</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig eth0 up</span><br><span class="line"><span class="comment">#sudo ifconfig eth0 192.168.0.1</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="配置本地ip"><a href="#配置本地ip" class="headerlink" title="配置本地ip"></a>配置本地ip</h2><p>打开windows的网络适配器，进入有线网属性<br>选择ipv4地址，进入编辑使用静态ip地址，输入<code>192.168.0.2</code></p>
 <h2 id="连接ssh"><a href="#连接ssh" class="headerlink" title="连接ssh"></a>连接ssh</h2><p>使用ssh协议的连接客户端，例如putty或者xshell<br>使用网线连接电脑和zynq板，配置ip地址<code>192.168.0.1</code>连接<br>成功会提示登录输入用户名和密码</p>
 
@@ -704,7 +706,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

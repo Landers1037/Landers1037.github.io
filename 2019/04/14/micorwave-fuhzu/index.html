@@ -532,12 +532,15 @@
 
       
         <h2 id="计算机辅助电磁学结课作业"><a href="#计算机辅助电磁学结课作业" class="headerlink" title="计算机辅助电磁学结课作业"></a>计算机辅助电磁学结课作业</h2><p>编程实现对任意多端口微波无源网络的不定导纳矩阵，阻抗参数，导纳矩阵，s参数矩阵求解</p>
-<p>使用python numpy库解决<br><a id="more"></a></p>
+<p>使用python numpy库解决</p>
+<a id="more"></a>
+
 <h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>针对复杂的网络，不能简单的通过算法得到其网络拓扑图结构，所以采用不定导纳矩阵方法，由用户输入节点的数目<br>假设输入的节点数n为3，假设每个节点间都有一个元件<br>计算得出节点间的元件数目为Cn2<br>给定元件的参数表示方法：导纳<br>用户在命令台输入元件的电导和电纳值<br>由python的矩阵计算实现计算</p>
 <h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><p>zero()方法    创建一个n*n的全零矩阵<br>buding()方法    根据不定导纳矩阵的定义，对零矩阵赋值建立单个节点的不定导纳矩阵<br>sum()方法    对每个元件的不定导纳矩阵求和，得到不定导纳矩阵<br>result()方法    取公共端点为1节点接地，得到节点的导纳矩阵<br>Zarray()方法    对导纳矩阵求逆得到Z矩阵<br>Z()方法    根据级联矩阵电压电流关系，取定j，k节点 求出参数ABCD<br>Zin,Zout()方法    求电路的输入输出阻抗<br>Sin,Sout()方法    求电路的输入输出反射系数</p>
 <h2 id="快捷计算库实现"><a href="#快捷计算库实现" class="headerlink" title="快捷计算库实现"></a>快捷计算库实现</h2><p>简单的把计算步骤打包进了库里，库包含两个文件，用户输入.py和计算.py</p>
 <p>使用方法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> microwave_sci <span class="keyword">as</span> mc</span><br><span class="line"><span class="comment">#用户输入参数</span></span><br><span class="line">datas = mc.go(num) <span class="comment">#传入参数为节点数</span></span><br><span class="line"><span class="comment">#计算矩阵</span></span><br><span class="line">mc.Buding(num,datas) <span class="comment">#传入参数节点数，参数列表</span></span><br><span class="line"><span class="comment">#计算节点导纳矩阵</span></span><br><span class="line">mc.Yarray(Z) <span class="comment">#参数Z为计算得到的不定导纳矩阵</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="构造图形化界面"><a href="#构造图形化界面" class="headerlink" title="构造图形化界面"></a>构造图形化界面</h2><p><img src="./images/demo.png" alt></p>
 
       
@@ -685,7 +688,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

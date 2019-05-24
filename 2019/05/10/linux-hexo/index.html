@@ -549,12 +549,19 @@
 
       
         <h2 id="ubuntu18-04"><a href="#ubuntu18-04" class="headerlink" title="ubuntu18.04"></a>ubuntu18.04</h2><h3 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node js"></a>安装node js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm install 7</span><br><span class="line"><span class="comment">#node.js更新的很快，hexo3.8需求node&gt;6.9</span></span><br><span class="line">nvm ls-remote <span class="comment">#可以查看所有的库</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这句话写入到bashrc</span></span><br><span class="line"> <span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span></span><br><span class="line"><span class="comment">#然后source一下</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install  hexo-cli -g</span><br><span class="line"><span class="variable">$npm</span> install hexo-server -g</span><br><span class="line"><span class="variable">$npm</span> install hexo-deployer-git -g</span><br><span class="line"><span class="variable">$npm</span> install hexo-util -g</span><br><span class="line"><span class="comment">#也可以直接 install hexo -g</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="新建一个hexo文件夹初始化"><a href="#新建一个hexo文件夹初始化" class="headerlink" title="新建一个hexo文件夹初始化"></a>新建一个hexo文件夹初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进入文件夹下</span></span><br><span class="line">hexo init</span><br><span class="line">npm install <span class="comment">#安装依赖的库</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="卸载旧版node-js"><a href="#卸载旧版node-js" class="headerlink" title="卸载旧版node.js"></a>卸载旧版node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm uninstall 4 <span class="comment">#卸载4.*版本的node.js</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -709,7 +716,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

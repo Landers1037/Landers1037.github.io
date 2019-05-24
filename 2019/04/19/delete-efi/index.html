@@ -548,6 +548,7 @@
 
       
         <h1 id="使用power-shell"><a href="#使用power-shell" class="headerlink" title="使用power shell"></a>使用power shell</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">diskpart         <span class="comment">#打开diskpart</span></span><br><span class="line">list disk        <span class="comment">#列出系统中拥有的磁盘，我笔记本上有两块磁盘，记得当时ubuntu启动项文件安装到了SSD所在的磁盘0中</span></span><br><span class="line">select disk <span class="number">0</span>    <span class="comment">#选择EFI引导分区所在的磁盘，请根据实际情况选择</span></span><br><span class="line">list partition   <span class="comment">#列出所选磁盘拥有的分区</span></span><br><span class="line">select partition <span class="number">1</span>    <span class="comment">#选择EFI引导分区，类型为系统的分区，就是EFI引导分区</span></span><br><span class="line">assign letter=p:      <span class="comment">#为所选分区分配盘符，请分配空闲盘符</span></span><br><span class="line"><span class="keyword">exit</span>                 <span class="comment"># 退出</span></span><br><span class="line">taskkill /im explorer.exe /f   <span class="comment">#关闭explorer</span></span><br><span class="line">explorer.exe     <span class="comment">#再以管理员身份打开explorer</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 <p>此时，在文件管理器可以看见盘符为p的efi分区</p>
 <p>使用管理员身份进入后，删除ubuntu文件夹</p>
@@ -699,7 +700,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

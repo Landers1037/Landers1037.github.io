@@ -551,10 +551,14 @@
 
       
         <h1 id="pymysql操作"><a href="#pymysql操作" class="headerlink" title="pymysql操作"></a>pymysql操作</h1><h2 id="创建新的数据库"><a href="#创建新的数据库" class="headerlink" title="创建新的数据库"></a>创建新的数据库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql = <span class="string">'CREATE DATABASE spiders DEFAULT CHARACTER SET utf-8'</span></span><br><span class="line">cursor.execute(sql)</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <h2 id="创建新的表"><a href="#创建新的表" class="headerlink" title="创建新的表"></a>创建新的表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pymysql</span></span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="comment"># 前提 我已经建立好了一个名为spiders的数据库，里面有一个表为student</span></span><br><span class="line"><span class="comment"># connect database</span></span><br><span class="line">db = pymysql.connect(host=<span class="string">'localhost'</span>,user=<span class="string">'root'</span>,password=<span class="string">'123456'</span>,port=<span class="number">3306</span>,db=<span class="string">'spiders'</span>)</span><br><span class="line">cursor = db.cursor() <span class="comment"># 操作的游标</span></span><br><span class="line">cursor.execute(<span class="string">'select version()'</span>) <span class="comment"># 执行sql语句的方法</span></span><br><span class="line">data = cursor.fetchone() <span class="comment"># 获取第一行的数据 就是版本号</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'版本号'</span>, data)</span><br><span class="line"><span class="comment"># 将爬虫爬取的租房信息存储到数据库中</span></span><br><span class="line">sql = <span class="string">'CREATE TABLE IF NOT EXISTS house (location VARCHAR(255) NOT NULL,detail VARCHAR (255) NOT NULL,price INT NOT NULL\</span></span><br><span class="line"><span class="string">        ,PRIMARY KEY (location))'</span></span><br><span class="line">cursor.execute(sql)</span><br><span class="line"><span class="comment"># 添加多条数据在数据库中</span></span><br><span class="line">db.close()</span><br></pre></td></tr></table></figure>
+
 <p>建立后就会发现在spider数据库下多出了一张表<br><a href="https://imgchr.com/i/k6bQzT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/02/18/k6bQzT.png" alt="k6bQzT.png"></a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pymysql.err.InternalError: (<span class="number">1046</span>, <span class="string">'No database selected'</span>)</span><br></pre></td></tr></table></figure>
+
 <p>出现这种错误，表明本地没有这个数据库</p>
 
       
@@ -708,7 +712,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

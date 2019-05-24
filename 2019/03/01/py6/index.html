@@ -549,7 +549,9 @@
 
       
         <h1 id="pandas基础"><a href="#pandas基础" class="headerlink" title="pandas基础"></a>pandas基础<a id="more"></a></h1><h2 id="pandas的loc函数"><a href="#pandas的loc函数" class="headerlink" title="pandas的loc函数"></a>pandas的loc函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># loc函数用于使用标题索引行列</span></span><br><span class="line"><span class="comment"># 当为连续的行列时</span></span><br><span class="line">.loc[<span class="string">'行'</span>,<span class="string">'列'</span>]</span><br><span class="line">.loc[:,<span class="string">'A'</span>:<span class="string">'B'</span>] <span class="comment"># 索引AB列</span></span><br><span class="line">.loc[<span class="string">'a'</span>:<span class="string">'b'</span>,:] <span class="comment"># 索引ab行</span></span><br><span class="line">.loc[<span class="string">'a'</span>:<span class="string">'b'</span>,<span class="string">'A'</span>:<span class="string">'B'</span>] <span class="comment"># 索引ab行和AB列</span></span><br><span class="line"><span class="comment">#当不连续的行列时</span></span><br><span class="line">.loc[[<span class="string">'c'</span>:<span class="string">'f'</span>],[<span class="string">'C'</span>:<span class="string">'F'</span>]] <span class="comment"># 取c到f行 C到F列</span></span><br><span class="line">.loc[[<span class="string">'c'</span>,<span class="string">'f'</span>],[<span class="string">'C'</span>,<span class="string">'F'</span>]] <span class="comment"># 取c和f行 C和F列</span></span><br><span class="line"><span class="comment"># 注意区分：和，的区别</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="pandas的iloc函数"><a href="#pandas的iloc函数" class="headerlink" title="pandas的iloc函数"></a>pandas的iloc函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用行号列号进行索引注意起始位为0</span></span><br><span class="line">.iloc[:,<span class="number">0</span>:<span class="number">2</span>] <span class="comment"># 取前两列</span></span><br><span class="line">.iloc[<span class="number">0</span>:<span class="number">2</span>,:] <span class="comment"># 取前两行</span></span><br><span class="line"><span class="comment"># 不连续时</span></span><br><span class="line">.iloc[[<span class="number">0</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">3</span>] <span class="comment"># 取1,3行 1,4列</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -702,7 +704,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

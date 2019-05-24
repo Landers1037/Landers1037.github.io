@@ -548,13 +548,19 @@
       
 
       
-        <h1 id="常见的编码问题"><a href="#常见的编码问题" class="headerlink" title="常见的编码问题"></a>常见的编码问题</h1><h2 id="中文字符"><a href="#中文字符" class="headerlink" title="中文字符"></a>中文字符</h2><p>中文字符属于GBK编码字符集，在爬虫保存的时候数据一般保存为utf-8的形式，这个时候文件里的中文会出现乱码，通常使用以下的几种办法解决<br><a id="more"></a></p>
+        <h1 id="常见的编码问题"><a href="#常见的编码问题" class="headerlink" title="常见的编码问题"></a>常见的编码问题</h1><h2 id="中文字符"><a href="#中文字符" class="headerlink" title="中文字符"></a>中文字符</h2><p>中文字符属于GBK编码字符集，在爬虫保存的时候数据一般保存为utf-8的形式，这个时候文件里的中文会出现乱码，通常使用以下的几种办法解决</p>
+<a id="more"></a>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把utf-8保存为gbk格式</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ReadFile</span><span class="params">(filePath,encoding=<span class="string">"utf-8"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> codecs.open(filePath,<span class="string">"r"</span>,encoding) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">return</span> f.read()</span><br><span class="line"> <span class="comment">#通过utf-8格式读取文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">WriteFile</span><span class="params">(filePath,u,encoding=<span class="string">"gbk"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> codecs.open(filePath,<span class="string">"w"</span>,encoding) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(u)</span><br><span class="line"> <span class="comment">#文件保存为gbk</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">UTF8_to_GBK</span><span class="params">(src,dst)</span>:</span></span><br><span class="line">    content = ReadFile(src,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">    WriteFile(dst,content,encoding=<span class="string">"gbk"</span>)</span><br></pre></td></tr></table></figure>
+
 <p>不想通过读取的方式转换可以直接把数据保存为gbk的格式<br>通常转码的时候会遇到的错误</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnicodeEncodeError: <span class="string">'gbk'</span> codec can<span class="string">'t encode character u'</span>\xa0<span class="string">' in position 4813: illegal multibyte sequence</span></span><br></pre></td></tr></table></figure>
+
 <p>使用编码gbk超集解决</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encoding=gkb18030</span><br><span class="line">error=<span class="string">'igonre'</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="ascii码"><a href="#ascii码" class="headerlink" title="ascii码"></a>ascii码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ord(<span class="string">'a'</span>) <span class="comment"># 返回字母a的ascii</span></span><br><span class="line">chr(<span class="number">100</span>) <span class="comment"># 返回100 int对应的字符</span></span><br><span class="line">unichr(<span class="number">100</span>) <span class="comment"># 返回对应的unicode</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -707,7 +713,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

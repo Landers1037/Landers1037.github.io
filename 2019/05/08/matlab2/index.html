@@ -550,6 +550,7 @@
       
         <h2 id="计算1到100间的质数"><a href="#计算1到100间的质数" class="headerlink" title="计算1到100间的质数"></a>计算1到100间的质数<a id="more"></a></h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1000</span> : <span class="number">1020</span>  <span class="comment">%外层循环，i的初值为2，终值为100</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">1020</span>  <span class="comment">%内层循环，j的初值为2，终值为100</span></span><br><span class="line">        <span class="keyword">if</span>(~<span class="built_in">mod</span>(<span class="built_in">i</span>,<span class="built_in">j</span>))  <span class="comment">% i除以j取余后再取反</span></span><br><span class="line">            <span class="keyword">break</span>; <span class="comment">% 跳出循环</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">j</span> &gt; (<span class="built_in">i</span>/<span class="built_in">j</span>)) <span class="comment">%检查是否有其他除数</span></span><br><span class="line">        fprintf(<span class="string">'%d is prime \n'</span>,<span class="built_in">i</span>); <span class="comment">%输出素数</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
+
       
     </div>
 
@@ -701,7 +702,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

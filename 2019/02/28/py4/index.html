@@ -549,9 +549,13 @@
 
       
         <h1 id="常用的python对于字符串处理"><a href="#常用的python对于字符串处理" class="headerlink" title="常用的python对于字符串处理"></a>常用的python对于字符串处理<a id="more"></a></h1><h2 id="format"><a href="#format" class="headerlink" title=".format"></a>.format</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于格式化字符串</span></span><br><span class="line"><span class="string">"&#123;0&#125;&#123;1&#125;&#123;0&#125;"</span>.format(<span class="string">'i'</span>,<span class="string">'love'</span>,<span class="string">'u'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ilovei</span><br><span class="line">&#123;<span class="number">0</span>:d&#125; <span class="comment">#格式化为整数</span></span><br><span class="line">&#123;<span class="number">0</span>:s&#125; <span class="comment">#格式化为字符串</span></span><br><span class="line">&#123;<span class="number">0</span>:<span class="number">3</span>f&#125; <span class="comment">#保留到小数点后三位浮点数</span></span><br><span class="line"><span class="comment"># 分号： 是用来分隔字符和格式化符的</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="join"><a href="#join" class="headerlink" title=".join"></a>.join</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于拼接符号</span></span><br><span class="line"><span class="string">','</span>.join(<span class="string">'i'</span>,<span class="string">'love'</span>,<span class="string">'u'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>i,love,u</span><br><span class="line"><span class="comment"># 使用，来拼接字符串</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="split"><a href="#split" class="headerlink" title=".split"></a>.split</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于分割字符串</span></span><br><span class="line"><span class="string">'''ilove'''</span>.split() <span class="comment"># 默认使用空格分割</span></span><br><span class="line"><span class="string">''''''</span>.split(<span class="string">','</span>,<span class="number">2</span>) <span class="comment"># 使用逗号分割，分割两次，即拆分为3个字符串</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="strip"><a href="#strip" class="headerlink" title=".strip"></a>.strip</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除不需要的字符</span></span><br><span class="line"><span class="string">''</span>.strip() <span class="comment"># 删除两侧的空格</span></span><br><span class="line">.rstrip() <span class="comment"># 删除右侧的空格</span></span><br><span class="line">.lstrip()<span class="comment"># 删除左侧的空格</span></span><br><span class="line">.strip(<span class="string">'$'</span>) <span class="comment"># 传入参数，删除$</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -704,7 +708,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -596,21 +596,18 @@ function remove_submenu() {
 if (is_admin()){
     //删除子菜单
     add_action(&apos;admin_init&apos;,&apos;remove_submenu&apos;);
-}
-</code></pre><p>屏蔽后台更新</p>
+}</code></pre><p>屏蔽后台更新</p>
 <pre><code>function wp_hide_nag() {
     remove_action( &apos;admin_notices&apos;, &apos;update_nag&apos;, 3 );
 }
-add_action(&apos;admin_menu&apos;,&apos;wp_hide_nag&apos;);
-</code></pre><p>屏蔽后台显示和提示帮助</p>
+add_action(&apos;admin_menu&apos;,&apos;wp_hide_nag&apos;);</code></pre><p>屏蔽后台显示和提示帮助</p>
 <pre><code>function remove_screen_options(){ return false;}
     add_filter(&apos;screen_options_show_screen&apos;, &apos;remove_screen_options&apos;);
     add_filter( &apos;contextual_help&apos;, &apos;wpse50723_remove_help&apos;, 999, 3 );
     function wpse50723_remove_help($old_help, $screen_id, $screen){
     $screen-&gt;remove_help_tabs();
     return $old_help;
-}
-</code></pre><p>屏蔽主页模块</p>
+}</code></pre><p>屏蔽主页模块</p>
 <pre><code>function example_remove_dashboard_widgets() {
     // Globalize the metaboxes array, this holds all the widgets for wp-admin
     global $wp_meta_boxes;
@@ -631,20 +628,17 @@ add_action(&apos;admin_menu&apos;,&apos;wp_hide_nag&apos;);
     // 以下这一行代码将删除 &quot;概况&quot; 模块
     unset($wp_meta_boxes[&apos;dashboard&apos;][&apos;normal&apos;][&apos;core&apos;][&apos;dashboard_right_now&apos;]);
 }
-add_action(&apos;wp_dashboard_setup&apos;, &apos;example_remove_dashboard_widgets&apos; );
-</code></pre><p>屏蔽后台页脚版本</p>
+add_action(&apos;wp_dashboard_setup&apos;, &apos;example_remove_dashboard_widgets&apos; );</code></pre><p>屏蔽后台页脚版本</p>
 <pre><code>function change_footer_admin () {return &apos;&apos;;}
 add_filter(&apos;admin_footer_text&apos;, &apos;change_footer_admin&apos;, 9999);
 function change_footer_version() {return &apos;&apos;;}
-add_filter( &apos;update_footer&apos;, &apos;change_footer_version&apos;, 9999);
-</code></pre><p>屏蔽后台wp的logo</p>
+add_filter( &apos;update_footer&apos;, &apos;change_footer_version&apos;, 9999);</code></pre><p>屏蔽后台wp的logo</p>
 <pre><code>function annointed_admin_bar_remove() {
         global $wp_admin_bar;
         /* Remove their stuff */
         $wp_admin_bar-&gt;remove_menu(&apos;wp-logo&apos;);
 }
-add_action(&apos;wp_before_admin_bar_render&apos;, &apos;annointed_admin_bar_remove&apos;, 0);
-</code></pre>
+add_action(&apos;wp_before_admin_bar_render&apos;, &apos;annointed_admin_bar_remove&apos;, 0);</code></pre>
       
     </div>
 
@@ -789,7 +783,7 @@ add_action(&apos;wp_before_admin_bar_render&apos;, &apos;annointed_admin_bar_rem
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

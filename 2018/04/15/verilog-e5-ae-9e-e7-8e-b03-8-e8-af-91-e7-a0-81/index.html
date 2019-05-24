@@ -548,7 +548,10 @@
 
       
         <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> yima38(A,en,Q</span><br><span class="line">    );</span><br><span class="line"><span class="keyword">input</span> [<span class="number">2</span>:<span class="number">0</span>]A;</span><br><span class="line"><span class="keyword">input</span> en;</span><br><span class="line"><span class="keyword">output</span> <span class="keyword">reg</span>[<span class="number">7</span>:<span class="number">0</span>] Q;</span><br><span class="line"><span class="keyword">integer</span> k;</span><br><span class="line"><span class="keyword">always</span>@(A,en)<span class="keyword">begin</span></span><br><span class="line">Q=<span class="number">8'b1111_1111</span>;</span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;=<span class="number">7</span>;k=k+<span class="number">1</span>)</span><br><span class="line">   <span class="keyword">if</span>((en==<span class="number">1</span>)&amp;&amp;A==k)</span><br><span class="line">	   Q[k]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">      Q[k]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>​    <a id="more"></a><br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure></p>
+
+<p>​    <a id="more"></a></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
 <p>3-8线译码器打包 <a href="https://drive.google.com/open?id=1MzxKVJcPlgS_2bPA37XZuT_gkzn3nrbZ" target="_blank" rel="noopener">https://drive.google.com/open?id=1MzxKVJcPlgS_2bPA37XZuT_gkzn3nrbZ</a></p>
 
       
@@ -687,7 +690,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -550,9 +550,9 @@
       
         <p><strong>实验代码</strong></p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">timescale</span> 1ns / 1ps</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Company: </span></span><br><span class="line"><span class="comment">// Engineer: </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Create Date:    17:55:55 12/10/2017 </span></span><br><span class="line"><span class="comment">// Design Name: </span></span><br><span class="line"><span class="comment">// Module Name:    mux2to1 </span></span><br><span class="line"><span class="comment">// Project Name: </span></span><br><span class="line"><span class="comment">// Target Devices: </span></span><br><span class="line"><span class="comment">// Tool versions: </span></span><br><span class="line"><span class="comment">// Description: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Dependencies: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Revision: </span></span><br><span class="line"><span class="comment">// Revision 0.01 - File Created</span></span><br><span class="line"><span class="comment">// Additional Comments: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="keyword">module</span> mux2to1(d0,d1,s,q  );</span><br><span class="line">	<span class="keyword">input</span> d0,d1,s;</span><br><span class="line">	<span class="keyword">output</span> <span class="keyword">reg</span> q;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">always</span>@(d0,d1,s)<span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">if</span>(s==<span class="number">1</span>) q&lt;=d1;</span><br><span class="line">	<span class="keyword">else</span> q&lt;=d0;</span><br><span class="line">	<span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
 <p>​         </p>
-<pre><code>endmodule
-</code></pre>
+<pre><code>endmodule</code></pre>
       
     </div>
 
@@ -697,7 +697,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -550,10 +550,15 @@
       
         <h1 id="环境ubuntu16-04"><a href="#环境ubuntu16-04" class="headerlink" title="环境ubuntu16.04"></a>环境ubuntu16.04</h1><h2 id="下载gcc编译器"><a href="#下载gcc编译器" class="headerlink" title="下载gcc编译器"></a>下载gcc编译器</h2><p><a href="https://releases.linaro.org/components/toolchain/binaries/6.1-2016.08/arm-linux-gnueabihf/gcc-linaro-6.1.1-2016.08-x86_64_arm-linux-gnueabihf.tar.xz" target="_blank" rel="noopener">官网地址</a></p>
 <h2 id="放到ubuntu的下载目录下"><a href="#放到ubuntu的下载目录下" class="headerlink" title="放到ubuntu的下载目录下"></a>放到ubuntu的下载目录下</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#右键 提取到此处</span></span><br><span class="line">得到如下文件夹 gcc-linaro-6.1.1-2016.08-x86_64_arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <h2 id="新建一个文件夹放置gcc"><a href="#新建一个文件夹放置gcc" class="headerlink" title="新建一个文件夹放置gcc"></a>新建一个文件夹放置gcc</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/<span class="built_in">local</span>/arm-gcc</span><br><span class="line"><span class="comment">#在下载目录下打开终端</span></span><br><span class="line">sudo mv gcc-linaro-6.1.1-2016.08-x86_64_arm-linux-gnueabihf /usr/<span class="built_in">local</span>/arm-gcc</span><br><span class="line"><span class="comment">#把gcc文件夹移动过去</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/bash.bashrc</span><br><span class="line"><span class="comment">#写入</span></span><br><span class="line"><span class="comment"># Add ARM toolschain path</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -d /usr/<span class="built_in">local</span>/arm-gcc/gcc-linaro-6.1.1-2016.08-x86_64_arm-linux-gnueabihf ] ; <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line">    PATH=/usr/<span class="built_in">local</span>/arm-gcc/gcc-linaro-6.1.1-2016.08-x86_64_arm-linux-gnueabihf/bin:<span class="string">"<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/arm-gcc/gcc-linaro-6.1.1-2016.08-x86_64_arm-linux-gnueabihf</span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE=arm-linux-gnueabihf-</span><br><span class="line"></span><br><span class="line"><span class="comment">#ctrl+x 关闭 y 确定保存</span></span><br><span class="line"><span class="built_in">source</span> /etc/bash.bashrc <span class="comment">#变量生效</span></span><br><span class="line">arm-linux-gnueabihf-gcc -v <span class="comment">#检验是否生效</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="成功信息"><a href="#成功信息" class="headerlink" title="成功信息"></a>成功信息</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Using</span> <span class="string">built-in</span> <span class="string">specs.</span></span><br><span class="line"><span class="string">COLLECT_GCC=arm-linux-gnueabihf-gcc</span></span><br><span class="line"><span class="string">COLLECT_LTO_WRAPPER=/usr/local/arm-gcc/gcc-linaro-6.1.1-2016.08-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/6.1.1/lto-wrapper</span></span><br><span class="line"><span class="attr">Target:</span> <span class="string">arm-linux-gnueabihf</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -706,7 +711,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

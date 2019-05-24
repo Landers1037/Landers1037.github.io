@@ -549,8 +549,11 @@
 
       
         <h2 id="开启匿名上传下载"><a href="#开启匿名上传下载" class="headerlink" title="开启匿名上传下载"></a>开启匿名上传下载</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">anon_upload_enable=YES</span></span><br><span class="line"><span class="comment"># Uncomment this if you want the anonymous FTP user to be able to create</span></span><br><span class="line"><span class="comment"># new directories.</span></span><br><span class="line"><span class="string">anon_mkdir_write_enable=YES</span></span><br><span class="line"><span class="string">anon_other_write_enable=YES</span> <span class="comment">#这句话不加匿名用户不能重命名和修改子目录</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <h2 id="解决匿名用户上传后不能直接下载"><a href="#解决匿名用户上传后不能直接下载" class="headerlink" title="解决匿名用户上传后不能直接下载"></a>解决匿名用户上传后不能直接下载</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">chown_uploads=NO</span></span><br><span class="line"><span class="comment">#匿名用户上传文件的权限问题，修改后文件权限所属从root改为ftp</span></span><br><span class="line"><span class="comment">#根本解决问题，修改umask</span></span><br><span class="line"><span class="string">默认umask为022，最终权限为600，修改umask为000，最终权限为666</span></span><br></pre></td></tr></table></figure>
+
 <p>## </p>
 
       
@@ -706,7 +709,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

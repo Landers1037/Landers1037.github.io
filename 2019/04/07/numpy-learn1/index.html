@@ -549,10 +549,13 @@
 
       
         <h1 id="版本：Numpy1-6-01"><a href="#版本：Numpy1-6-01" class="headerlink" title="版本：Numpy1.6.01"></a>版本：Numpy1.6.01</h1><p>在对新版本的numpy库进行打包的时候，经常会出现导入包错误，最终运行时提醒</p>
-<p><code>no module name numpy.core.***</code><br><a id="more"></a></p>
+<p><code>no module name numpy.core.***</code></p>
+<a id="more"></a>
+
 <p>往往是由于numpy的版本出现问题，对numpy降级或更新，对python自带的setuptools进行更新</p>
 <p>最简单的解决办法，在需要打包的py脚本中导入缺失的包</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy.core._dtype_ctypes</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -705,7 +708,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">173</span>
+                    <span class="site-state-item-count">175</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
