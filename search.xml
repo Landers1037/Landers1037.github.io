@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[docker的push操作]]></title>
+    <url>%2F2019%2F05%2F25%2Fdocker-push%2F</url>
+    <content type="text"><![CDATA[docker的push有许多版本当前只建立在push到远程的docker hub仓库 首先docker desktop要登录到docker hub上 加入本地刚刚生成了一个新的镜像名为myubuntu，标签为latest我们使用docker tag为其修改远程仓库的标签 docker tag ubuntu:latest landers1037/ubuntu:test1.0 操作是 把本地的ubuntu:latest镜像tag修改为远程仓库的ubuntu:test1.0其中ubuntu是远程仓库名，没有会自动创建，test1.0是tag docker images 查看本地镜像是否应用更改 docker push landers1037/ubuntu:test1.0 开始推送到docker hub]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python定时脚本]]></title>
     <url>%2F2019%2F05%2F24%2Fpython-ontime%2F</url>
     <content type="text"><![CDATA[在服务器上运行python定时脚本基于python3.7 centos7.3 定时脚本的写法我是用time库和schedule库 12345678910111213141516import scheduleimport time def job(): print("hello world") schedule.every(10).minutes.do(job)schedule.every().hour.do(job)schedule.every().day.at("10:30").do(job)schedule.every(5).to(10).days.do(job)schedule.every().monday.do(job)schedule.every().wednesday.at("13:15").do(job) while True: schedule.run_pending() time.sleep(1) 每隔十分钟执行一次任务 每隔一小时执行一次任务 每天的10:30执行一次任务 每隔5到10天执行一次任务 每周一的这个时候执行一次任务 每周三13:15执行一次任务 run_pending：运行所有可以运行的任务 让脚本运行在后台12python3 test.py &amp; #运行在后台，退出终端即停止nohup python3 test.py &amp; #忽略远程连接终端的退出请求，一直在后台运行 查看ps -aux 查看全部后台 ps -ef |grep python3 查看python3的后台任务 关闭脚本kill PID 按照运行的PID关闭kill -9 PID 强制关闭 参考原文：https://blog.csdn.net/liao392781/article/details/80521194]]></content>
@@ -732,7 +743,7 @@
   <entry>
     <title><![CDATA[Python中的json数据]]></title>
     <url>%2F2019%2F02%2F20%2Fjson%2F</url>
-    <content type="text"><![CDATA[json数据什么是 JSON ？ JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation） JSON 是轻量级的文本数据交换格式 JSON 独立于语言 * JSON 具有自我描述性，更易理解 * JSON 使用 JavaScript 语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。 python中对json的读取123import jsonfile = open('test.json','r',encoding='utf-8')json.load(file,ensure_ascii=False) python中对json的写入123import jsonwith open('list.json','w',encoding='utf-8')as file: file.write(json.dumps(list,indent=2,ensure_ascii=False)) dump和dumps区别load和loads的区别12345678import jsona = &#123;"num":"12"&#125; #这是一个字典b = json.dumps(a) #把字典转化为strc = b #这是一个字符串d = json.loads(c) #把字符串转为字典fp = open('1.json','r')e = json.load(fp) #dump,load属于文件操作还需要传入参数,不是简单的只有json对象 注意json里有中文的时候，需要传入参数ensure_ascii=False，否则会报错]]></content>
+    <content type="text"><![CDATA[json数据什么是 JSON ？ JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation） JSON 是轻量级的文本数据交换格式 JSON 独立于语言 * JSON 具有自我描述性，更易理解 * JSON 使用 JavaScript 语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。 python中对json的读取123import jsonfile = open('test.json','r',encoding='utf-8')json.load(file) python中对json的写入123import jsonwith open('list.json','w',encoding='utf-8')as file: file.write(json.dumps(list,indent=2,ensure_ascii=False)) dump和dumps区别load和loads的区别12345678import jsona = &#123;"num":"12"&#125; #这是一个字典b = json.dumps(a) #把字典转化为strc = b #这是一个字符串d = json.loads(c) #把字符串转为字典fp = open('1.json','r')e = json.load(fp) #dump,load属于文件操作还需要传入参数,不是简单的只有json对象 注意使用dump函数转为json的时候，json里有中文的时候，需要传入参数ensure_ascii=False，否则会报错。因为dump序列化时，会将中文转码]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -1898,7 +1909,7 @@
   <entry>
     <title><![CDATA[二维码打赏]]></title>
     <url>%2F2016%2F01%2F01%2Findex_qr%2F</url>
-    <content type="text"><![CDATA[** 请支持作者吧！** ![1](/images/alipay.png) ![2](/images/wechatpay.png)]]></content>
+    <content type="text"><![CDATA[请支持作者吧]]></content>
   </entry>
   <entry>
     <title><![CDATA[感谢]]></title>
