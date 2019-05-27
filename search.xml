@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python获取系统状态信息]]></title>
     <url>%2F2019%2F05%2F26%2Fpython-get-status%2F</url>
-    <content type="text"><![CDATA[使用python获取系统的状态信息依赖os，psutil库 12345678910111213141516171819202122232425262728293031323334353637383940414243import psutil#获取内存信息mem = psutil.virtual_memory()print(mem.total) #系统内存容量print(mem.used) #使用的内存print(mem.total-mem.used) #剩余可用内存#cpu信息cpu_status = psutil.cpu_times()print(cpu_status.user) #用户使用情况print(cpu_status.system)print(cpu_status.idle)#磁盘情况disk_status = psutil.disk_partitions() #磁盘信息#根据磁盘名称获取信息for item in disk_status: p = item.device disk = psutil.disk_usage(p) disk.total #磁盘容量 disk.used #使用容量 #当前用户信息user_status = psutil.users()#查看进程信息pids = psutil.pids() #全部进程的pidproces = []for pid in pids: #单个进程 p = psutil.Process(pid) p_info = [ p.name(), # 进程的名字 p.exe(), # 进程文件位置 p.cwd(), # 进程的工作目录的绝对路径 p.status(), # 进程的状态 jctime, # 进程的创建时间 p.uids(), # 进程的uid信息 p.gids(), # 进程的gid信息 p.cpu_times(), # cup时间信息 p.memory_info(),# 进程内存的利用率 p.io_counters() # 进程的io读写信息 ] proces.append(p_info) 获取当前程序的pid 1p=psutil.Process(os.getpid()) 以百分比显示资源占用情况 12print(str(psutil.virtual_memory().percent)+'%') #内存使用情况print (str(psutil.cpu_percent(0))+'%') #cpu使用情况]]></content>
+    <content type="text"><![CDATA[使用python获取系统的状态信息依赖os，psutil库 12345678910111213141516171819202122232425262728293031323334353637383940414243import psutil#获取内存信息mem = psutil.virtual_memory()print(mem.total) #系统内存容量print(mem.used) #使用的内存print(mem.total-mem.used) #剩余可用内存#cpu信息cpu_status = psutil.cpu_times()print(cpu_status.user) #用户使用情况print(cpu_status.system)print(cpu_status.idle)#磁盘情况disk_status = psutil.disk_partitions() #磁盘信息#根据磁盘名称获取信息for item in disk_status: p = item.device disk = psutil.disk_usage(p) disk.total #磁盘容量 disk.used #使用容量 #当前用户信息user_status = psutil.users()#查看进程信息pids = psutil.pids() #全部进程的pidproces = []for pid in pids: #单个进程 p = psutil.Process(pid) p_info = [ p.name(), # 进程的名字 p.exe(), # 进程文件位置 p.cwd(), # 进程的工作目录的绝对路径 p.status(), # 进程的状态 jctime, # 进程的创建时间 p.uids(), # 进程的uid信息 p.gids(), # 进程的gid信息 p.cpu_times(), # cup时间信息 p.memory_info(),# 进程内存的利用率 p.io_counters() # 进程的io读写信息 ] proces.append(p_info) 获取当前程序的pid 1p=psutil.Process(os.getpid()) 以百分比显示资源占用情况 12print(str(psutil.virtual_memory().percent)+'%') #内存使用情况print(str(psutil.cpu_percent(0))+'%') #cpu使用情况]]></content>
       <categories>
         <category>linux</category>
         <category>Python</category>
@@ -1728,8 +1728,8 @@
         <category>资源下载</category>
       </categories>
       <tags>
-        <tag>下载</tag>
         <tag>技术</tag>
+        <tag>下载</tag>
         <tag>破解</tag>
       </tags>
   </entry>
@@ -1914,8 +1914,8 @@
         <category>网络技术</category>
       </categories>
       <tags>
-        <tag>下载</tag>
         <tag>技术</tag>
+        <tag>下载</tag>
         <tag>chrome</tag>
       </tags>
   </entry>
