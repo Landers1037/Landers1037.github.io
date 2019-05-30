@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nginx上开启ssl]]></title>
+    <url>%2F2019%2F05%2F30%2Fnginx-ssl%2F</url>
+    <content type="text"><![CDATA[在nginx上开启ssl，完成网站的http跳转https 申请ssl证书在阿里云或者腾讯云上申请免费的ssl证书，不想备案就在lets’encrypt上申请 最后得到的是三个文件，需要的是certificate.crt和private.key文件 放到/etc/nginx/cert目录下，没有此目录需要自己创建 开启443端口参考前面的firewall使用 配置ssl在/etc/nginx/conf.d下新建一个ssl.conf文件填入一下信息 12345678910111213141516server &#123; listen 443; server_name xxx.com; // 你的域名 ssl on; root /var/www; // 网站的站点文件夹 index index.html index.htm;// 上面配置的文件夹里面的index.html ssl_certificate /etc/nginx/cert/cert.crt;// 改成你的证书的名字 ssl_certificate_key /etc/nginx/cert/private.key;// 你的证书的名字 ssl_session_timeout 5m; ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_prefer_server_ciphers on; location / &#123; index index.html index.htm; &#125;&#125; 开启http强制跳转https在nginx.conf中修改 12345server &#123; listen 80; server_name bjubi.com;// 你的域名 rewrite ^(.*)$ https://$host$1 permanent;&#125; 验证nginx -t 检查无误后，nginx -reload]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python获取系统状态信息]]></title>
     <url>%2F2019%2F05%2F26%2Fpython-get-status%2F</url>
     <content type="text"><![CDATA[使用python获取系统的状态信息依赖os，psutil库 12345678910111213141516171819202122232425262728293031323334353637383940414243import psutil#获取内存信息mem = psutil.virtual_memory()print(mem.total) #系统内存容量print(mem.used) #使用的内存print(mem.total-mem.used) #剩余可用内存#cpu信息cpu_status = psutil.cpu_times()print(cpu_status.user) #用户使用情况print(cpu_status.system)print(cpu_status.idle)#磁盘情况disk_status = psutil.disk_partitions() #磁盘信息#根据磁盘名称获取信息for item in disk_status: p = item.device disk = psutil.disk_usage(p) disk.total #磁盘容量 disk.used #使用容量 #当前用户信息user_status = psutil.users()#查看进程信息pids = psutil.pids() #全部进程的pidproces = []for pid in pids: #单个进程 p = psutil.Process(pid) p_info = [ p.name(), # 进程的名字 p.exe(), # 进程文件位置 p.cwd(), # 进程的工作目录的绝对路径 p.status(), # 进程的状态 jctime, # 进程的创建时间 p.uids(), # 进程的uid信息 p.gids(), # 进程的gid信息 p.cpu_times(), # cup时间信息 p.memory_info(),# 进程内存的利用率 p.io_counters() # 进程的io读写信息 ] proces.append(p_info) 获取当前程序的pid 1p=psutil.Process(os.getpid()) 以百分比显示资源占用情况 12print(str(psutil.virtual_memory().percent)+'%') #内存使用情况print(str(psutil.cpu_percent(0))+'%') #cpu使用情况]]></content>
@@ -1728,8 +1740,8 @@
         <category>资源下载</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>下载</tag>
+        <tag>技术</tag>
         <tag>破解</tag>
       </tags>
   </entry>
@@ -1914,9 +1926,9 @@
         <category>网络技术</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>下载</tag>
         <tag>chrome</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
