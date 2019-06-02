@@ -100,17 +100,17 @@
 
 
 
-  <meta name="description" content="我的Go笔记目录 基础篇 变量](./Go学习笔记1.html)  数组  字典  流程控制  函数  错误处理  总结练习   面向对象篇 对象类型 接口">
+  <meta name="description" content="Go学习笔记4 流程控制条件语句12345678func main()&amp;#123;	a := 5	if a&amp;lt;5&amp;#123;		fmt.Println(&quot;a&amp;lt;5&quot;)	&amp;#125; else&amp;#123;		fmt.Println(&quot;a&amp;gt;=5&quot;)	&amp;#125;&amp;#125;  在有返回值的函数里，有return的语句不能写在if else的判断块内，否则会找不到返回值 选择语句12345">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Landers1037">
-<meta property="og:url" content="http://landers1037.top/notes/index.html">
+<meta property="og:url" content="http://landers1037.top/notes/Go学习笔记4.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="我的Go笔记目录 基础篇 变量](./Go学习笔记1.html)  数组  字典  流程控制  函数  错误处理  总结练习   面向对象篇 对象类型 接口">
+<meta property="og:description" content="Go学习笔记4 流程控制条件语句12345678func main()&amp;#123;	a := 5	if a&amp;lt;5&amp;#123;		fmt.Println(&quot;a&amp;lt;5&quot;)	&amp;#125; else&amp;#123;		fmt.Println(&quot;a&amp;gt;=5&quot;)	&amp;#125;&amp;#125;  在有返回值的函数里，有return的语句不能写在if else的判断块内，否则会找不到返回值 选择语句12345">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-02T15:50:53.143Z">
+<meta property="og:updated_time" content="2019-06-01T12:59:54.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Landers1037">
-<meta name="twitter:description" content="我的Go笔记目录 基础篇 变量](./Go学习笔记1.html)  数组  字典  流程控制  函数  错误处理  总结练习   面向对象篇 对象类型 接口">
+<meta name="twitter:description" content="Go学习笔记4 流程控制条件语句12345678func main()&amp;#123;	a := 5	if a&amp;lt;5&amp;#123;		fmt.Println(&quot;a&amp;lt;5&quot;)	&amp;#125; else&amp;#123;		fmt.Println(&quot;a&amp;gt;=5&quot;)	&amp;#125;&amp;#125;  在有返回值的函数里，有return的语句不能写在if else的判断块内，否则会找不到返回值 选择语句12345">
 
 
 
@@ -118,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="http://landers1037.top/notes/">
+  <link rel="canonical" href="http://landers1037.top/notes/Go学习笔记4">
 
 
 
@@ -470,27 +470,30 @@
       <div class="post-body">
         
         
-          <h1 id="我的Go笔记"><a href="#我的Go笔记" class="headerlink" title="我的Go笔记"></a><center>我的Go笔记</center></h1><p><font size="5"><strong>目录</strong></font></p>
-<h4 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h4><ul>
-<li><p>变量](./Go学习笔记1.html)</p>
-</li>
-<li><p><a href="./Go学习笔记2.html">数组</a></p>
-</li>
-<li><p><a href="./Go学习笔记3.html">字典</a></p>
-</li>
-<li><p><a href="./Go学习笔记4.html">流程控制</a></p>
-</li>
-<li><p><a href="./Go学习笔记5.html">函数</a></p>
-</li>
-<li><p><a href="./Go学习笔记6.html">错误处理</a></p>
-</li>
-<li><p><a href="./Go学习笔记7-练习.html">总结练习</a></p>
-</li>
-</ul>
-<h4 id="面向对象篇"><a href="#面向对象篇" class="headerlink" title="面向对象篇"></a>面向对象篇</h4><ul>
-<li><a href="./Go学习笔记8.html">对象类型</a></li>
-<li><a href="./Gonote9.html">接口</a></li>
-</ul>
+          <p>Go学习笔记4</p>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	a := <span class="number">5</span></span><br><span class="line">	<span class="keyword">if</span> a&lt;<span class="number">5</span>&#123;</span><br><span class="line">		fmt.Println(<span class="string">"a&lt;5"</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">		fmt.Println(<span class="string">"a&gt;=5"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在有返回值的函数里，有return的语句不能写在if else的判断块内，否则会找不到返回值</p>
+<h4 id="选择语句"><a href="#选择语句" class="headerlink" title="选择语句"></a>选择语句</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span>  = <span class="number">2</span></span><br><span class="line">	<span class="keyword">switch</span> i &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		fmt.Println(<span class="string">"out is 1"</span>)</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		fmt.Println(<span class="string">"out is 2"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在switch后面甚至不需要写表达式，直接把判断条件放在case的后面即可</p>
+<p>在case中添加fallthrough后，会紧接着执行下一个case</p>
+<p>不设定switch的条件表达式，此时的switch语句与if else语句的逻辑一致</p>
+<h4 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum := <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i:=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++&#123;</span><br><span class="line">    sum +=<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在go中没有<code>while</code>和<code>do while</code>语句，考虑无限循环的情况如下写法</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">    sum++</span><br><span class="line">    <span class="keyword">if</span> sum &gt;<span class="number">100</span>&#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for的条件表达式里可以多重赋值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i ,j:=<span class="number">0</span>,i&lt;j;i,j = i+<span class="number">1</span>,j<span class="number">-1</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>go中的多重赋值不能以逗号为间隔，写多个赋值语句，必须使用平行赋值的方法来初始化多个变量</p>
+<h4 id="break-标签高级使用"><a href="#break-标签高级使用" class="headerlink" title="break 标签高级使用"></a>break 标签高级使用</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j:=<span class="number">0</span>;j&lt;<span class="number">5</span>;j++&#123;</span><br><span class="line">    <span class="keyword">if</span> j == <span class="number">3</span>&#123;</span><br><span class="line">        <span class="keyword">break</span> JLoop:</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">JLoop:</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>JLoop:</code>标签可以设定break时的跳出点，具体跳出哪一个for循环</p>
+<h4 id="跳转语句"><a href="#跳转语句" class="headerlink" title="跳转语句"></a>跳转语句</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    i:=<span class="number">0</span></span><br><span class="line">    HERE:</span><br><span class="line">    i++</span><br><span class="line">    <span class="keyword">if</span> i&lt;<span class="number">10</span>&#123;</span><br><span class="line">        <span class="keyword">goto</span> HERE:</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同break类似设定一个跳转标签</p>
 
         
       </div>
@@ -844,7 +847,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我的Go笔记"><span class="nav-number">1.</span> <span class="nav-text">我的Go笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础篇"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">基础篇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象篇"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">面向对象篇</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">1.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#条件语句"><span class="nav-number">1.1.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择语句"><span class="nav-number">1.2.</span> <span class="nav-text">选择语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环语句"><span class="nav-number">1.3.</span> <span class="nav-text">循环语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break-标签高级使用"><span class="nav-number">1.4.</span> <span class="nav-text">break 标签高级使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳转语句"><span class="nav-number">1.5.</span> <span class="nav-text">跳转语句</span></a></li></ol></li></ol></div>
             
 
           </div>
