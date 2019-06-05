@@ -100,17 +100,17 @@
 
 
 
-  <meta name="description" content="Go学习笔记6 错误处理go提供error接口，当需要打印错误信息时只需要调用该接口 12345678910111213func (e *Patherror) Error() string&amp;#123;	return e.op + e.path + e.err.Error()&amp;#125;func Stat(name string)(fi FileInfo,err error)&amp;#123;	var s">
+  <meta name="description" content="Golang学习笔记 golang的变量对于go静态语言，其中的变量定义类似于c语言的变量定义，但是提供更多的变量类型 12345var num intnum = 10var num1 int = 10//使用关键字var构建变量，等效于使用符号:=num2 := 12  多重变量赋值123//go天生支持多变量的赋值i ,j = j ,i //直接交换两个值，而不需要中间变量var i ,j i">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Landers1037">
-<meta property="og:url" content="http://landers1037.top/notes/Go学习笔记6.html">
+<meta property="og:url" content="http://landers1037.top/notes/gonote1.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="Go学习笔记6 错误处理go提供error接口，当需要打印错误信息时只需要调用该接口 12345678910111213func (e *Patherror) Error() string&amp;#123;	return e.op + e.path + e.err.Error()&amp;#125;func Stat(name string)(fi FileInfo,err error)&amp;#123;	var s">
+<meta property="og:description" content="Golang学习笔记 golang的变量对于go静态语言，其中的变量定义类似于c语言的变量定义，但是提供更多的变量类型 12345var num intnum = 10var num1 int = 10//使用关键字var构建变量，等效于使用符号:=num2 := 12  多重变量赋值123//go天生支持多变量的赋值i ,j = j ,i //直接交换两个值，而不需要中间变量var i ,j i">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-01T13:00:27.315Z">
+<meta property="og:updated_time" content="2019-06-01T03:26:55.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Landers1037">
-<meta name="twitter:description" content="Go学习笔记6 错误处理go提供error接口，当需要打印错误信息时只需要调用该接口 12345678910111213func (e *Patherror) Error() string&amp;#123;	return e.op + e.path + e.err.Error()&amp;#125;func Stat(name string)(fi FileInfo,err error)&amp;#123;	var s">
+<meta name="twitter:description" content="Golang学习笔记 golang的变量对于go静态语言，其中的变量定义类似于c语言的变量定义，但是提供更多的变量类型 12345var num intnum = 10var num1 int = 10//使用关键字var构建变量，等效于使用符号:=num2 := 12  多重变量赋值123//go天生支持多变量的赋值i ,j = j ,i //直接交换两个值，而不需要中间变量var i ,j i">
 
 
 
@@ -118,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="http://landers1037.top/notes/Go学习笔记6">
+  <link rel="canonical" href="http://landers1037.top/notes/gonote1">
 
 
 
@@ -470,20 +470,53 @@
       <div class="post-body">
         
         
-          <p>Go学习笔记6</p>
-<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>go提供error接口，当需要打印错误信息时只需要调用该接口</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *Patherror)</span> <span class="title">Error</span><span class="params">()</span> <span class="title">string</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> e.op + e.path + e.err.Error()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Stat</span><span class="params">(name <span class="keyword">string</span>)</span><span class="params">(fi FileInfo,err error)</span></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> stat syscall.Stat_t</span><br><span class="line">	err = syscall.Stat(name,&amp;stat)</span><br><span class="line">	<span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>,&amp;Patherror&#123;<span class="string">"stat"</span>,name,err&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> fileInfoFromStat(&amp;stat,name),<span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//注：Go1.12版本以上部分类型已经更改名称</span></span><br></pre></td></tr></table></figure>
+          <p>Golang学习笔记</p>
+<h2 id="golang的变量"><a href="#golang的变量" class="headerlink" title="golang的变量"></a>golang的变量</h2><p>对于go静态语言，其中的变量定义类似于c语言的变量定义，但是提供更多的变量类型</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num <span class="keyword">int</span></span><br><span class="line">num = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> num1 <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line"><span class="comment">//使用关键字var构建变量，等效于使用符号:=</span></span><br><span class="line">num2 := <span class="number">12</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Copy</span><span class="params">(dst ,src <span class="keyword">string</span>)</span><span class="params">(w <span class="keyword">int64</span>,err error)</span></span>&#123;</span><br><span class="line">	srcFile,err := os.Open(src)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> srcFile.Close()</span><br><span class="line">	dstFile,err := os.Create(dst)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> dstFile.Close()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> io.Copy(dstFile,srcFile)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Copy(<span class="string">"test.txt"</span>,<span class="string">"source.txt"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多重变量赋值"><a href="#多重变量赋值" class="headerlink" title="多重变量赋值"></a>多重变量赋值</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//go天生支持多变量的赋值</span></span><br><span class="line">i ,j = j ,i <span class="comment">//直接交换两个值，而不需要中间变量</span></span><br><span class="line"><span class="keyword">var</span> i ,j <span class="keyword">int</span> = <span class="number">2</span> ,<span class="number">3</span></span><br></pre></td></tr></table></figure>
 
-<p>加上<code>defer</code>关键字后，就算是后面执行copy()的时候出现了错误，<code>defer</code>后面定义的函数也会正常关闭</p>
-<p><code>defer</code>满足先进后出，所以最后一个defer最先执行</p>
-<h3 id="panic-和recover"><a href="#panic-和recover" class="headerlink" title="panic()和recover()"></a>panic()和recover()</h3><p>用于报告和处理运行时的错误</p>
-<p>panic()函数接收任何类型的参数，调用panic()函数的时候，正常函数的执行立即停止，函数会返回到调用函数，最终到达所属的goroutine，其所有正在执行的函数全部停止，打印出错误信息。</p>
-<p>recover()函数用于终止错误处理流程</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> r := <span class="built_in">recover</span>();r != <span class="literal">nil</span>&#123;</span><br><span class="line">        log.Print(<span class="string">"runntime error caught"</span>,%v,r)</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;()</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<h3 id="匿名变量"><a href="#匿名变量" class="headerlink" title="匿名变量"></a>匿名变量</h3><p>golang可以一次返回多值，但是有时候有些变量的值不需要，使用匿名变量解决</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span><span class="params">(name,age)</span></span>&#123;</span><br><span class="line">    name := <span class="string">'pig'</span></span><br><span class="line">    age := <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line">name,_ = main()</span><br><span class="line"><span class="comment">//使用占位符_就可以产生匿名变量</span></span><br></pre></td></tr></table></figure>
 
-<p>具体需要实践练习</p>
+<h2 id="golang的常量"><a href="#golang的常量" class="headerlink" title="golang的常量"></a>golang的常量</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用const关键字定义</span></span><br><span class="line"><span class="keyword">const</span> pi <span class="keyword">float64</span> = <span class="number">3.1415926</span></span><br></pre></td></tr></table></figure>
+
+<p>与变量不同的是，常量是不变的，也不可以对其进行修改，常量的赋值同样支持多值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a,b <span class="keyword">int</span> = <span class="number">0</span>,<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>当不指定类型如int的时候，默认就是无类型常量</strong></p>
+<p><font color="crimson">常量的赋值是在代码的编译期间，而不是运行期间，所以如果等号右边是函数是在运行的时候才能返回值的时候，就不会编译通过</font></p>
+<h2 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//go的原生支持true,false,iota</span></span><br><span class="line"><span class="literal">iota</span>类似一个标记，每当遇到<span class="keyword">const</span>赋值的时候就自动置<span class="number">0</span>，然后每次常量赋值自动加<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v <span class="keyword">bool</span></span><br><span class="line">v = <span class="literal">true</span></span><br><span class="line">v2 := (<span class="number">1</span>==<span class="number">2</span>) <span class="comment">//后面的推导式运算得到结果false，所以赋值给v2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//整型有许多的分类int，int8，int32等</span></span><br><span class="line">v := <span class="keyword">int32</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：不同的int型不能相互赋值，需要使用强制转换</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v1 = <span class="keyword">int8</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">var</span> v2 = <span class="keyword">int32</span> <span class="number">20</span></span><br><span class="line">v1 = in8(v2)</span><br></pre></td></tr></table></figure>
+
+<p>注意：不同的int型不能相互比较</p>
+<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">float32</span> <span class="number">2.0</span></span><br><span class="line"><span class="comment">//注意不加小数点就默认是int型</span></span><br><span class="line"><span class="keyword">var</span> f2 = <span class="keyword">float64</span> <span class="number">12.0</span></span><br></pre></td></tr></table></figure>
+
+<p>默认新建float型的时候为float64</p>
+<p>注意：不同float型不能相互赋值，需要强制转换</p>
+<h3 id="浮点数的比较"><a href="#浮点数的比较" class="headerlink" title="浮点数的比较"></a>浮点数的比较</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//因为浮点数的生成不是精确值，所以不能直接使用==比较</span></span><br><span class="line"><span class="comment">//可以使用相对误差来比较</span></span><br><span class="line">math.Fdim(f1,f2,dex) <span class="comment">//dex为误差，小于则判断相等</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v1 := <span class="number">1</span>+<span class="number">3</span>j</span><br><span class="line">v2 := <span class="built_in">complex</span>(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment">//二者结果相同</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串实质是个不能改变值的数组</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s := <span class="string">"hello"</span></span><br><span class="line">str = s[<span class="number">0</span>] <span class="comment">//取第一个字母</span></span><br></pre></td></tr></table></figure>
+
+<p>字符串连接 <code>&quot;hello&quot; + &quot;world&quot;</code></p>
+<p>字符串长度 <code>len(s)</code></p>
+<h3 id="对字符串遍历"><a href="#对字符串遍历" class="headerlink" title="对字符串遍历"></a>对字符串遍历</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//与python的range函数类似，go的返回两个值，下标和下标对应的数据</span></span><br><span class="line"><span class="keyword">for</span> i ,s := <span class="keyword">range</span>(str)&#123;</span><br><span class="line">    printf()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">n = <span class="built_in">len</span>(str)</span><br><span class="line"><span class="keyword">for</span> i:=<span class="number">0</span>;i&lt;n;i++&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认打印出来的是字符对应的Unicode编码</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">32</span>]<span class="keyword">byte</span> <span class="comment">//32位的元素为byte的数组</span></span><br><span class="line">[<span class="number">1000</span>] *float <span class="comment">//元素为指针的数组</span></span><br><span class="line">[<span class="number">3</span>][<span class="number">5</span>] <span class="keyword">int</span> <span class="comment">//二维数组</span></span><br><span class="line"><span class="comment">//与python类似使用下标访问内部元素</span></span><br><span class="line">arr[i]</span><br></pre></td></tr></table></figure>
+
+<p>可以使用range对数组遍历</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i,num := <span class="keyword">range</span>(arr)</span><br></pre></td></tr></table></figure>
+
 
         
       </div>
@@ -837,7 +870,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">1.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defer"><span class="nav-number">2.</span> <span class="nav-text">defer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#panic-和recover"><span class="nav-number">3.</span> <span class="nav-text">panic()和recover()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#golang的变量"><span class="nav-number">1.</span> <span class="nav-text">golang的变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多重变量赋值"><span class="nav-number">1.1.</span> <span class="nav-text">多重变量赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名变量"><span class="nav-number">1.2.</span> <span class="nav-text">匿名变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#golang的常量"><span class="nav-number">2.</span> <span class="nav-text">golang的常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔型"><span class="nav-number">3.</span> <span class="nav-text">布尔型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">4.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点数"><span class="nav-number">5.</span> <span class="nav-text">浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点数的比较"><span class="nav-number">5.1.</span> <span class="nav-text">浮点数的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复数"><span class="nav-number">6.</span> <span class="nav-text">复数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">7.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对字符串遍历"><span class="nav-number">7.1.</span> <span class="nav-text">对字符串遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">8.</span> <span class="nav-text">数组</span></a></li></ol></div>
             
 
           </div>
