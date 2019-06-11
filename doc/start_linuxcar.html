@@ -100,17 +100,17 @@
 
 
 
-  <meta name="description" content="自启动控制linux的小车服务端脚本安装下载地址 将下载得到的pig，wlan_pig.sh，pig_test文件放置到文件系统的root目录下 1234cd /root chmod 755 pig &amp;amp;&amp;amp; chmod 755 wlan_pig.sh &amp;amp;&amp;amp; chmod 755 pig_test &amp;amp;&amp;amp; chmod 755 tcp &amp;amp;&amp;amp; c">
+  <meta name="description" content="自启动控制linux的小车服务端脚本安装下载地址 备用地址 将下载得到的所有脚本文件放置到文件系统的root目录下 1234cd /root chmod 755 pig &amp;amp;&amp;amp; chmod 755 wlan_pig.sh &amp;amp;&amp;amp; chmod 755 pig_test &amp;amp;&amp;amp; chmod 755 tcp &amp;amp;&amp;amp; chmod 755 eth0 &amp;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="启动linux小车服务端">
 <meta property="og:url" content="http://landers1037.top/doc/start_linuxcar.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="自启动控制linux的小车服务端脚本安装下载地址 将下载得到的pig，wlan_pig.sh，pig_test文件放置到文件系统的root目录下 1234cd /root chmod 755 pig &amp;amp;&amp;amp; chmod 755 wlan_pig.sh &amp;amp;&amp;amp; chmod 755 pig_test &amp;amp;&amp;amp; chmod 755 tcp &amp;amp;&amp;amp; c">
+<meta property="og:description" content="自启动控制linux的小车服务端脚本安装下载地址 备用地址 将下载得到的所有脚本文件放置到文件系统的root目录下 1234cd /root chmod 755 pig &amp;amp;&amp;amp; chmod 755 wlan_pig.sh &amp;amp;&amp;amp; chmod 755 pig_test &amp;amp;&amp;amp; chmod 755 tcp &amp;amp;&amp;amp; chmod 755 eth0 &amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-10T15:41:06.460Z">
+<meta property="og:updated_time" content="2019-06-11T02:57:08.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="启动linux小车服务端">
-<meta name="twitter:description" content="自启动控制linux的小车服务端脚本安装下载地址 将下载得到的pig，wlan_pig.sh，pig_test文件放置到文件系统的root目录下 1234cd /root chmod 755 pig &amp;amp;&amp;amp; chmod 755 wlan_pig.sh &amp;amp;&amp;amp; chmod 755 pig_test &amp;amp;&amp;amp; chmod 755 tcp &amp;amp;&amp;amp; c">
+<meta name="twitter:description" content="自启动控制linux的小车服务端脚本安装下载地址 备用地址 将下载得到的所有脚本文件放置到文件系统的root目录下 1234cd /root chmod 755 pig &amp;amp;&amp;amp; chmod 755 wlan_pig.sh &amp;amp;&amp;amp; chmod 755 pig_test &amp;amp;&amp;amp; chmod 755 tcp &amp;amp;&amp;amp; chmod 755 eth0 &amp;">
 
 
 
@@ -470,8 +470,9 @@
       <div class="post-body">
         
         
-          <h3 id="自启动控制linux的小车服务端"><a href="#自启动控制linux的小车服务端" class="headerlink" title="自启动控制linux的小车服务端"></a>自启动控制linux的小车服务端</h3><h4 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h4><p><a href="http://landers1037.top:2333/file/">下载地址</a></p>
-<p>将下载得到的<code>pig，wlan_pig.sh，pig_test</code>文件放置到文件系统的root目录下</p>
+          <h3 id="自启动控制linux的小车服务端"><a href="#自启动控制linux的小车服务端" class="headerlink" title="自启动控制linux的小车服务端"></a>自启动控制linux的小车服务端</h3><h4 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h4><p>下载地址</p>
+<p><a href="https://github.com/Landers1037/Xilinx-ARM-Linux-ZYNQ/tree/git%40github.com_Landers1037/arm-linux-zybo.git/zybo-car" target="_blank" rel="noopener">备用地址</a></p>
+<p>将下载得到的所有脚本文件放置到文件系统的root目录下</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root </span><br><span class="line">chmod 755 pig &amp;&amp; chmod 755 wlan_pig.sh &amp;&amp; chmod 755 pig_test &amp;&amp; chmod 755 tcp &amp;&amp; chmod 755 eth0 &amp;&amp; chmod 755 ra0</span><br><span class="line"></span><br><span class="line">chown xup:xup wlan_pig.sh</span><br></pre></td></tr></table></figure>
 
 <h4 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h4><p>确保已经完成第一步的步骤</p>
@@ -1376,6 +1377,38 @@
   
 
   
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
   
 
