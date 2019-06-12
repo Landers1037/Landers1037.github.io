@@ -9,13 +9,58 @@
   <meta name="keywords" content="global, template, html, sass, jquery">
   <meta name="author" content="Bucky Maler">
   <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+.box__button {
+  display: block;
+  position: relative;
+  background: slateblue;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  height: 50px;
+  width: 120px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  line-height: 50px;
+  font-size: 18px;
+  
+  white-space: nowrap;
+  margin-top: 25px;
+  transition: background .5s ease;
+  overflow: hidden;
+}
+.box__button:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  background: #fff;
+  bottom: -25px;
+  text-align: center;
+  left: 0;
+  border: 2px solid #fff;
+  transform: translateX(-50px) rotate(45deg);
+  transition: transform .5s ease;
+}
+.box__button:hover {
+  background: transparent;
+  border-color: #fff;
+  text-align: center;
+}
+.box__button:hover:before {
+  transform: translateX(250px) rotate(45deg);
+  text-align: center;
+}
+
+</style>
 </head>
 <body>
+
 
 <!-- notification for small viewports and landscape oriented smartphones -->
 <div class="device-notification">
   <a class="device-notification--logo" href="http://landers1037.top">
-    <img src="assets/img/logo.png" alt="Global">
+    <img src="assets/img/landers.png" alt="Global">
     <p>Landers</p>
   </a>
   <p class="device-notification--message">Global has so much to offer that we must request you orient your device to portrait or find a larger screen. You won't be disappointed.</p>
@@ -27,7 +72,7 @@
       <div class="l-wrapper">
         <header class="header">
           <a class="header--logo" href="/">
-            <img src="assets/img/logo.png" alt="Global">
+            <img src="assets/img/landers.png" alt="Global">
             <p>Landers</p>
           </a>
           <button class="header--cta cta">MORE</button>
@@ -38,7 +83,7 @@
         <nav class="l-side-nav">
           <ul class="side-nav">
             <li class="is-active"><span>Home</span></li>
-            <li><span>Works</span></li>
+            <li><span>Donate</span></li>
             <li><span>About</span></li>
             <li><span>Contact</span></li>
           </ul>
@@ -47,15 +92,10 @@
           <li class="l-section section section--is-active">
             <div class="intro">
               <div class="intro--banner">
-                <h1>Welcome<br>explore everything<br></h1>
-                <button class="cta">MORE
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
-                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
-                  </g>
-                  </svg>
-                  <span class="btn-background"></span>
-                </button>
+                <h1>Welcome<br>enjoy<br>everything<br></h1>
+                <a href="http://landers1037.top" class="box__button" >Explore
+
+                </a>
                 <img src="assets/img/introduction-visual.png" alt="Welcome">
               </div>
               <div class="intro--options">
@@ -63,7 +103,7 @@
                   <h3>Profession</h3>
                   <p>Electronic Information Engineering.</p>
                 </a>
-                <a href="#0">
+                <a href="/something">
                   <h3>Projects</h3>
                   <p>I always want to do more things that I like.I love Computer Science and Tech So I have write some projects. </p>
                 </a>
@@ -76,34 +116,34 @@
           </li>
           <li class="l-section section">
             <div class="work">
-              <h2>Selected work</h2>
+              <h2>Select Reward</h2>
               <div class="work--lockup">
                 <ul class="slider">
                   <li class="slider--item slider--item-left">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-victory.jpg" alt="Victory">
+                        <img src="assets/img/alipay.png" alt="Victory">
                       </div>
-                      <p class="slider--item-title">Victory</p>
-                      <p class="slider--item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                      <p class="slider--item-title">支付宝</p>
+                      <p class="slider--item-description">Use Alipay to support me</p>
                     </a>
                   </li>
                   <li class="slider--item slider--item-center">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-metiew-smith.jpg" alt="Metiew and Smith">
+                        <img src="assets/img/wechatpay.png" alt="Metiew and Smith">
                       </div>
-                      <p class="slider--item-title">Metiew &amp; Smith</p>
-                      <p class="slider--item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                      <p class="slider--item-title">微信支付</p>
+                      <p class="slider--item-description">Use WechatPay to support me</p>
                     </a>
                   </li>
                   <li class="slider--item slider--item-right">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-alex-nowak.jpg" alt="Alex Nowak">
+                        <img src="assets/img/reward.png" alt="Alex Nowak">
                       </div>
-                      <p class="slider--item-title">Alex Nowak</p>
-                      <p class="slider--item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                      <p class="slider--item-title">微信赞赏码</p>
+                      <p class="slider--item-description">Use Wecaht Reward QRcode to support me</p>
                     </a>
                   </li>
                 </ul>
@@ -131,7 +171,7 @@
             <div class="about">
               <div class="about--banner">
                 <h2>A<br>WaterBoy<br>from HUST</h2>
-                <a href="#0">Career
+                <a href="http://www.hust.edu.cn/">What's HUST
                   <span>
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                     <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
@@ -142,17 +182,7 @@
                 </a>
                 <img src="assets/img/about-visual.png" alt="About Us">
               </div>
-              <div class="about--options">
-                <a href="#0">
-                  <h3>Winners</h3>
-                </a>
-                <a href="#0">
-                  <h3>Philosophy</h3>
-                </a>
-                <a href="#0">
-                  <h3>History</h3>
-                </a>
-              </div>
+
             </div>
           </li>
           <li class="l-section section">
@@ -165,8 +195,8 @@
                   </div>
                   <ul class="modal--options">
                     <li><a href="http://landers1037.top">Website</a></li>
-                    <li><a href="#0">Facebook</a></li>
-                    <li><a href="mailto:ouremail@gmail.com">Telegram</a></li>
+                    <li><a href="https://www.facebook.com/laolens.landers">Facebook</a></li>
+                    <li><a href="https://t.me/Greatpipi">Telegram</a></li>
                   </ul>
                 </div>
               </div>
@@ -179,7 +209,7 @@
   </div>
   <ul class="outer-nav">
     <li class="is-active">Home</li>
-    <li>Works</li>
+    <li>Donate</li>
     <li>About</li>
     <li>Contact</li>
   </ul>
