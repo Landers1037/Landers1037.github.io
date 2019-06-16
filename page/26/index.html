@@ -882,19 +882,13 @@
       
         
           
-            <p>
-              `timescale 1ns / 1ps//////////////////////////////////////////////////////////////////////////////////// Company: // Engineer: // // Create Date:    1
-              ...
-            </p>
-          <!--noindex-->
+            <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">timescale</span> 1ns / 1ps</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Company: </span></span><br><span class="line"><span class="comment">// Engineer: </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Create Date:    16:45:44 08/17/2012 </span></span><br><span class="line"><span class="comment">// Design Name: </span></span><br><span class="line"><span class="comment">// Module Name:    led </span></span><br><span class="line"><span class="comment">// Project Name: </span></span><br><span class="line"><span class="comment">// Target Devices: </span></span><br><span class="line"><span class="comment">// Tool versions: </span></span><br><span class="line"><span class="comment">// Description: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Dependencies: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Revision: </span></span><br><span class="line"><span class="comment">// Revision 0.01 - File Created</span></span><br><span class="line"><span class="comment">// Additional Comments: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> led(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">	 <span class="keyword">input</span> reset,</span><br><span class="line">	 <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] led_out</span><br><span class="line">	 );</span><br><span class="line">   <span class="keyword">reg</span>[<span class="number">26</span>:<span class="number">0</span>]counter;</span><br><span class="line">	<span class="keyword">always</span>@(<span class="keyword">posedge</span> clk)</span><br><span class="line">	<span class="keyword">begin</span></span><br><span class="line">	 <span class="keyword">if</span>(reset)</span><br><span class="line">	    counter&lt;=<span class="number">0</span>;</span><br><span class="line">		 <span class="keyword">else</span></span><br><span class="line">		 counter&lt;=counter+<span class="number">1</span>;</span><br><span class="line">		 <span class="keyword">end</span></span><br><span class="line">	</span><br><span class="line">		<span class="keyword">assign</span> led_out=counter[<span class="number">26</span>:<span class="number">23</span>];</span><br></pre></td></tr></table></figure>
+
+<p>​    
+    endmodule</p>
+<p>流水灯打包 <a href="https://drive.google.com/open?id=1kP50XV2VeEsLHB9JCXDWeDa8PAxXGW7V" target="_blank" rel="noopener">https://drive.google.com/open?id=1kP50XV2VeEsLHB9JCXDWeDa8PAxXGW7V</a></p>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/03/26/verilog-e5-ae-9e-e7-8e-b0-e6-b5-81-e6-b0-b4-e7-81-af/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1812,7 +1806,7 @@
                   
                     
                   
-                  <a href="/ftp/" title="FileHost &rarr; /ftp/"><i class="fa fa-fw fa-cube"></i>FileHost</a>
+                  <a href="/ftp/" title="FileHost &rarr; /ftp/"><i class="fa fa-fw fa-download"></i>FileHost</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1834,7 +1828,7 @@
                   
                     
                   
-                  <a href="http://landers1037.top:60003/#" title="Aria2Web &rarr; http://landers1037.top:60003/#"><i class="fa fa-fw fa-download"></i>Aria2Web</a>
+                  <a href="http://io.landers1037.top" title="io.Home &rarr; http://io.landers1037.top" rel="noopener" target="_blank"><i class="fa fa-fw fa-paper-plane"></i>io.Home</a>
                 </span>
               
             </div>

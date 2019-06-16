@@ -1047,19 +1047,8 @@
       
         
           
-            <p>
-              package lrj_demo;/* * 2018.7.28 * 抽象类  */public class demo1&#123;	public static void main(String []args)&#123;		System.out.println("nobody");		//Maste
-              ...
-            </p>
-          <!--noindex-->
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> lrj_demo;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 2018.7.28</span></span><br><span class="line"><span class="comment"> * 抽象类 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo1</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"nobody"</span>);</span><br><span class="line">		<span class="comment">//Master m=new slave();</span></span><br><span class="line">		<span class="comment">//m.call();</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Master</span></span>&#123;</span><br><span class="line">	<span class="comment">//i am nobody</span></span><br><span class="line">	<span class="comment">//我是个什么？</span></span><br><span class="line">	<span class="comment">//抽象类可以没有抽象方法</span></span><br><span class="line">	<span class="comment">//抽象类的不确定性，对方法不能实例化，也就是后面不能加&#123;&#125;</span></span><br><span class="line">	<span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">call</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类的继承</span></span><br><span class="line"><span class="comment">//java要求我们把父类里的所有的抽象方法都实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">slave</span> <span class="keyword">extends</span> <span class="title">Master</span> </span>&#123;</span><br><span class="line">	<span class="comment">//对父类的方法的重载</span></span><br><span class="line">	<span class="comment">//我是一个锤子</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"i am a hammer"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/28/e6-8a-bd-e8-b1-a1-e7-b1-bb/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1230,23 +1219,12 @@
       
         
           
-            <p>
-              一个引用在不同情况下的多种状态
-java允许父类的引用变量引用子类的实例对象
-Animal a=new Cat();
-这种转换是自动完成的
-package com.xiaoqiang;//打包命令，把生成的字节码放在该包下public class xiaoqiang &#123;	/**	 * @p
-              ...
-            </p>
-          <!--noindex-->
+            <p>一个引用在不同情况下的多种状态</p>
+<p>java允许父类的引用变量引用子类的实例对象</p>
+<p>Animal a=new Cat();</p>
+<p>这种转换是自动完成的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xiaoqiang;</span><br><span class="line"><span class="comment">//打包命令，把生成的字节码放在该包下</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">xiaoqiang</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">    Dog dog1=<span class="keyword">new</span> Dog();</span><br><span class="line">    </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">protected</span> String name;</span><br><span class="line">	String color;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">float</span> price;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/26/java-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b08-e5-a4-9a-e6-80-81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1417,28 +1395,64 @@ package com.xiaoqiang;//打包命令，把生成的字节码放在该包下publi
       
         
           
-            <p>
-              并不是所有的属性都可以继承
-成员方法也可以继承
-/*继承练习2.18.7.25*/
+            <p>并不是所有的属性都可以继承</p>
+<p>成员方法也可以继承</p>
+<pre><code>/*继承练习2.18.7.25*/
 public class demo9{    
 public static void main(String []args)    
 {    
 }
 }
 //小学生class little{    
-private 
-              ...
-            </p>
-          <!--noindex-->
+private int age;    
+private String name;    
+private float fee;    
+//交费    
+public void pay(float fee)    {        
+this fee=fee;    }
+}
+// 大学生
+class big{    
+private int age;    
+private String name;    
+private float fee;    
+//交费    
+public void pay(float fee)    {        
+this fee=fee*0.8f;    
+}}//很明显有代码复用的问题
+
+class Stu
+{   //需要继承的不能定义为private
+    public int age;
+    public String name;
+    public float fee;
+
+    public void go()//可以被继承的方法
+    {
+    }
+
+}</code></pre><p>​    </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">继承练习2</span></span><br><span class="line"><span class="comment">2.18.7.25</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo9</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将学生的共有的属性提取出来作为父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span></span></span><br><span class="line"><span class="class"></span>&#123;   <span class="comment">//需要继承的不能定义为private</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> fee;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//小学生</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">little</span> <span class="keyword">extends</span> <span class="title">Stu</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//交费</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pay</span><span class="params">(<span class="keyword">float</span> fee)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span> fee=fee;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 大学生</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">big</span> <span class="keyword">extends</span> <span class="title">Stu</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pay</span><span class="params">(<span class="keyword">float</span> fee)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span> fee=fee*<span class="number">0.8f</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//很明显有代码复用的问题</span></span><br></pre></td></tr></table></figure>
+
+<p>四种属性修饰符</p>
+<p>public protected private 默认</p>
+<p>除了private都可以被继承</p>
+<p>如果不希望子类继承某个属性或者方法，就声明为私有的</p>
+<p>特点：</p>
+<p>子类最多继承一个父类</p>
+<p>java的所有的类都是object的子类</p>
+<p>方法重载</p>
+<p>对于同一种方法，当其中的变量属性不一样时就会重载</p>
+<p>注意：只是改变方法的修饰符，或者改变方法的返回值的数据类型（return float）都不会引起重载</p>
+<p>方法覆盖</p>
+<p>子类有一个方法和父类的方法，返回类型，参数一样，否则编译出错</p>
+<p>注意修饰符最好一致，子类的方法不能缩小父类方法的访问权限，可以放大</p>
+<p>方法的覆盖就是，继承父类里的方法时，在子类里面重新定义该方法，从而完成覆盖</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span></span>&#123;    </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span>    </span>&#123;        </span><br><span class="line">System.out.print(<span class="string">"father"</span>);    </span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">son</span> <span class="keyword">extends</span> <span class="title">father</span></span></span><br><span class="line"><span class="class"></span>&#123;    </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span>    </span>&#123;        </span><br><span class="line">System.out.print(<span class="string">"son"</span>);    </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/26/java-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b07-e7-bb-a7-e6-89-bf/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1810,7 +1824,7 @@ private
                   
                     
                   
-                  <a href="/ftp/" title="FileHost &rarr; /ftp/"><i class="fa fa-fw fa-cube"></i>FileHost</a>
+                  <a href="/ftp/" title="FileHost &rarr; /ftp/"><i class="fa fa-fw fa-download"></i>FileHost</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1832,7 +1846,7 @@ private
                   
                     
                   
-                  <a href="http://landers1037.top:60003/#" title="Aria2Web &rarr; http://landers1037.top:60003/#"><i class="fa fa-fw fa-download"></i>Aria2Web</a>
+                  <a href="http://io.landers1037.top" title="io.Home &rarr; http://io.landers1037.top" rel="noopener" target="_blank"><i class="fa fa-fw fa-paper-plane"></i>io.Home</a>
                 </span>
               
             </div>
