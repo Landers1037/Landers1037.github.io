@@ -100,17 +100,17 @@
 
 
 
-  <meta name="description" content="Nginx站点下托管的文件服务器访问    站点编码要求 服务器使用UTF8编码，windows下的GBK编码上传和查看文件会出现乱码">
+  <meta name="description" content="提供简单的文件下载服务 访问    站点编码要求 服务器使用UTF8编码，windows下的GBK编码上传和查看文件会出现乱码 配置示例123456789101112131415autoindex on;autoindex_exact_size off;autoindex_localtime on;server&amp;#123;	listen 2333;	server_name _;	charset u">
 <meta property="og:type" content="website">
 <meta property="og:title" content="文件服务器">
 <meta property="og:url" content="http://landers1037.top/ftp/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="Nginx站点下托管的文件服务器访问    站点编码要求 服务器使用UTF8编码，windows下的GBK编码上传和查看文件会出现乱码">
+<meta property="og:description" content="提供简单的文件下载服务 访问    站点编码要求 服务器使用UTF8编码，windows下的GBK编码上传和查看文件会出现乱码 配置示例123456789101112131415autoindex on;autoindex_exact_size off;autoindex_localtime on;server&amp;#123;	listen 2333;	server_name _;	charset u">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-15T15:33:49.301Z">
+<meta property="og:updated_time" content="2019-06-16T11:38:01.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件服务器">
-<meta name="twitter:description" content="Nginx站点下托管的文件服务器访问    站点编码要求 服务器使用UTF8编码，windows下的GBK编码上传和查看文件会出现乱码">
+<meta name="twitter:description" content="提供简单的文件下载服务 访问    站点编码要求 服务器使用UTF8编码，windows下的GBK编码上传和查看文件会出现乱码 配置示例123456789101112131415autoindex on;autoindex_exact_size off;autoindex_localtime on;server&amp;#123;	listen 2333;	server_name _;	charset u">
 
 
 
@@ -228,7 +228,7 @@
 
     
 
-    <a href="/home/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>主页</a>
+    <a href="http://io.landers1037.top/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>主页</a>
 
   </li>
         
@@ -333,23 +333,6 @@
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-heart"></i> <br>关于</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-io">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="http://io.landers1037.top/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-graduation-cap"></i> <br>I/O</a>
-
-  </li>
 
       
       
@@ -431,9 +414,6 @@
       
       
     
-      
-      
-    
     
 
   
@@ -470,8 +450,11 @@
       <div class="post-body">
         
         
-          <h3 id="Nginx站点下托管的文件服务器"><a href="#Nginx站点下托管的文件服务器" class="headerlink" title="Nginx站点下托管的文件服务器"></a>Nginx站点下托管的文件服务器</h3><h3 id="访问-站点"><a href="#访问-站点" class="headerlink" title="访问    站点"></a>访问    <a href="http://file.landers1037.top" target="_blank" rel="noopener"><font color="crimson">站点</font></a></h3><p>编码要求</p>
+          <p><strong>提供简单的文件下载服务</strong></p>
+<h3 id="访问-站点"><a href="#访问-站点" class="headerlink" title="访问    站点"></a>访问    <a href="http://file.landers1037.top" target="_blank" rel="noopener"><font color="crimson">站点</font></a></h3><p>编码要求</p>
 <p>服务器使用<code>UTF8</code>编码，windows下的<code>GBK</code>编码上传和查看文件会出现乱码</p>
+<h3 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">autoindex</span> <span class="literal">on</span>;</span><br><span class="line"><span class="attribute">autoindex_exact_size</span> <span class="literal">off</span>;</span><br><span class="line"><span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">server&#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">2333</span>;</span><br><span class="line">	<span class="attribute">server_name</span> _;</span><br><span class="line">	<span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line">	<span class="attribute">root</span> /var/ftp/pub;</span><br><span class="line">    <span class="attribute">error_page</span> <span class="number">404</span> /<span class="number">404</span>/index.html;</span><br><span class="line">    <span class="attribute">location</span> = /<span class="number">404</span>/index.html &#123;</span><br><span class="line">        <span class="comment">#不使用/404下的错误页跳转则进行重定向</span></span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^/</span> http://landers1037.top/404/ ;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
         
       </div>
@@ -847,7 +830,7 @@
                   
                     
                   
-                  <a href="http://io.landers1037.top" title="I/O Page &rarr; http://io.landers1037.top" rel="noopener" target="_blank"><i class="fa fa-fw fa-graduation-cap"></i>I/O Page</a>
+                  <a href="http://io.landers1037.top" title="IO Page &rarr; http://io.landers1037.top" rel="noopener" target="_blank"><i class="fa fa-fw fa-graduation-cap"></i>IO Page</a>
                 </span>
               
             </div>
@@ -877,7 +860,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx站点下托管的文件服务器"><span class="nav-number">1.</span> <span class="nav-text">Nginx站点下托管的文件服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问-站点"><span class="nav-number">2.</span> <span class="nav-text">访问    站点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问-站点"><span class="nav-number">1.</span> <span class="nav-text">访问    站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置示例"><span class="nav-number">2.</span> <span class="nav-text">配置示例</span></a></li></ol></div>
             
 
           </div>
