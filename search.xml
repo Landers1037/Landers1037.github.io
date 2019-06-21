@@ -6,6 +6,17 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！ 我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
+    <title><![CDATA[nginx搭配flask]]></title>
+    <url>%2F2019%2F06%2F21%2Fnginx-flask%2F</url>
+    <content type="text"><![CDATA[在Nginx服务器上搭建Flask站点服务 需求12pip install flaskpip install gunicorn flask配置1234if __name__ == '__main__': from werkzeug.contrib.fixers import ProxyFix app.wsgi_app = ProxyFix(app.wsgi_app) app.run() 使用gunicorn代理必须加两句话 nginx配置12345678910server &#123; listen 8080; #你想服务器的端口 server_name 你的服务器地址; location / &#123; proxy_pass http://127.0.0.1:5000; #这个是Gunicorn与Ningx通信的端口。和Gunicorn的配置相同 access_log /root/flaskweb/access.log; error_log /root/flaskweb/error.log; &#125; &#125; 启动flask1gunicorn -w 4 -b 127.0.0.1:5000 app:app 4表示4个进程 小网站不需要那么多 启动nginx1nginx -s reload 访问访问8080端口]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python的进度条]]></title>
     <url>%2F2019%2F06%2F17%2Fpython-progress-bar%2F</url>
     <content type="text"><![CDATA[python实现在终端显示的进度条 python3 进度条12345import sys,timefor i in range(100): sys.stdout.write('&gt;') sys.stdout.flush() time.sleep(0.1) 百分比12345import sys,timefor i in range(100): sys.stdout.write("\r%s%%"%(i+1)) sys.stdout.flush() time.sleep(0.1) 带百分比进度条1234567import sys,timefor i in range(100): k = i + 1 str = '&gt;'*i+' '*(100-k) sys.stdout.write('\r'+str+'[%s%%]'%(i+1)) sys.stdout.flush() time.sleep(0.1) 1234567import timeimport sysfor i in range(101): sys.stdout.write('\r') sys.stdout.write("%s%% |%s" %(int(i%101), int(i%101)*'#')) sys.stdout.flush() time.sleep(0.5)]]></content>
@@ -1813,8 +1824,8 @@
         <category>资源下载</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>下载</tag>
+        <tag>技术</tag>
         <tag>破解</tag>
       </tags>
   </entry>
@@ -1999,8 +2010,8 @@
         <category>网络技术</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>下载</tag>
+        <tag>技术</tag>
         <tag>chrome</tag>
       </tags>
   </entry>

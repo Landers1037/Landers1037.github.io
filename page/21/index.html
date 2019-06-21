@@ -425,6 +425,208 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/06/18/e5-ae-89-e5-8d-93-e7-a8-8b-e5-ba-8f-e5-8f-8d-e7-bc-96-e8-af-91-e6-b5-8b-e8-af-95-e5-a4-b8-e5-85-8b-e6-b5-8f-e8-a7-88-e5-99-a8-ef-bc-88-e6-8c-81-e7-bb-ad-e6-9b-b4-e6-96-b0-ef-bc-89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/18/e5-ae-89-e5-8d-93-e7-a8-8b-e5-ba-8f-e5-8f-8d-e7-bc-96-e8-af-91-e6-b5-8b-e8-af-95-e5-a4-b8-e5-85-8b-e6-b5-8f-e8-a7-88-e5-99-a8-ef-bc-88-e6-8c-81-e7-bb-ad-e6-9b-b4-e6-96-b0-ef-bc-89/" class="post-title-link" itemprop="url">安卓程序反编译测试——夸克浏览器（持续更新）</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-18 22:30:34" itemprop="dateCreated datePublished" datetime="2018-06-18T22:30:34+08:00">2018-06-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-02 13:54:17" itemprop="dateModified" datetime="2019-02-02T13:54:17+08:00">2019-02-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://s1.ax1x.com/2018/06/18/CxHzz8.png" alt="CxHzz8.png"> </p>
+<p>基于java环境对安卓版的夸克浏览器进行反编译测试 初步涉及反编译的工作，面对成山的解包源代码文件不知从何找起，这个时候搜索就给我提供了很大的方便，如果开发者足够的良心尽责，那么所有的常用的变量的名称都是用正常的英文编写的，这样在查找的时候就比较方便。 最开始的简单编译我主要从如下的xml文档中找到源代码相关的信息进行修改<br>这里用到的源代码文档为dimens（尺寸规定），login_page(登陆页），strings（文本翻译对应的文档） 1.对dimens的编辑</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">&lt;string name="abc_action_bar_home_description"&gt;Navigate home&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_action_bar_home_description_format"&gt;%1$s, %2$s&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_action_bar_home_subtitle_description_format"&gt;%1$s, %2$s, %3$s&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_action_bar_up_description"&gt;Navigate up&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_action_menu_overflow_description"&gt;More options&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_action_mode_done"&gt;Done&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_activity_chooser_view_see_all"&gt;See all&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_activitychooserview_choose_application"&gt;Choose an app&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_capital_off"&gt;OFF&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_capital_on"&gt;ON&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_search_hint"&gt;Search…&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_searchview_description_clear"&gt;Clear query&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_searchview_description_query"&gt;Search query&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_searchview_description_search"&gt;Search&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_searchview_description_submit"&gt;Submit query&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_searchview_description_voice"&gt;Voice search&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_shareactionprovider_share_with"&gt;Share with&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_shareactionprovider_share_with_application"&gt;Share with %s&lt;/string&gt;</span><br><span class="line">&lt;string name="abc_toolbar_collapse_description"&gt;Collapse&lt;/string&gt;</span><br><span class="line">&lt;string name="status_bar_notification_info_overflow"&gt;999+&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_view_forum"&gt;(｢･ω･)｢&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_view_privacy_agreement"&gt;基于夸克修改&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_view_uc"&gt;皮皮温情出品&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_view_useragreement"&gt;皮皮&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_view_webcore_info"&gt;河汉清且浅 相去复几许&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_window_function"&gt;功能介绍&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_window_share"&gt;分享给好友&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_window_title"&gt;关于&lt;/string&gt;</span><br><span class="line">&lt;string name="about_setting_window_upgrade"&gt;_(:з」∠)_&lt;/string&gt;</span><br><span class="line">&lt;string name=<span class="string">"about_version_prefix"</span> /&gt;</span><br><span class="line">&lt;string name="account_invalid_st"&gt;请重新登录&lt;/string&gt;</span><br><span class="line">&lt;string name="ad_block_block_mannual_switcher"&gt;广告标记&lt;/string&gt;</span><br><span class="line">&lt;string name="ad_block_rule_empty_view_text"&gt;没有已标识的广告&lt;/string&gt;</span><br><span class="line">&lt;string name="ad_block_rule_title_view_text"&gt;已添加的广告规则&lt;/string&gt;</span><br><span class="line">&lt;string name="ad_block_rule_view_delete_text"&gt;删除&lt;/string&gt;</span><br><span class="line">&lt;string name="ad_block_rule_window_title"&gt;广告过滤&lt;/string&gt;</span><br><span class="line">&lt;string name="add_favorite"&gt;收藏到夸克&lt;/string&gt;</span><br><span class="line">&lt;string name="allinnavi"&gt;精选站点&lt;/string&gt;</span><br><span class="line">&lt;string name="app_name"&gt;夸克&lt;/string&gt;</span><br><span class="line">&lt;string name="app_name_in_launcher"&gt;夸克&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+
+<p>对部分的xml中的注释进行修改达到修改全局内文字翻译的效果 2.login界面修改</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span> <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginTop</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginBottom</span>=<span class="string">"0.0dip"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_image"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"0.0dip"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"0.0dip"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"0.0dip"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_title"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:text</span>=<span class="string">"@string/personal_login_page_title"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"0.0dip"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_subtitle"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginTop</span>=<span class="string">"0.0dip"</span> <span class="attr">android:text</span>=<span class="string">"@string/personal_login_page_subtitle"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_phone_container"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"0.0dip"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">com.ucweb.materialedittext.MaterialEditText</span> <span class="attr">android:textSize</span>=<span class="string">"0.0dip"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_phone_edit"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_gravity</span>=<span class="string">"right"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_get_idcode_btn"</span> <span class="attr">android:paddingTop</span>=<span class="string">"0.0dip"</span> <span class="attr">android:paddingBottom</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:text</span>=<span class="string">"@string/cloud_sync_get_verif_code"</span> <span class="attr">android:singleLine</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">FrameLayout</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_idcode_container"</span> <span class="attr">android:visibility</span>=<span class="string">"gone"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"0.0dip"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">com.ucweb.materialedittext.MaterialEditText</span> <span class="attr">android:textSize</span>=<span class="string">"0.0dip"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_idcode_edit"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_gravity</span>=<span class="string">"right"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_retrieve_idcode_btn"</span> <span class="attr">android:paddingTop</span>=<span class="string">"0.0dip"</span> <span class="attr">android:paddingBottom</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:text</span>=<span class="string">"@string/cloud_sync_again_verif_code"</span> <span class="attr">android:singleLine</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"0.0dip"</span> <span class="attr">android:gravity</span>=<span class="string">"center"</span> <span class="attr">android:layout_gravity</span>=<span class="string">"right"</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_send_tip"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"0.0dip"</span> <span class="attr">android:paddingRight</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginTop</span>=<span class="string">"0.0dip"</span> <span class="attr">android:text</span>=<span class="string">"已发送到18920787888"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">View</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_weight</span>=<span class="string">"1.0"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginBottom</span>=<span class="string">"16.0dip"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_weibo"</span> <span class="attr">android:padding</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"0.0dip"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_weixin"</span> <span class="attr">android:padding</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"0.0dip"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@id/personal_login_qq"</span> <span class="attr">android:padding</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"0.0dip"</span> <span class="attr">android:layout_height</span>=<span class="string">"0.0dip"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里把所有关于登陆的窗口全部设置为0尺寸达到去掉登陆界面的目的 3.dimens修改</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_arrow_marginright"</span>&gt;</span>2.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_height"</span>&gt;</span>50.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_icon_marginleft"</span>&gt;</span>24.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_icon_size"</span>&gt;</span>22.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_inner_icon_size"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_title_marginleft"</span>&gt;</span>18.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_title_marginright"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_bookmark_item_title_size"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_close_btn_width"</span>&gt;</span>22.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_close_container_width"</span>&gt;</span>100.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_gridview_column_width"</span>&gt;</span>66.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_add_margin_right"</span>&gt;</span>4.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_add_width"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_category_margin_bottom"</span>&gt;</span>3.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_category_textsize"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_height"</span>&gt;</span>66.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_icon_margin_left"</span>&gt;</span>12.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_icon_margin_right"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_icon_width"</span>&gt;</span>40.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_space"</span>&gt;</span>12.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_extend_title_width"</span>&gt;</span>52.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_icon_margin_bottom"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_icon_width"</span>&gt;</span>56.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_textsize"</span>&gt;</span>12.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_lightapp_item_title_margin_bottom"</span>&gt;</span>26.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_padding_left"</span>&gt;</span>24.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_container_margin_bottom"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_btn_height"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_btn_width"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_height"</span>&gt;</span>70.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_image_height"</span>&gt;</span>70.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_image_width"</span>&gt;</span>150.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_margin_bottom"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_margin_right"</span>&gt;</span>12.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_padding"</span>&gt;</span>4.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_plugin_item_width"</span>&gt;</span>150.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_pullup_enter_delta_slop"</span>&gt;</span>50.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_tab_height"</span>&gt;</span>60.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_title_margin_top"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_title_textsize"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"dicover_page_toolbar_height"</span>&gt;</span>50.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第一部分，查找关键字dicover和main找到发现页相关的尺寸调整，修改发现页的字体大小和图标大小。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_delete_button_offset"</span>&gt;</span>3.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_height_portrait"</span>&gt;</span>76.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_icon_margin_top_portrait"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_iconview_height_portrait"</span>&gt;</span>40.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_iconview_width_portrait"</span>&gt;</span>40.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_paddingbottom"</span>&gt;</span>0.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_paddingleft"</span>&gt;</span>0.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_paddingright"</span>&gt;</span>0.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_paddingtop"</span>&gt;</span>0.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_title_margin_bottom_portrait"</span>&gt;</span>0.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_title_margin_top_portrait"</span>&gt;</span>7.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_title_padding_x"</span>&gt;</span>4.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_title_textsize_portrait"</span>&gt;</span>11.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"launcher_widget_width_portrait"</span>&gt;</span>56.599976dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第二部分，查找关于插件的相关代码，修改插件的尺寸和图标大小</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"main_menu_guide_tip_arrow_margin_top"</span>&gt;</span>9.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"main_setting_dot_size_margin_left"</span>&gt;</span>4.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"main_setting_view_item_height"</span>&gt;</span>60.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_bg_radius"</span>&gt;</span>20.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_content_height"</span>&gt;</span>258.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_content_padding"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_firstrow_margin_top"</span>&gt;</span>90.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_item_icon_size"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_item_icon_tips_size"</span>&gt;</span>5.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_item_text_margin_top"</span>&gt;</span>8.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_item_text_size"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_left_image_width"</span>&gt;</span>40.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_left_lable_maxwidth"</span>&gt;</span>200.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_leftview_margin_right"</span>&gt;</span>15.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_leftview_margin_top"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_margin_bottom"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_margin_x"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"mainmenu_row_height"</span>&gt;</span>74.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"media_menu_bottom_margin"</span>&gt;</span>2.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第三部分，查找菜单的相关代码，修改main里的menu菜单的尺寸，找到与登陆相关的代码修改为负值，找到上下菜单边距的缺省值和填充值进行自定义</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_bbs_tip_textsize"</span>&gt;</span>13.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_contact_input_box_height"</span>&gt;</span>33.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_content_input_box_height"</span>&gt;</span>150.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_content_input_box_margin_bottom"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_content_input_box_margin_top"</span>&gt;</span>20.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_content_input_box_margin_x"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_content_input_box_padding_x"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_content_input_box_padding_y"</span>&gt;</span>12.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"user_feedback_content_textsize"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第四部分，修改feedback的相关文字和尺寸</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_allow_tip_margin_top"</span>&gt;</span>80.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_allow_tip_textsize"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_center_login_item_icon_margin_bottom"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_center_login_item_name_textsize"</span>&gt;</span>12.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_center_qq_login_margin_right"</span>&gt;</span>54.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_content_icon_padding"</span>&gt;</span>6.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_edit_under_line_height"</span>&gt;</span>1.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_edit_under_line_select_height"</span>&gt;</span>1.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_edittext_text_size"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_edittext_width"</span>&gt;</span>230.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_exit_account_margin_right"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_exit_container_margin_bottom"</span>&gt;</span>24.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_exit_container_margin_top"</span>&gt;</span>20.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_import_btn_height"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_import_btn_width"</span>&gt;</span>187.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_arrow_margin_right"</span>&gt;</span>16.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_arrow_size"</span>&gt;</span>22.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_desc_text_size"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_import_padding_bottom"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_import_padding_top"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_import_text_size"</span>&gt;</span>12.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_margin_inner_right"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_margin_left"</span>&gt;</span>24.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_padding_bottom"</span>&gt;</span>23.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_padding_top"</span>&gt;</span>23.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_item_text_size"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_login_btn_height"</span>&gt;</span>50.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_login_btn_text_size"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_login_btn_width"</span>&gt;</span>156.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_login_shape_radius"</span>&gt;</span>25.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_logo_height"</span>&gt;</span>87.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_logo_margin_top"</span>&gt;</span>88.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_logo_width"</span>&gt;</span>138.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_margin_logo_top"</span>&gt;</span>88.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_margin_logo_top_min"</span>&gt;</span>60.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_now_text_size"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_line_height"</span>&gt;</span>1.0px<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_line_width"</span>&gt;</span>48.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_margin"</span>&gt;</span>62.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_phone_margin"</span>&gt;</span>42.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_text_margin_bottom"</span>&gt;</span>32.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_text_margin_left"</span>&gt;</span>32.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_text_margin_right"</span>&gt;</span>32.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_text_margin_top"</span>&gt;</span>24.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_other_way_text_size"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_phone_number_margin_left"</span>&gt;</span>60.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_phone_number_margin_right"</span>&gt;</span>60.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_recent_text_size"</span>&gt;</span>10.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_sync_btn_container_margin_top"</span>&gt;</span>34.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_sync_btn_height"</span>&gt;</span>50.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_sync_btn_width"</span>&gt;</span>152.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_verif_code_stroke"</span>&gt;</span>1.0px<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_verif_code_text_height"</span>&gt;</span>30.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_verif_code_text_size"</span>&gt;</span>14.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"clound_sync_verif_code_text_width"</span>&gt;</span>110.0dip<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第五部分，找到云同步相关的代码，修改文字和云同步的界面，我直接选择去掉了同步界面 3.进阶修改class文件 打开反编译后文件夹里的class.dex文件使用dex查看器打开，修改里面的升级更新相关代码</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/06/18/e5-9f-ba-e4-ba-8e-e6-9c-80-e5-b0-8f-e7-b3-bb-e7-bb-9f-uart-e4-b8-b2-e5-8f-a3-e8-ae-be-e8-ae-a1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1323,181 +1525,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/05/22/sdk16-e4-bd-8d-e6-8c-89-e9-94-ae-e5-bc-80-e5-85-b3-e6-ba-90-e4-bb-a3-e7-a0-81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Landers">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/Landers.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Landers1037">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/05/22/sdk16-e4-bd-8d-e6-8c-89-e9-94-ae-e5-bc-80-e5-85-b3-e6-ba-90-e4-bb-a3-e7-a0-81/" class="post-title-link" itemprop="url">基于最小系统—16位按键开关拨动输出</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-22 23:25:22" itemprop="dateCreated datePublished" datetime="2018-05-22T23:25:22+08:00">2018-05-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-02 13:41:04" itemprop="dateModified" datetime="2019-02-02T13:41:04+08:00">2019-02-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">include</span> <span class="string">"xparameters.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xgpio.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xintc.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"stdio.h"</span></span><br><span class="line"><span class="keyword">void</span> Initialize();</span><br><span class="line"><span class="keyword">void</span> Delay_50ms();</span><br><span class="line"><span class="keyword">void</span> PushBtnHandler(<span class="keyword">void</span> *CallBackRef);</span><br><span class="line"><span class="keyword">void</span> SwitchHandler(<span class="keyword">void</span> *CallBackRef);</span><br><span class="line">XGpio Btns,Dips;</span><br><span class="line">XIntc intCtrl;</span><br><span class="line"><span class="keyword">int</span> pshBtn,pshDip;</span><br><span class="line"><span class="keyword">int</span> state1,state2;</span><br><span class="line"><span class="keyword">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">	Initialize();</span><br><span class="line">	xil_printf(<span class="string">"\r\nRunning GpioInterrupt!\r\n"</span>);</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(pshBtn)</span><br><span class="line">		&#123;</span><br><span class="line">			xil_printf(<span class="string">"ButtonInterrupt! 0x%x\n\r"</span>,state1);</span><br><span class="line">			pshBtn=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(pshDip)</span><br><span class="line">		&#123;</span><br><span class="line">				<span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x8000)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1111\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x4000)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1110\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x2000)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1101\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x1000)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1100\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0800)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1011\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0400)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1010\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0200)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1001\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0100)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 1000\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0080)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0111\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0040)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0110\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0020)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0101\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0010)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0100\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0008)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0011\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0004)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0010\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0002)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0001\n\r"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(state2&gt;=<span class="number">0</span>x0001)</span><br><span class="line">				xil_printf(<span class="string">"SwitchInterrupt! 0000\n\r"</span>);</span><br><span class="line">				pshDip=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">void</span> Initialize()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//初始化dips，并将其设置为输入</span></span><br><span class="line">	XGpio_Initialize(&amp;Dips,XPAR_DIP_DEVICE_ID);</span><br><span class="line">	XGpio_SetDataDirection(&amp;Dips,<span class="number">1</span>,<span class="number">0</span>xff);</span><br><span class="line">	<span class="comment">//初始化btns，并将其设置为输入</span></span><br><span class="line">	XGpio_Initialize(&amp;Btns,XPAR_BUTTON_DEVICE_ID);</span><br><span class="line">	XGpio_SetDataDirection(&amp;Btns,<span class="number">1</span>,<span class="number">0</span>xff);</span><br><span class="line">	<span class="comment">//初始化intctrl</span></span><br><span class="line">	XIntc_Initialize(&amp;intCtrl,XPAR_AXI_INTC_0_DEVICE_ID);</span><br><span class="line">	<span class="comment">//GPIO中断使能</span></span><br><span class="line">	XGpio_InterruptEnable(&amp;Btns,<span class="number">1</span>);</span><br><span class="line">	XGpio_InterruptGlobalEnable(&amp;Btns);</span><br><span class="line">	XGpio_InterruptEnable(&amp;Dips,<span class="number">1</span>);</span><br><span class="line">	XGpio_InterruptGlobalEnable(&amp;Dips);</span><br><span class="line">	<span class="comment">//中断控制器进行中断源使能</span></span><br><span class="line">	XIntc_Enable(&amp;intCtrl,XPAR_AXI_INTC_0_BUTTON_IP2INTC_IRPT_INTR);</span><br><span class="line">	XIntc_Enable(&amp;intCtrl,XPAR_AXI_INTC_0_DIP_IP2INTC_IRPT_INTR);</span><br><span class="line">	<span class="comment">//注册中断服务函数</span></span><br><span class="line">	XIntc_Connect(&amp;intCtrl,XPAR_AXI_INTC_0_BUTTON_IP2INTC_IRPT_INTR,(XInterruptHandler)PushBtnHandler,(<span class="keyword">void</span>*)<span class="number">0</span>);</span><br><span class="line">	XIntc_Connect(&amp;intCtrl,XPAR_AXI_INTC_0_DIP_IP2INTC_IRPT_INTR,(XInterruptHandler)SwitchHandler,(<span class="keyword">void</span>*)<span class="number">0</span>);</span><br><span class="line">	<span class="comment">//允许中断处理器处理中断</span></span><br><span class="line">	microblaze_enable_interrupts();</span><br><span class="line">	<span class="comment">//注册中断控制器处理函数</span></span><br><span class="line">	microblaze_register_handler((XInterruptHandler)XIntc_InterruptHandler,(<span class="keyword">void</span>*)&amp;intCtrl);</span><br><span class="line">	<span class="comment">//启动中断控制器</span></span><br><span class="line">	XIntc_Start(&amp;intCtrl,XIN_REAL_MODE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//延时控制</span></span><br><span class="line"><span class="keyword">void</span> Delay_50ms()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">5000000</span>;i++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//按键中断服务程序</span></span><br><span class="line"><span class="keyword">void</span> PushBtnHandler(<span class="keyword">void</span> *CallBackRef)</span><br><span class="line">&#123;</span><br><span class="line">	state1=XGpio_DiscreteRead(&amp;Btns,<span class="number">1</span>);<span class="comment">//读取按键状态</span></span><br><span class="line">	pshBtn=<span class="number">1</span>;</span><br><span class="line">	XGpio_InterruptDisable(&amp;Btns,<span class="number">1</span>);<span class="comment">//暂时禁止button中断</span></span><br><span class="line">	Delay_50ms();<span class="comment">//延时50ms去抖动</span></span><br><span class="line">	XGpio_InterruptClear(&amp;Btns,<span class="number">1</span>);<span class="comment">//清除中断标志位</span></span><br><span class="line">	XGpio_InterruptEnable(&amp;Btns,<span class="number">1</span>);<span class="comment">//再次开放按键中断</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//开关中断服务程序</span></span><br><span class="line"><span class="keyword">void</span> SwitchHandler(<span class="keyword">void</span> *CallBackRef)</span><br><span class="line">&#123;</span><br><span class="line">	state2=XGpio_DiscreteRead(&amp;Dips,<span class="number">1</span>);<span class="comment">//读取开关状态</span></span><br><span class="line">	pshDip=<span class="number">1</span>;</span><br><span class="line">	XGpio_InterruptClear(&amp;Dips,<span class="number">1</span>);<span class="comment">//清除中断标志位</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>感谢wxk大佬的无私提供</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1546,7 +1573,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">185</span>
+                    <span class="site-state-item-count">186</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1797,7 +1824,7 @@
                   
                     
                   
-                  <a href="/doc/" title="Docs &rarr; /doc/"><i class="fa fa-fw fa-flask"></i>Docs</a>
+                  <a href="/doc/" title="Docs &rarr; /doc/"><i class="fa fa-fw fa-leanpub"></i>Docs</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1841,7 +1868,7 @@
                   
                     
                   
-                  <a href="/404/" title="404 Page &rarr; /404/"><i class="fa fa-fw fa-rocket"></i>404 Page</a>
+                  <a href="/404/" title="404 Page &rarr; /404/"><i class="fa fa-fw fa-map-signs"></i>404 Page</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1852,7 +1879,7 @@
                   
                     
                   
-                  <a href="http://io.landers1037.top" title="IO Page &rarr; http://io.landers1037.top" rel="noopener" target="_blank"><i class="fa fa-fw fa-graduation-cap"></i>IO Page</a>
+                  <a href="http://io.landers1037.top" title="Flask &rarr; http://io.landers1037.top" rel="noopener" target="_blank"><i class="fa fa-fw fa-flask"></i>Flask</a>
                 </span>
               
             </div>
