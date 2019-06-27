@@ -100,17 +100,17 @@
 
 
 
-  <meta name="description" content="Go学习笔记9 接口接口定义什么是侵入式接口？实现的类必须明确声明自己实现了某个接口 go中的非侵入接口123456type File struct &amp;#123;	&amp;#125;func (f *File) Read(buf []byte)(n int,err error)func (f *File) Write(buf []byte)(n int,err error)func (f *File)">
+  <meta name="description" content="Go学习笔记10 并发编程介绍并发编程当需要同时处理多个任务的时候，我们用到了并发编程。操作系统级别的概念：多进程，多线程，协程都是属于系统级别的并发模式。 优点可以同时完成多个任务的处理，提高系统的执行效率 缺点对系统的开销巨大，耗费系统资源 对比多进程：最耗费系统cpu资源，创建数量不能过多否则造成系统崩溃，依赖cpu核心数 多线程：占用资源相对多进程较少但是依旧很大，数量不能超过万个 协程：">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Landers1037">
-<meta property="og:url" content="http://landers1037.top/notes/gonote9.html">
+<meta property="og:url" content="http://landers1037.top/book/notes/gonote10.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="Go学习笔记9 接口接口定义什么是侵入式接口？实现的类必须明确声明自己实现了某个接口 go中的非侵入接口123456type File struct &amp;#123;	&amp;#125;func (f *File) Read(buf []byte)(n int,err error)func (f *File) Write(buf []byte)(n int,err error)func (f *File)">
+<meta property="og:description" content="Go学习笔记10 并发编程介绍并发编程当需要同时处理多个任务的时候，我们用到了并发编程。操作系统级别的概念：多进程，多线程，协程都是属于系统级别的并发模式。 优点可以同时完成多个任务的处理，提高系统的执行效率 缺点对系统的开销巨大，耗费系统资源 对比多进程：最耗费系统cpu资源，创建数量不能过多否则造成系统崩溃，依赖cpu核心数 多线程：占用资源相对多进程较少但是依旧很大，数量不能超过万个 协程：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-02T15:49:17.300Z">
+<meta property="og:updated_time" content="2019-06-03T16:08:47.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Landers1037">
-<meta name="twitter:description" content="Go学习笔记9 接口接口定义什么是侵入式接口？实现的类必须明确声明自己实现了某个接口 go中的非侵入接口123456type File struct &amp;#123;	&amp;#125;func (f *File) Read(buf []byte)(n int,err error)func (f *File) Write(buf []byte)(n int,err error)func (f *File)">
+<meta name="twitter:description" content="Go学习笔记10 并发编程介绍并发编程当需要同时处理多个任务的时候，我们用到了并发编程。操作系统级别的概念：多进程，多线程，协程都是属于系统级别的并发模式。 优点可以同时完成多个任务的处理，提高系统的执行效率 缺点对系统的开销巨大，耗费系统资源 对比多进程：最耗费系统cpu资源，创建数量不能过多否则造成系统崩溃，依赖cpu核心数 多线程：占用资源相对多进程较少但是依旧很大，数量不能超过万个 协程：">
 
 
 
@@ -118,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="http://landers1037.top/notes/gonote9">
+  <link rel="canonical" href="http://landers1037.top/book/notes/gonote10">
 
 
 
@@ -459,6 +459,48 @@
   
 
 
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/book/">BOOK</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/book/notes/">NOTES</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li>GONOTE10</li>
+          
+        
+      
+    
+  </ul>
+
 
 </div>
 
@@ -470,49 +512,40 @@
       <div class="post-body">
         
         
-          <p>Go学习笔记9</p>
-<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h4 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h4><h5 id="什么是侵入式接口？"><a href="#什么是侵入式接口？" class="headerlink" title="什么是侵入式接口？"></a>什么是侵入式接口？</h5><p>实现的类必须明确声明自己实现了某个接口</p>
-<h5 id="go中的非侵入接口"><a href="#go中的非侵入接口" class="headerlink" title="go中的非侵入接口"></a>go中的非侵入接口</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> File <span class="keyword">struct</span> &#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f *File)</span> <span class="title">Read</span><span class="params">(buf []<span class="keyword">byte</span>)</span><span class="params">(n <span class="keyword">int</span>,err error)</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="params">(f *File)</span> <span class="title">Write</span><span class="params">(buf []<span class="keyword">byte</span>)</span><span class="params">(n <span class="keyword">int</span>,err error)</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="params">(f *File)</span> <span class="title">Seek</span><span class="params">(buf []<span class="keyword">byte</span>)</span><span class="params">(n <span class="keyword">int</span>,err error)</span></span></span><br></pre></td></tr></table></figure>
+          <p>Go学习笔记10</p>
+<h3 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>并发编程当需要同时处理多个任务的时候，我们用到了并发编程。操作系统级别的概念：多进程，多线程，协程都是属于系统级别的并发模式。</p>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><p>可以同时完成多个任务的处理，提高系统的执行效率</p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>对系统的开销巨大，耗费系统资源</p>
+<h5 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h5><p>多进程：最耗费系统cpu资源，创建数量不能过多否则造成系统崩溃，依赖cpu核心数</p>
+<p>多线程：占用资源相对多进程较少但是依旧很大，数量不能超过万个</p>
+<p>协程：轻量级的线程，可以同时创建几百万个占用的系统资源最少。不直接依赖于系统线程和进程</p>
+<h4 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h4><p>在go中远程支持了并发协程的模式，在这里称为<code>goroutine</code>，它是由go的运行时runtime管理的</p>
+<p>使用<code>go</code>关键字调用，每一个<code>go</code>关键字就会开启一个<code>goroutine</code>协程，在被调用的函数返回时，<code>goroutine</code>自动结束</p>
+<p>注意：对于go的main函数，main函数在执行完毕后返回程序就会结束运行，退出。不会等待其他的非主goroutine执行完毕。所以以下的写法并不会执行</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> i :=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++&#123;</span><br><span class="line">		<span class="keyword">go</span> add(i,<span class="number">1</span>)</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>定义了类和方法，假设有如下的接口</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IFile <span class="keyword">interface</span>&#123;</span><br><span class="line">    Read(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">    Write(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">    Seek(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> IReader <span class="keyword">interface</span>&#123;</span><br><span class="line">    Read(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> IWriter <span class="keyword">interface</span>&#123;</span><br><span class="line">    Write(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一共生成了10个<code>goroutine</code>但是他们调用的add函数并不会执行，因为main函数在他们执行前就返回了</p>
+<p><font color="red">解决：</font>想办法使函数等待所有的<code>goroutine</code>都执行完毕后再退出，这里需要了解go并发的通信方式</p>
+<h5 id="goroutine的通信方式"><a href="#goroutine的通信方式" class="headerlink" title="goroutine的通信方式"></a>goroutine的通信方式</h5><p>传统的编程语言一般都有两种通信方式：共享数据，交流</p>
+<p>并发的难点在于协调，协调在于相互的交流</p>
+<p>共享数据：多个并发单元分别保存对同一数据的引用，实现对该数据的共享</p>
+<p>消息：多个进程互相通信完成数据通信</p>
+<p>在线程间的共享数据时，主要进行线程创建，执行，等待结束，在线程对数据调用的时候数据是死锁安全的，保证了并发不会出错，而因为其中的繁琐的同步和死锁在大量并发的时候会很难分析。go引入了一种数据结构<code>channel</code>通道来完成进程的通信</p>
+<h4 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h4><p>通道是一种与类型相关的数据结构，所以通道是具有单一类型的，其中传递的数据是单一数据类型的。所以它是一种类型安全的通道</p>
+<p><code>使用通道完成用通信来共享内存</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Count</span><span class="params">(ch <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	ch &lt;- <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	chs := <span class="built_in">make</span>([]<span class="keyword">chan</span> <span class="keyword">int</span> ,<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>;i&lt;<span class="number">10</span>;i++&#123;</span><br><span class="line">		chs[i] = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">		<span class="keyword">go</span> Count(chs[i])</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> _,ch := <span class="keyword">range</span> (chs)&#123;</span><br><span class="line">		&lt;- ch</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>File类并未从这些接口继承，但是却实现了这些接口</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> file1 IFile = <span class="built_in">new</span>(File)</span><br><span class="line"><span class="keyword">var</span> file2 Ireader = <span class="built_in">new</span>(File)</span><br></pre></td></tr></table></figure>
+<p>定义Count函数用来为一个通道写入一个数据<code>ch &lt;- 1</code>，用循环创建10个goroutine来对相应的channel写入数据，然后使用<code>&lt;- ch</code>来读取每一个channel里的数据。</p>
+<p>在对每一个channel的数据进行数据的赋值时，在数据被读取前，该操作是阻塞的，不能执行。在对channel的数据进行读取的时候在写入操作完成前，该操作是阻塞的。于是使用channel实现了类似锁的功能，在所有的goroutine完成后，函数才会执行退出。</p>
+<h5 id="channel基本语法"><a href="#channel基本语法" class="headerlink" title="channel基本语法"></a>channel基本语法</h5><p>一般channel的声明</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> channame <span class="keyword">chan</span> <span class="keyword">type</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="接口的赋值"><a href="#接口的赋值" class="headerlink" title="接口的赋值"></a>接口的赋值</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Integer <span class="keyword">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a Integer)</span><span class="title">Less</span><span class="params">(b Integer)</span> <span class="title">bool</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &lt; b</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *Integer)</span><span class="title">Add</span><span class="params">(b Integer)</span></span>&#123;</span><br><span class="line">    *a += b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例如创建一个map元素是bool型的channel</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maochan <span class="keyword">map</span>[<span class="keyword">string</span>] <span class="keyword">chan</span> <span class="keyword">bool</span></span><br></pre></td></tr></table></figure>
 
-<p>定义接口LessAdd</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> LessAdd <span class="keyword">interface</span>&#123;</span><br><span class="line">    Less(b Integer) <span class="keyword">bool</span></span><br><span class="line">    Add(b Integer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以使用make函数生成一个channel</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">channame := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br></pre></td></tr></table></figure>
 
-<h6 id="将对象赋值给一个接口"><a href="#将对象赋值给一个接口" class="headerlink" title="将对象赋值给一个接口"></a>将对象赋值给一个接口</h6><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a Integer = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b LessAdd = &amp;a &gt;&gt;<span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b LessAdd = a  &gt;&gt;<span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<p>使用1就可以让a对象实现LessAdd接口，但是2不行</p>
-<p>2传入的a，在方法Add()中，只能改变原值a的值，而不能改变外部操作对象的值，故不能实现该接口</p>
-<h6 id="将一个接口赋值给另一个接口"><a href="#将一个接口赋值给另一个接口" class="headerlink" title="将一个接口赋值给另一个接口"></a>将一个接口赋值给另一个接口</h6><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ReadWrite <span class="keyword">interface</span> &#123;</span><br><span class="line">	Read(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">	Write(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> two</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> IStream <span class="keyword">interface</span> &#123;</span><br><span class="line">	Read(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">	Write(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> file1 two.IStream = <span class="built_in">new</span>(File)</span><br><span class="line"><span class="keyword">var</span> file2 ReadWrite  = <span class="built_in">new</span>(File)</span><br><span class="line"><span class="keyword">var</span> file3 two.IStream = file2</span><br></pre></td></tr></table></figure>
-
-<p>可以看见接口ReadWrite和IStream都实现了两个方法，所以实现接口1的类也实现了接口2，反之亦然</p>
-<p>在赋值的时候也可以直接编译通过</p>
-<p>接口的赋值要求接口A必须是接口B的方法列表的子集，此时接口B可以赋值给接口A。否则报错</p>
-<p><strong>即接口实现方法多的可以赋值给方法少的接口</strong></p>
-<h5 id="接口查询"><a href="#接口查询" class="headerlink" title="接口查询"></a>接口查询</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> file1 Writer = ...</span><br><span class="line"><span class="keyword">if</span> file2 , ok := file1.(two.IStream); ok&#123;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>if检查file1指向的对象是否实现了<code>two.IStream</code>接口，如果实现了就执行输出语句</p>
-<p>接口的查询需要在编译期间进行，而不是在静态类型中检查就可以判断是否可行</p>
-<h6 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h6><p>go可以查询接口指向的对象是什么类型</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> file1 Writer = ...</span><br><span class="line"><span class="keyword">if</span> file2 , ok := file1.(*File); ok&#123;</span><br><span class="line">	<span class="comment">//询问是否是File类型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//或者直接询问类型file.(type)</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="接口组合"><a href="#接口组合" class="headerlink" title="接口组合"></a>接口组合</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IFile <span class="keyword">interface</span>&#123;</span><br><span class="line">    Read(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">    Write(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">    Seek(buf []<span class="keyword">byte</span>)(n <span class="keyword">int</span>,err error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>包含了三种方法，组合了IReader接口和IWriter接口，于是既能实现IReader的功能又能实现IWriter的功能</p>
-<h5 id="任意类型"><a href="#任意类型" class="headerlink" title="任意类型"></a>任意类型</h5><p>在go中的任意类型都满足空接口interface{}，所以interface{}可以指向任何类型</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v1 <span class="keyword">interface</span>&#123;&#125; = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> v2 <span class="keyword">interface</span>&#123;&#125; = <span class="string">"abc"</span></span><br><span class="line"><span class="keyword">var</span> v3 <span class="keyword">interface</span>&#123;&#125; = &amp;v2 <span class="comment">//*interface类型赋值给interface</span></span><br></pre></td></tr></table></figure>
-
-<p>当函数可以接收任意类型的对象实例时，我们将其声明为interface{}类型</p>
 
         
       </div>
@@ -522,6 +555,48 @@
     </div>
     
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/book/">BOOK</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/book/notes/">NOTES</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li>GONOTE10</li>
+          
+        
+      
+    
+  </ul>
 
 
     
@@ -578,7 +653,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">186</span>
+                    <span class="site-state-item-count">188</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -914,7 +989,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口定义"><span class="nav-number">1.1.</span> <span class="nav-text">接口定义</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是侵入式接口？"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是侵入式接口？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#go中的非侵入接口"><span class="nav-number">1.1.2.</span> <span class="nav-text">go中的非侵入接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口的赋值"><span class="nav-number">1.1.3.</span> <span class="nav-text">接口的赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#将对象赋值给一个接口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">将对象赋值给一个接口</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将一个接口赋值给另一个接口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">将一个接口赋值给另一个接口</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口查询"><span class="nav-number">1.1.4.</span> <span class="nav-text">接口查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#特性"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口组合"><span class="nav-number">1.1.5.</span> <span class="nav-text">接口组合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#任意类型"><span class="nav-number">1.1.6.</span> <span class="nav-text">任意类型</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#并发编程"><span class="nav-number">1.</span> <span class="nav-text">并发编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对比"><span class="nav-number">1.1.3.</span> <span class="nav-text">对比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#goroutine"><span class="nav-number">1.2.</span> <span class="nav-text">goroutine</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#goroutine的通信方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">goroutine的通信方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#channel"><span class="nav-number">1.3.</span> <span class="nav-text">channel</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#channel基本语法"><span class="nav-number">1.3.1.</span> <span class="nav-text">channel基本语法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

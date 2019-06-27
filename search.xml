@@ -6,6 +6,22 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！ 我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
+    <title><![CDATA[gitbook-create]]></title>
+    <url>%2F2019%2F06%2F27%2Fgitbook-create%2F</url>
+    <content type="text"><![CDATA[正文]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[python-coexist]]></title>
+    <url>%2F2019%2F06%2F27%2Fpython-coexist%2F</url>
+    <content type="text"><![CDATA[解决服务器上的多版本python共存问题因为大多数的linux服务器上都依赖了python2.7版本的python环境作为其系统环境，所以在安装python3的时候需要将python3版本特别注明与本地的python2.7区分开。此次讨论的问题不在python2和python3的版本冲突，而是多个python3的版本共存 问题最新的ubuntu和centos在安装的时候都默认还包含了python3版本，我的服务器默认安装的是python3.6.8在终端输入python3查看python的版本号这就导致了我们写的flask和爬虫环境依赖python3.7等高版本时就无法正常启动 pip3安装的包问题这个问题是最难发现的，在系统存在多个python3环境时，使用pip安装的包明明使用pip3 list命令可以看到但是使用python3 import module的时候却提示没有安装这个包有些时候这个问题是由于你定义的py文件名称和包的文件名称一致 分析问题因为服务器上的用户权限几乎都是root，所以我们使用pip安装包的时候也是root安装默认情况下，root的包安装在系统的python3环境目录下，但是当安装了新版的python3.7后pip3会安装到/usr/local/python3/lib/python3.7/下面如果此时系统的python3编译器还使用的是原来的python3.6.8就不会找到安装的第三方包 解决安装python3.7因为linux自带的包管理器下载的python3版本不是最新的包，所以直接去官网下载源码编译安装安装步骤参考前面的文章安装完成后一般的安装位置在 1cd /usr/local/python3/bin 进入后会发现编译器会有多个，其中一个python3是系统默认的python3.6版本，一个python3.7是刚才安装的新版本python终端输入python3再次查看python3版本号不出意外应该还是系统默认的python3.6版本 删除系统默认python链接1sudo rm -f /usr/bin/python3 创建新的链接 1sudo ln -s /usr/bin/python3 /usr/local/python3/bin/python3.7 测试查看python3版本 1$ python3 此时应该为新安装的python3.7.x 查看pip3安装的包 12$ python3&gt;&gt;&gt;import flask 没有报错则说明安装在python3.7下的flask包被成功导入]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nginx搭配flask]]></title>
     <url>%2F2019%2F06%2F21%2Fnginx-flask%2F</url>
     <content type="text"><![CDATA[在Nginx服务器上搭建Flask站点服务 需求12pip install flaskpip install gunicorn flask配置1234if __name__ == '__main__': from werkzeug.contrib.fixers import ProxyFix app.wsgi_app = ProxyFix(app.wsgi_app) app.run() 使用gunicorn代理必须加两句话 nginx配置12345678910server &#123; listen 8080; #你想服务器的端口 server_name 你的服务器地址; location / &#123; proxy_pass http://127.0.0.1:5000; #这个是Gunicorn与Ningx通信的端口。和Gunicorn的配置相同 access_log /root/flaskweb/access.log; error_log /root/flaskweb/error.log; &#125; &#125; 启动flask1gunicorn -w 4 -b 127.0.0.1:5000 app:app 4表示4个进程 小网站不需要那么多 启动nginx1nginx -s reload 访问访问8080端口]]></content>

@@ -425,6 +425,361 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/03/27/verilog-e5-ae-9e-e7-8e-b07-e4-ba-ba-e6-8a-95-e7-a5-a8-e5-99-a8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/27/verilog-e5-ae-9e-e7-8e-b07-e4-ba-ba-e6-8a-95-e7-a5-a8-e5-99-a8/" class="post-title-link" itemprop="url">verilog实现7人投票器</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-27 15:49:08" itemprop="dateCreated datePublished" datetime="2018-03-27T15:49:08+08:00">2018-03-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-21 00:45:44" itemprop="dateModified" datetime="2019-05-21T00:45:44+08:00">2019-05-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> people7(s,sum,vote</span><br><span class="line">    );</span><br><span class="line"><span class="keyword">input</span> [<span class="number">6</span>:<span class="number">0</span>]s;</span><br><span class="line"><span class="keyword">output</span> <span class="keyword">reg</span> vote;<span class="comment">//定义1为通过，0为禁止</span></span><br><span class="line"><span class="keyword">output</span> <span class="keyword">reg</span>[<span class="number">2</span>:<span class="number">0</span>] sum;<span class="comment">//对7人结果的统计票数大于等于4为通过</span></span><br><span class="line"><span class="keyword">integer</span> k;</span><br><span class="line"><span class="keyword">always</span>@(s) <span class="keyword">begin</span></span><br><span class="line">sum=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (k=<span class="number">0</span>;k&lt;=<span class="number">6</span>;k=k+<span class="number">1</span>)</span><br><span class="line">   <span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">if</span>(s[k]) sum=sum+<span class="number">1</span>;</span><br><span class="line">	  <span class="keyword">if</span>(sum&gt;<span class="number">3</span>) vote&lt;=<span class="number">1</span>;</span><br><span class="line">	  <span class="keyword">else</span> vote&lt;=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/03/27/verilog-e5-ae-9e-e7-8e-b07-e4-ba-ba-e6-8a-95-e7-a5-a8-e5-99-a8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/03/27/verilog-e5-ae-9e-e7-8e-b050mhz-e5-88-86-e9-a2-91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/27/verilog-e5-ae-9e-e7-8e-b050mhz-e5-88-86-e9-a2-91/" class="post-title-link" itemprop="url">verilog实现50mhz分频</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-27 15:47:07" itemprop="dateCreated datePublished" datetime="2018-03-27T15:47:07+08:00">2018-03-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-02 19:30:10" itemprop="dateModified" datetime="2019-02-02T19:30:10+08:00">2019-02-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">timescale</span> 1ns / 1ps</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Company: </span></span><br><span class="line"><span class="comment">// Engineer: </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Create Date:    20:39:27 12/11/2017 </span></span><br><span class="line"><span class="comment">// Design Name: </span></span><br><span class="line"><span class="comment">// Module Name:    time50 </span></span><br><span class="line"><span class="comment">// Project Name: </span></span><br><span class="line"><span class="comment">// Target Devices: </span></span><br><span class="line"><span class="comment">// Tool versions: </span></span><br><span class="line"><span class="comment">// Description: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Dependencies: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Revision: </span></span><br><span class="line"><span class="comment">// Revision 0.01 - File Created</span></span><br><span class="line"><span class="comment">// Additional Comments: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="keyword">module</span> time50(clk_50MHZ,clk_1HZ);</span><br><span class="line"><span class="keyword">input</span> clk_50MHZ;</span><br><span class="line"><span class="keyword">reg</span> [<span class="number">25</span>:<span class="number">0</span>]Count_DIV=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">output</span> <span class="keyword">reg</span> clk_1HZ=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">parameter</span> CLK_Freq=<span class="number">50000000</span>;<span class="comment">//定义时钟信号为50mhz</span></span><br><span class="line"><span class="keyword">always</span>@(<span class="keyword">posedge</span> clk_50MHZ)  <span class="keyword">begin</span></span><br><span class="line">	    <span class="keyword">if</span>(Count_DIV&lt;(CLK_Freq/<span class="number">2</span>-<span class="number">1</span>))</span><br><span class="line">		   Count_DIV&lt;=Count_DIV+<span class="number">1'b1</span>;</span><br><span class="line">		 <span class="keyword">else</span>  <span class="keyword">begin</span></span><br><span class="line">		   Count_DIV&lt;=<span class="number">0</span>;</span><br><span class="line">			clk_1HZ=~clk_1HZ;</span><br><span class="line">	    <span class="keyword">end</span></span><br><span class="line">	 <span class="keyword">end</span></span><br><span class="line">	<span class="keyword">endmodule</span><span class="comment">//对50mhz进行分频，达到一半频率进行一次分频</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<p><strong>在进行分频时，clk_freq所除数代表分频数，例如分频为1hz，即为freq*1/2，分频为2hz即为freq*2/2</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/03/27/verilog-e8-af-ad-e8-a8-80-e5-ae-9e-e7-8e-b0-e4-ba-a4-e9-80-9a-e7-81-af/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1140,367 +1495,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/03/26/verilog-e5-ae-9e-e7-8e-b0-e6-ad-a5-e8-bf-9b-e7-94-b5-e6-9c-ba/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Landers">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/Landers.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Landers1037">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/26/verilog-e5-ae-9e-e7-8e-b0-e6-ad-a5-e8-bf-9b-e7-94-b5-e6-9c-ba/" class="post-title-link" itemprop="url">verilog实现步进电机</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-26 22:24:40" itemprop="dateCreated datePublished" datetime="2018-03-26T22:24:40+08:00">2018-03-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-21 00:46:18" itemprop="dateModified" datetime="2019-05-21T00:46:18+08:00">2019-05-21</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>感谢某位姓王大佬赞助
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/03/26/verilog-e5-ae-9e-e7-8e-b0-e6-ad-a5-e8-bf-9b-e7-94-b5-e6-9c-ba/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/03/26/verilog-e5-ae-9e-e7-8e-b0-e6-b5-81-e6-b0-b4-e7-81-af/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Landers">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/Landers.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Landers1037">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/26/verilog-e5-ae-9e-e7-8e-b0-e6-b5-81-e6-b0-b4-e7-81-af/" class="post-title-link" itemprop="url">verilog实现流水灯</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-26 22:21:50" itemprop="dateCreated datePublished" datetime="2018-03-26T22:21:50+08:00">2018-03-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-02 19:43:03" itemprop="dateModified" datetime="2019-02-02T19:43:03+08:00">2019-02-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">timescale</span> 1ns / 1ps</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Company: </span></span><br><span class="line"><span class="comment">// Engineer: </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Create Date:    16:45:44 08/17/2012 </span></span><br><span class="line"><span class="comment">// Design Name: </span></span><br><span class="line"><span class="comment">// Module Name:    led </span></span><br><span class="line"><span class="comment">// Project Name: </span></span><br><span class="line"><span class="comment">// Target Devices: </span></span><br><span class="line"><span class="comment">// Tool versions: </span></span><br><span class="line"><span class="comment">// Description: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Dependencies: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Revision: </span></span><br><span class="line"><span class="comment">// Revision 0.01 - File Created</span></span><br><span class="line"><span class="comment">// Additional Comments: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> led(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">	 <span class="keyword">input</span> reset,</span><br><span class="line">	 <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] led_out</span><br><span class="line">	 );</span><br><span class="line">   <span class="keyword">reg</span>[<span class="number">26</span>:<span class="number">0</span>]counter;</span><br><span class="line">	<span class="keyword">always</span>@(<span class="keyword">posedge</span> clk)</span><br><span class="line">	<span class="keyword">begin</span></span><br><span class="line">	 <span class="keyword">if</span>(reset)</span><br><span class="line">	    counter&lt;=<span class="number">0</span>;</span><br><span class="line">		 <span class="keyword">else</span></span><br><span class="line">		 counter&lt;=counter+<span class="number">1</span>;</span><br><span class="line">		 <span class="keyword">end</span></span><br><span class="line">	</span><br><span class="line">		<span class="keyword">assign</span> led_out=counter[<span class="number">26</span>:<span class="number">23</span>];</span><br></pre></td></tr></table></figure>
-
-<p>​    
-    endmodule</p>
-<p>流水灯打包 <a href="https://drive.google.com/open?id=1kP50XV2VeEsLHB9JCXDWeDa8PAxXGW7V" target="_blank" rel="noopener">https://drive.google.com/open?id=1kP50XV2VeEsLHB9JCXDWeDa8PAxXGW7V</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/25/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/27/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/25/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/27/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1544,7 +1543,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">186</span>
+                    <span class="site-state-item-count">188</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
