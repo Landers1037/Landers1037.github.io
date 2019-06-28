@@ -100,17 +100,17 @@
 
 
 
-  <meta name="description" content="正文">
+  <meta name="description" content="如何使用gitbook 环境：Windows10 node.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gitbook-create">
+<meta property="og:title" content="gitbook的使用">
 <meta property="og:url" content="http://landers1037.top/2019/06/27/gitbook-create/index.html">
 <meta property="og:site_name" content="Landers1037">
-<meta property="og:description" content="正文">
+<meta property="og:description" content="如何使用gitbook 环境：Windows10 node.js">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-27T09:48:26.533Z">
+<meta property="og:updated_time" content="2019-06-27T15:04:47.313Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gitbook-create">
-<meta name="twitter:description" content="正文">
+<meta name="twitter:title" content="gitbook的使用">
+<meta name="twitter:description" content="如何使用gitbook 环境：Windows10 node.js">
 
 
 
@@ -128,7 +128,7 @@
   };
 </script>
 
-  <title>gitbook-create | Landers1037</title>
+  <title>gitbook的使用 | Landers1037</title>
   
 
 
@@ -445,7 +445,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">gitbook-create
+          <h2 class="post-title" itemprop="name headline">gitbook的使用
 
               
             
@@ -471,9 +471,13 @@
                 
               
 
-              <time title="创建时间：2019-06-27 17:48:26" itemprop="dateCreated datePublished" datetime="2019-06-27T17:48:26+08:00">2019-06-27</time>
+              <time title="创建时间：2019-06-27 17:48:26 / 修改时间：23:04:47" itemprop="dateCreated datePublished" datetime="2019-06-27T17:48:26+08:00">2019-06-27</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -513,9 +517,24 @@
       
 
       
-        <p>正文</p>
+        <p>如何使用gitbook</p>
+<p>环境：Windows10 node.js</p>
 <a id="more"></a>
 
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>gitbook是一个命令行形式的markdown写书工具</p>
+<p>可以结合使用gitbook editor作为图形化编辑器写出格式优美的书籍</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>依赖node.js环境，Windows到官网下载并安装</p>
+<p>在git-bash中输入</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install gitbook-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>查看版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitbook -V</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>使用gitbook editor写好一篇文章后，进入文章所在位置打开终端</p>
+<p>默认路径为<code>C:\Users\用户名\GitBook\Library\Import\</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gitbook init</span><br><span class="line">$ gitbook serve</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以在本地端口4000查看书籍的html文件</p>
 
       
     </div>
@@ -589,8 +608,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2333/01/01/pin/" rel="prev" title="一个来自HUST的菜🐒">
-                一个来自HUST的菜🐒 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/28/docker-login/" rel="prev" title="docker的登录">
+                docker的登录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -635,8 +654,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -653,7 +681,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">188</span>
+                    <span class="site-state-item-count">191</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -978,6 +1006,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.</span> <span class="nav-text">初始化</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

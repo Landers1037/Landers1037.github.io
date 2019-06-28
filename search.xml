@@ -6,9 +6,42 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！ 我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
-    <title><![CDATA[gitbook-create]]></title>
+    <title><![CDATA[docker本地文件共享]]></title>
+    <url>%2F2019%2F06%2F28%2Fdocker-share%2F</url>
+    <content type="text"><![CDATA[环境docker for windows 解决docker镜像内访问本地目录的问题 开启共享目录在docker程序的settings&gt;Shared Driver里勾选要共享的目录 docker挂载目录1docker run -v e:/docker:/data ubuntu:latest ls /data Ubuntu为你镜像的名称 使用命令后会自动列出挂载目录e:/docker的全部文件 如果需要挂载整个e盘 1docker run -it -v e:/:/data ubuntu /bin/bash 进入镜像后，/data目录会自动挂载到根目录下]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker打包flask程序]]></title>
+    <url>%2F2019%2F06%2F28%2Fdocker-makeflask%2F</url>
+    <content type="text"><![CDATA[使用docker打包flask程序实现快速部署 Flask文件配置运行地址和端口需要修改 123if __name__ == '__main__': app.jinja_env.auto_reload = True app.run(host='0.0.0.0',port=80) 配置文件建立一个文件夹dockertest 把flask项目全部放置到此目录下 添加Dockerfile文件和依赖文件12touch Dockerfiletouch requirements.txt Dockerfile12345678FROM python:3.7MAINTAINER name xxx@gmail.comWORKDIR /appADD . /appRUN pip install -r requirements.txtEXPOSE 80RUN chmod +x /app/start.shENTRYPOINT /app/start.sh 本镜像依赖了python3.7的官方docker镜像 在根目录下新建了app目录，开启了本地80端口 将开启flask的脚本写在start.sh里方便定制 如果直接使用命令调用使用如下形式 1CMD ["python", "app.py"] python requirements12gunicornflask 根据自己项目依赖的包自行添加 start.sh12#! /bin/bashpython /app/app.py 因为只是测试所以直接使用python执行flask程序 真正运行时建议使用gunicorn 12#! /bin/bashgunicorn -w 4 -b 0.0.0.0:80 app:app 构建docker镜像12cd dockertestdocker build -t flasktest . 创建了一个名为flasktest的镜像 测试1docker -d -p 5000:80 flasktest 5000为本地端口 80为docker内部的flask程序运行的端口 访问127.0.0.1:5000]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker的登录]]></title>
+    <url>%2F2019%2F06%2F28%2Fdocker-login%2F</url>
+    <content type="text"><![CDATA[docker默认登录仓库为docker hub 输入docker -u name -p passwd登录]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gitbook的使用]]></title>
     <url>%2F2019%2F06%2F27%2Fgitbook-create%2F</url>
-    <content type="text"><![CDATA[正文]]></content>
+    <content type="text"><![CDATA[如何使用gitbook 环境：Windows10 node.js 使用gitbook是一个命令行形式的markdown写书工具 可以结合使用gitbook editor作为图形化编辑器写出格式优美的书籍 安装依赖node.js环境，Windows到官网下载并安装 在git-bash中输入 1$ npm install gitbook-cli -g 查看版本 1gitbook -V 初始化使用gitbook editor写好一篇文章后，进入文章所在位置打开终端 默认路径为C:\Users\用户名\GitBook\Library\Import\ 12$ gitbook init$ gitbook serve 然后就可以在本地端口4000查看书籍的html文件]]></content>
   </entry>
   <entry>
     <title><![CDATA[python-coexist]]></title>
