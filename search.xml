@@ -194,7 +194,7 @@
   <entry>
     <title><![CDATA[markdown图片并列显示]]></title>
     <url>%2F2019%2F05%2F24%2Flet2pic-parallel%2F</url>
-    <content type="text"><![CDATA[markdown中使用html标签让两张图片并排显示 1234&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img src=pic1.png border=0&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=pic2.png border=0&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; 当使用本地图片资源时满足markdown语法 1234&lt;table&gt;&lt;tr&gt;&lt;td&gt;![1](/images/alipay.png)&lt;/td&gt;&lt;td&gt;![2](/images/wechatpay.png)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;]]></content>
+    <content type="text"><![CDATA[markdown中使用html标签让两张图片并排显示 1234&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img src=pic1.png border=0&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=pic2.png border=0&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; 当使用本地图片资源时满足markdown语法 1234&lt;table&gt;&lt;tr&gt;&lt;td&gt;![1](/images/alipay.png)&lt;/td&gt;&lt;td&gt;![2](/images/wechatpay.png)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; 补充居中方法 图片居中 1&lt;div style="text-align: center"&gt;&lt;img src=pic1.png border=0&gt;&lt;/div&gt; a标签居中 因为a标签的特殊性，是一个带有跳转的链接，需要先转换为行内块元素 1234567a &#123; display: inline-block; font-size: 12px; font-weight: bold; color: black; text-decoration: none;&#125; 1&lt;div style="text-align: center"&gt;&lt;a href="#"&gt;test&lt;/a&gt;&lt;/div&gt;]]></content>
       <categories>
         <category>hexo</category>
       </categories>

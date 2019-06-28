@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Landers1037">
 <meta property="og:description" content="markdown中使用html标签让两张图片并排显示 1234&amp;lt;table&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;&amp;lt;img src=pic1.png border=0&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;img src=pic2.png border=0&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-24T04:39:03.047Z">
+<meta property="og:updated_time" content="2019-06-28T13:21:00.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="markdown图片并列显示">
 <meta name="twitter:description" content="markdown中使用html标签让两张图片并排显示 1234&amp;lt;table&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;&amp;lt;img src=pic1.png border=0&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;img src=pic2.png border=0&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;">
@@ -321,7 +321,7 @@
         
         
           
-          <li class="menu-item menu-item-something">
+          <li class="menu-item menu-item-book">
 
     
     
@@ -331,7 +331,7 @@
 
     
 
-    <a href="/something/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>笔记</a>
+    <a href="/book/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>笔记</a>
 
   </li>
         
@@ -472,12 +472,24 @@
                 
               
 
-              <time title="创建时间：2019-05-24 12:22:26 / 修改时间：12:39:03" itemprop="dateCreated datePublished" datetime="2019-05-24T12:22:26+08:00">2019-05-24</time>
+              <time title="创建时间：2019-05-24 12:22:26" itemprop="dateCreated datePublished" datetime="2019-05-24T12:22:26+08:00">2019-05-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-28 21:21:00" itemprop="dateModified" datetime="2019-06-28T21:21:00+08:00">2019-06-28</time>
               
             
           </span>
@@ -543,6 +555,16 @@
 
 <p>当使用本地图片资源时满足markdown语法</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>![1](/images/alipay.png)<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>![2](/images/wechatpay.png)<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>补充居中方法</p>
+<p>图片居中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align: center"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">pic1.png</span> <span class="attr">border</span>=<span class="string">0</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>a标签居中</p>
+<p>因为a标签的特殊性，是一个带有跳转的链接，需要先转换为行内块元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="attribute">color</span>: black;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align: center"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
       
