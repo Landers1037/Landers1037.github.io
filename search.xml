@@ -6,6 +6,30 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！ 我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
+    <title><![CDATA[html设置元素水平对齐]]></title>
+    <url>%2F2019%2F06%2F30%2Fhtml-horizon-align%2F</url>
+    <content type="text"><![CDATA[假设行内有多个元素，需要其水平对齐 12&lt;input type="text" name="mess" autocomplete="off" required&gt;&lt;input class="btn" type="submit" name="submit" value="发布"&gt; 只需要设置垂直属性 1234567input[type=text]&#123; vertical-align: middle;&#125;.btn &#123; font-size: 28px; vertical-align: middle;&#125; 这样两个input标签就会水平中心对齐]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[html中li节点并排方法]]></title>
+    <url>%2F2019%2F06%2F30%2Fhtml-li-2%2F</url>
+    <content type="text"><![CDATA[&lt;li&gt;&lt;/li&gt;节点默认是不能并排的 可以使用block块或者悬浮样式的方法让其并排显示 示例12345&lt;ul&gt; &lt;li&gt;测试&lt;/li&gt; &lt;li&gt;测试&lt;/li&gt; &lt;li&gt;测试&lt;/li&gt; &lt;/ul&gt; 方法一使用行内块元素，调整css样式 1li&#123; display:inline&#125; 方法二使用悬浮样式 1234li&#123; float:left; list-style:none&#125; list-style是节点样式，不去除就会显示标签节点 float:left表示左对齐 间距调整并排显示后需要调整间距使两个li节点间有空隙，添加margin属性 123li&#123; margin-right：10px&#125; 或 1border-right: 背景颜色 设置与背景颜色一致达到类似空格的效果]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[docker本地文件共享]]></title>
     <url>%2F2019%2F06%2F28%2Fdocker-share%2F</url>
     <content type="text"><![CDATA[环境docker for windows 解决docker镜像内访问本地目录的问题 开启共享目录在docker程序的settings&gt;Shared Driver里勾选要共享的目录 docker挂载目录1docker run -v e:/docker:/data ubuntu:latest ls /data Ubuntu为你镜像的名称 使用命令后会自动列出挂载目录e:/docker的全部文件 如果需要挂载整个e盘 1docker run -it -v e:/:/data ubuntu /bin/bash 进入镜像后，/data目录会自动挂载到根目录下]]></content>
