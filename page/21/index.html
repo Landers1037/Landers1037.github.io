@@ -425,6 +425,370 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/07/26/java-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b06-e5-b0-81-e8-a3-85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/07/26/java-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b06-e5-b0-81-e8-a3-85/" class="post-title-link" itemprop="url">java学习笔记6-封装</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-26 17:22:21" itemprop="dateCreated datePublished" datetime="2018-07-26T17:22:21+08:00">2018-07-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-02 13:46:32" itemprop="dateModified" datetime="2019-02-02T13:46:32+08:00">2019-02-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>封装是把抽象的数据和对数据的操作封装在一起，这样数据就被保护了起来，只有得到授权的操作（类方法）才能去访问</p>
+<p>包的必要性：什么是包？</p>
+<p>com.xiaoming中.代表分层</p>
+<p>当定义的类的名字相同时用包来区分</p>
+<p>*打包命令一般放在文件开始的地方</p>
+<p>*包的命名规范，全部小写</p>
+<p>引入包：import</p>
+<p>例如引入HashMap包，import java.util.*;</p>
+<p>用包来控制访问的级别</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xiaoqiang;</span><br><span class="line"><span class="comment">//打包命令，把生成的字节码放在该包下</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">xiaoqiang</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">    Dog dog1=<span class="keyword">new</span> Dog();</span><br><span class="line">    </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">protected</span> String name;</span><br><span class="line">	String color;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">float</span> price;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/07/26/java-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b05-e7-b1-bb-e6-96-b9-e6-b3-95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/07/26/java-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b05-e7-b1-bb-e6-96-b9-e6-b3-95/" class="post-title-link" itemprop="url">java学习笔记5-类方法</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-26 17:20:11" itemprop="dateCreated datePublished" datetime="2018-07-26T17:20:11+08:00">2018-07-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-02 13:46:53" itemprop="dateModified" datetime="2019-02-02T13:46:53+08:00">2019-02-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>类方法（又为静态方法）</p>
+<p>//java里的规则类变量原则上用类方法去访问</p>
+<p>//类方法中不能访问非类变量，比如静态的方法只能访问静态的变量，普通方法却可以访问其他的变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">2018.7.25</span></span><br><span class="line"><span class="comment">静态变量的理解</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo7</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/*static int i=1;</span></span><br><span class="line"><span class="comment">    static</span></span><br><span class="line"><span class="comment">    &#123;   //这个静态区域块只被执行一次</span></span><br><span class="line"><span class="comment">        i++;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    public demo7()</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">        i++;</span></span><br><span class="line"><span class="comment">    &#125;*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">/*demo7 d1=new demo7();</span></span><br><span class="line"><span class="comment">        System.out.println(d1.i);</span></span><br><span class="line"><span class="comment">        demo7 d2=new demo7();</span></span><br><span class="line"><span class="comment">        System.out.println(d2.i);*/</span></span><br><span class="line">        Stu s1=<span class="keyword">new</span> Stu(<span class="number">19</span>,<span class="string">"mark1"</span>,<span class="number">9999</span>);</span><br><span class="line">        Stu s2=<span class="keyword">new</span> Stu(<span class="number">20</span>,<span class="string">"mark2"</span>,<span class="number">8978</span>);</span><br><span class="line">        System.out.println(Stu.Gettotal());</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​            </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//定义一个学生的类</span></span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> fee;<span class="comment">//学费</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> totalfee;<span class="comment">//定义一个静态变量为总的学费</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(<span class="keyword">int</span> age,String name,<span class="keyword">int</span> fee)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        totalfee+=fee;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回总学费</span></span><br><span class="line">    <span class="comment">//这里是一个类方法，静态方法，把gettotal的值变成对象公共可以访问的</span></span><br><span class="line">    <span class="comment">//java里的规则类变量原则上用类方法去访问</span></span><br><span class="line">    <span class="comment">//类方法中不能访问非类变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">Gettotal</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> totalfee;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>什么时候使用类变量</p>
+<p>定义学生类，或者钱的总数；用类变量属于公共的属性</p>
+<p>类方法是和类相关的类的公共方法</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/07/26/java-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b04-this-e7-b1-bb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1140,360 +1504,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/06/21/e4-bf-a1-e5-8f-b7-e4-b8-8e-e7-b3-bb-e7-bb-9f-e7-8a-b6-e6-80-81-e5-88-86-e6-9e-90-e6-95-99-e6-9d-90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Landers">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/Landers.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Landers1037">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/21/e4-bf-a1-e5-8f-b7-e4-b8-8e-e7-b3-bb-e7-bb-9f-e7-8a-b6-e6-80-81-e5-88-86-e6-9e-90-e6-95-99-e6-9d-90/" class="post-title-link" itemprop="url">信号与系统——状态分析教材</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-21 13:48:51" itemprop="dateCreated datePublished" datetime="2018-06-21T13:48:51+08:00">2018-06-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-01 16:03:01" itemprop="dateModified" datetime="2019-02-01T16:03:01+08:00">2019-02-01</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/资源下载/" itemprop="url" rel="index"><span itemprop="name">资源下载</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>[google-drive-embed url=”<a href="https://drive.google.com/file/d/1lB9W1qGZTGtbJeQRhV-LIm1kmAtPMVyP/preview?usp=drivesdk&quot;" target="_blank" rel="noopener">https://drive.google.com/file/d/1lB9W1qGZTGtbJeQRhV-LIm1kmAtPMVyP/preview?usp=drivesdk&quot;</a> title=”Binder.pdf” icon=”<a href="https://drive-thirdparty.googleusercontent.com/16/type/application/pdf&quot;" target="_blank" rel="noopener">https://drive-thirdparty.googleusercontent.com/16/type/application/pdf&quot;</a> width=”110%” height=”400” style=”embed”]</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/06/21/e5-9f-ba-e4-ba-8e-e6-9c-80-e5-b0-8f-e7-b3-bb-e7-bb-9f-adda-e8-bd-ac-e6-8d-a2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Landers">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/Landers.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Landers1037">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/21/e5-9f-ba-e4-ba-8e-e6-9c-80-e5-b0-8f-e7-b3-bb-e7-bb-9f-adda-e8-bd-ac-e6-8d-a2/" class="post-title-link" itemprop="url">基于最小系统——AD&DA转换</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-21 10:03:03" itemprop="dateCreated datePublished" datetime="2018-06-21T10:03:03+08:00">2018-06-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-02 13:59:38" itemprop="dateModified" datetime="2019-02-02T13:59:38+08:00">2019-02-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="AD"><a href="#AD" class="headerlink" title="AD"></a>AD</h1><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * AD.c</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  Created on: 2018-5-31</span></span><br><span class="line"><span class="comment"> *      Author: 郭</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xparameters.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xspi.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xintc.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xil_exception.h"</span></span><br><span class="line"></span><br><span class="line">#define BUFFER_SIZE  <span class="number">2</span></span><br><span class="line"><span class="keyword">void</span> SpiIntrandler(<span class="keyword">void</span> *CallBackRef,u32 Statusevent,u32 Bytecount);</span><br><span class="line"><span class="keyword">static</span> XIntc IntcInstance;</span><br><span class="line"><span class="keyword">static</span> XSpi SpiInstance;</span><br><span class="line">volatile <span class="keyword">int</span> TransferInProgress;</span><br><span class="line"><span class="keyword">int</span> Error;</span><br><span class="line">u8 ReadBuffer[BUFFER_SIZE];</span><br><span class="line">u8 WriteBuffer[BUFFER_SIZE];</span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span>  Status;</span><br><span class="line">Status=XSpi_Initialize(&amp;SpiInstance,XPAR_SPI_0_DEVICE_ID);</span><br><span class="line">Status=XIntc_Initialize(&amp;IntcInstance,XPAR_INTC_0_DEVICE_ID);</span><br><span class="line">Status=XIntc_Connect(&amp;IntcInstance,XPAR_INTC_0_SPI_0_VEC_ID,(XInterruptHandler) XSpi_InterruptHandler,(<span class="keyword">void</span> *)&amp;SpiInstance);</span><br><span class="line">Status=XIntc_Start(&amp;IntcInstance,XIN_REAL_MODE);</span><br><span class="line">XIntc_Enable(&amp;IntcInstance,XPAR_INTC_0_SPI_0_VEC_ID);</span><br><span class="line">microblaze_register_handler((XInterruptHandler)XIntc_InterruptHandler,&amp;IntcInstance);</span><br><span class="line">microblaze_enable_interrupts();</span><br><span class="line">XSpi_SetStatusHandler(&amp;SpiInstance,&amp;SpiInstance,(XSpi_StatusHandler)SpiIntrandler);</span><br><span class="line">Status = XSpi_SetOptions(&amp;SpiInstance,XSP_MASTER_OPTION |XSP_CLK_PHASE_1_OPTION);</span><br><span class="line">Status = XSpi_SetSlaveSelect(&amp;SpiInstance,<span class="number">1</span>);</span><br><span class="line">XSpi_Start(&amp;SpiInstance);</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">TransferInProgress = TRUE;</span><br><span class="line">XSpi_Transfer(&amp;SpiInstance,WriteBuffer,ReadBuffer,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">while</span>(TransferInProgress);</span><br><span class="line">u16  temp;</span><br><span class="line"></span><br><span class="line">temp = ReadBuffer[<span class="number">1</span>] &lt;&lt; <span class="number">8</span>;</span><br><span class="line">temp += ReadBuffer[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">xil_printf(<span class="string">"adc = %d\n\r"</span>, temp);</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">5000000</span>; i++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> XST_SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SpiIntrandler(<span class="keyword">void</span> *CallBackRef, u32 StatusEvent, u32 ByteCount)</span><br><span class="line">&#123;</span><br><span class="line">    TransferInProgress = FALSE;</span><br><span class="line">    <span class="keyword">if</span>  (StatusEvent != XSP_SR_RX_EMPTY_MASK)&#123;</span><br><span class="line">    Error++;</span><br><span class="line">&#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    
-​<br>​    </p>
-<h1 id="DA"><a href="#DA" class="headerlink" title="DA"></a>DA</h1><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">include</span> <span class="string">"xparameters.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xspi.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xintc.h"</span></span><br><span class="line">#<span class="keyword">include</span> <span class="string">"xil_exception.h"</span></span><br><span class="line"></span><br><span class="line">#define BUFFER_SIZE  <span class="number">2</span></span><br><span class="line"><span class="keyword">void</span> SpiIntrandler(<span class="keyword">void</span> *CallBackRef,u32 Statusevent,u32 Bytecount);</span><br><span class="line"><span class="keyword">static</span> XIntc IntcInstance;</span><br><span class="line"><span class="keyword">static</span> XSpi SpiInstance;</span><br><span class="line">volatile <span class="keyword">int</span> TransferInProgress;</span><br><span class="line"><span class="keyword">int</span> Error;</span><br><span class="line">u8 ReadBuffer[BUFFER_SIZE];</span><br><span class="line">u8 WriteBuffer[BUFFER_SIZE];</span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span>  Status,Count;</span><br><span class="line">Status=XSpi_Initialize(&amp;SpiInstance,XPAR_SPI_0_DEVICE_ID);</span><br><span class="line">Status=XIntc_Initialize(&amp;IntcInstance,XPAR_INTC_0_DEVICE_ID);</span><br><span class="line">Status=XIntc_Connect(&amp;IntcInstance,XPAR_INTC_0_SPI_0_VEC_ID,(XInterruptHandler) XSpi_InterruptHandler,(<span class="keyword">void</span> *)&amp;SpiInstance);</span><br><span class="line">Status=XIntc_Start(&amp;IntcInstance,XIN_REAL_MODE);</span><br><span class="line">XIntc_Enable(&amp;IntcInstance,XPAR_INTC_0_SPI_0_VEC_ID);</span><br><span class="line">microblaze_register_handler((XInterruptHandler)XIntc_InterruptHandler,&amp;IntcInstance);</span><br><span class="line">microblaze_enable_interrupts();</span><br><span class="line">XSpi_SetStatusHandler(&amp;SpiInstance,&amp;SpiInstance,(XSpi_StatusHandler)SpiIntrandler);</span><br><span class="line">Status = XSpi_SetOptions(&amp;SpiInstance,XSP_MASTER_OPTION |XSP_CLK_PHASE_1_OPTION);</span><br><span class="line">Status = XSpi_SetSlaveSelect(&amp;SpiInstance,<span class="number">1</span>);</span><br><span class="line">XSpi_Start(&amp;SpiInstance);</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">WriteBuffer[<span class="number">0</span>]=(u8)(Count);</span><br><span class="line">WriteBuffer[<span class="number">1</span>]=(u8)(Count&gt;&gt;<span class="number">8</span>)&amp;<span class="number">0</span>x0f;</span><br><span class="line">Count=Count+<span class="number">43</span>;</span><br><span class="line"><span class="keyword">if</span>(Count==<span class="number">4096</span>)</span><br><span class="line">	Count=<span class="number">0</span>;</span><br><span class="line">TransferInProgress = TRUE;</span><br><span class="line">XSpi_Transfer(&amp;SpiInstance,WriteBuffer,(<span class="keyword">void</span>*)<span class="number">0</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">while</span>(TransferInProgress);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> XST_SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> SpiIntrandler(<span class="keyword">void</span> *CallBackRef, u32 StatusEvent, u32 ByteCount)</span><br><span class="line">&#123;</span><br><span class="line">    TransferInProgress = FALSE;</span><br><span class="line">    <span class="keyword">if</span>  (StatusEvent != XST_SPI_TRANSFER_DONE)&#123;</span><br><span class="line">    Error++;</span><br><span class="line">&#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    
-​<br>​    </p>
-<p>感谢GJL大佬的分享</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1542,7 +1552,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">193</span>
+                    <span class="site-state-item-count">195</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

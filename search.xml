@@ -6,6 +6,28 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 给我留言： 留言箱 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
+    <title><![CDATA[css设置图片宽度自适应]]></title>
+    <url>%2F2019%2F07%2F05%2Fimg-auto%2F</url>
+    <content type="text"><![CDATA[有时网页需要针对不同宽度的设备优化结构，多张图片的位置不能固定，需要按照设备宽度自动排列 假设网页结构 1234&lt;div class="container"&gt; &lt;td class="test"&gt;&lt;img src="/static/alipay.png" style="max-width: 100%"/&gt;&lt;/td&gt; &lt;td class="test"&gt;&lt;img src="/static/wechatpay.png" style="max-width: 100%" /&gt;&lt;/td&gt;&lt;/div&gt; 重要：即将图片的宽度设置为max-width: 100% 使用css设置容器的最大宽度为100%，即默认的设备的宽度，当设备宽度小于给定图片宽度时，图片就会重新排列 1234567891011.container&#123; width: 100%; text-align: center;&#125;.test&#123; text-align: center; width: 100%; box-sizing: border-box; padding: 10px; min-width: 150px;&#125;]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[css设置元素自动居中]]></title>
+    <url>%2F2019%2F07%2F05%2Fhtml-auto-center%2F</url>
+    <content type="text"><![CDATA[使用css设置html网页中的元素居中 第一种居中方法使用text-align: center 假如网页结构如下 123&lt;div class="container"&gt; &lt;td class="test"&gt;&lt;img src="/static/alipay.png"&gt;&lt;/td&gt;&lt;/div&gt; 设置.container的属性text-align: center 对于特殊标签a,li需要标注其为块元素 123a&#123; display: inline-block;&#125; ## 第二种居中方法使用margin: 0 auto自动确定位置 1234&lt;div class="foot"&gt; &lt;li class="love"&gt;❤️&lt;/li&gt; &lt;li class="zan"&gt;👍&lt;/li&gt;&lt;/div&gt; 1234.foot&#123; margin: 0 auto; margin-bottom: 20px;&#125;]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[html设置元素水平对齐]]></title>
     <url>%2F2019%2F06%2F30%2Fhtml-horizon-align%2F</url>
     <content type="text"><![CDATA[假设行内有多个元素，需要其水平对齐 12&lt;input type="text" name="mess" autocomplete="off" required&gt;&lt;input class="btn" type="submit" name="submit" value="发布"&gt; 只需要设置垂直属性 1234567input[type=text]&#123; vertical-align: middle;&#125;.btn &#123; font-size: 28px; vertical-align: middle;&#125; 这样两个input标签就会水平中心对齐]]></content>
