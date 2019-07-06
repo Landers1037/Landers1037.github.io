@@ -6,6 +6,17 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 给我留言： 留言箱 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
+    <title><![CDATA[css为div添加背景图片]]></title>
+    <url>%2F2019%2F07%2F07%2Fcss-backimg%2F</url>
+    <content type="text"><![CDATA[使用css为div块设置背景图片background: url(/img/0.png) 使用background属性 123div&#123; background: url(/img/0.png) &#125; 为图片添加属性 图片起始位置123div&#123; background: url(/img/0.png) 5px 0px&#125; 5px是左间距，0px是顶部间距 居中属性123div&#123; background: url(/img/0.png) center 0px&#125; 图片不重复123div&#123; background: url(/img/0.png) no-repeat&#125; 其他属性：repeat-x横向平铺，repeat-y纵向平铺 设置图片随着div的大小动态变化1234div&#123; background: url(/img/0.png); background-size: contain;&#125; 其他属性：auto自动变化，cover覆盖div的大小]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[css设置图片宽度自适应]]></title>
     <url>%2F2019%2F07%2F05%2Fimg-auto%2F</url>
     <content type="text"><![CDATA[有时网页需要针对不同宽度的设备优化结构，多张图片的位置不能固定，需要按照设备宽度自动排列 假设网页结构 1234&lt;div class="container"&gt; &lt;td class="test"&gt;&lt;img src="/static/alipay.png" style="max-width: 100%"/&gt;&lt;/td&gt; &lt;td class="test"&gt;&lt;img src="/static/wechatpay.png" style="max-width: 100%" /&gt;&lt;/td&gt;&lt;/div&gt; 重要：即将图片的宽度设置为max-width: 100% 使用css设置容器的最大宽度为100%，即默认的设备的宽度，当设备宽度小于给定图片宽度时，图片就会重新排列 1234567891011.container&#123; width: 100%; text-align: center;&#125;.test&#123; text-align: center; width: 100%; box-sizing: border-box; padding: 10px; min-width: 150px;&#125;]]></content>
@@ -1919,8 +1930,8 @@
         <category>资源下载</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>下载</tag>
+        <tag>技术</tag>
         <tag>破解</tag>
       </tags>
   </entry>
@@ -2105,8 +2116,8 @@
         <category>网络技术</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>下载</tag>
+        <tag>技术</tag>
         <tag>chrome</tag>
       </tags>
   </entry>
