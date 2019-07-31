@@ -6,6 +6,40 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 给我留言： 留言箱 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
+    <title><![CDATA[html设置div内部图片自适应]]></title>
+    <url>%2F2019%2F07%2F31%2Fhtml-imgindiv%2F</url>
+    <content type="text"><![CDATA[加入有一个div元素块，里面有一个img标签，如何使图片跟随div变化，充满整个div块 利用两个元素块约束12345&lt;div class="out"&gt; &lt;div class="in"&gt; &lt;img src='static/img/face-2.jpg'&gt; &lt;/div&gt;&lt;/div&gt; css样式表 12345678910111213.in&#123; position:relative; width:100%; height:0; padding-top: 100%; /*padding-bottom都可以*/ img&#123; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &#125; &#125; 使内部图片居中使用flex布局居中1dispaly: flex; 使用transform属性transform()对x，y方向进行偏移transformY()对y方向偏移transformX()对x方向偏移 首先使用绝对位置，top: 50%，图片最上方从div父元素的50%高度开始 123img&#123; transform: translateY(-50%);&#125; 对图片添加属性，在y方向上，偏移自身高度50%，达到垂直居中的目的 水平居中使用margin: 0 auto属性]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何使用js把字符串转变为html文本]]></title>
+    <url>%2F2019%2F07%2F30%2Fflask-2-html%2F</url>
+    <content type="text"><![CDATA[当数据需要动态从数据库或者存储文件中调用并传入flask中，路由传入的是字符串类型，如果希望传入的数据在html文件中作为一段内容显示，需要使用JavaScript对字符串里的html标签转义 添加容器在html文件中为传入的字符创建一个容器 12345&lt;div class="post"&gt; &lt;p class="text"&gt; &#123;&#123; text &#125;&#125; &lt;/p&gt;&lt;/div&gt; text是传入的带有html标签的字符串，给p标签添加类名”text” 字符串假设传入一段字符串为 1"这是一段测试代码&lt;a href="#"&gt;点击&lt;/a&gt;" 不经过处理直接显示出来是 1这是一段测试代码&lt;a href="#"&gt;点击&lt;/a&gt; 我们需要的样式如下 这是一段测试代码点击 使用js处理添加JavaScript函数 123456789&lt;script&gt; window.onload=function () &#123; var list = document.getElementsByClassName("text"); for (var i = 0; i &lt; list.length; i++) &#123; text = list[i].innerText; list[i].innerHTML = text; &#125; &#125;&lt;/script&gt; 使用css过滤器筛选出所有的类名为”text”的元素，得到的是一个节点列表对节点列表按照长度进行遍历，每一个元素都使用innerHTML()函数将文本重新格式化]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[flask的静态文件处理]]></title>
+    <url>%2F2019%2F07%2F29%2Fflask-static-path%2F</url>
+    <content type="text"><![CDATA[Flask处理静态文件 修改配置参数static_path_for和static_folder flask里的static目录在Flask中所有的静态文件统一放置在static目录下，所以所有的静态文件调用路径为/static/css/ 1&lt;link href="/static/css/imain.css" rel="stylesheet"&gt; 这样在浏览器上显示的静态文件路径就变为了http://localhost:5000/static/css/*** 如果希望直接使用根目录的访问的方式，需要修改配置参数 1&lt;link href="/css/imain.css" rel="stylesheet"&gt; 静态文件配置修改flask的配置参数，添加static_path_for=&quot;&quot;或者static_folder=&quot;&quot; 1app = Flask(__name__,static_path_for="") 此时浏览器访问静态文件路径变为http://localhost:5000/css/*** 注意：静态文件依旧放置在static目录下，改变的只是flask识别的静态文件目录 静态文件的发送一般flask都会使用render_template(xxx.html)的方法渲染返回网页，html文件必须放置于templates目录下 如果发送的html文件是纯静态的不需要返回数据，则可以使用发送静态文件的方法 1return app.send_static_file("game/index.html") 默认根路径为static，返回的是/static/game/index.html 或者 12root = "/static/game/"return app.send_from_directory(root,"index.html") 自行设定发送文件的目录位置]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[css为div添加背景图片]]></title>
     <url>%2F2019%2F07%2F07%2Fcss-backimg%2F</url>
     <content type="text"><![CDATA[使用css为div块设置背景图片background: url(/img/0.png) 使用background属性 123div&#123; background: url(/img/0.png) &#125; 为图片添加属性 图片起始位置123div&#123; background: url(/img/0.png) 5px 0px&#125; 5px是左间距，0px是顶部间距 居中属性123div&#123; background: url(/img/0.png) center 0px&#125; 图片不重复123div&#123; background: url(/img/0.png) no-repeat&#125; 其他属性：repeat-x横向平铺，repeat-y纵向平铺 设置图片随着div的大小动态变化1234div&#123; background: url(/img/0.png); background-size: contain;&#125; 其他属性：auto自动变化，cover覆盖div的大小]]></content>
