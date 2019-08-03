@@ -425,6 +425,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/05/11/e9-9a-8f-e6-9c-ba-e8-bf-87-e7-a8-8b-e7-bc-96-e7-a8-8b-e5-ae-9e-e9-aa-8c-ef-bc-88c-ef-bc-89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Landers">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Landers.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Landers1037">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/05/11/e9-9a-8f-e6-9c-ba-e8-bf-87-e7-a8-8b-e7-bc-96-e7-a8-8b-e5-ae-9e-e9-aa-8c-ef-bc-88c-ef-bc-89/" class="post-title-link" itemprop="url">随机过程编程实验（C++）</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-11 23:00:35" itemprop="dateCreated datePublished" datetime="2018-05-11T23:00:35+08:00">2018-05-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-02 13:49:42" itemprop="dateModified" datetime="2019-02-02T13:49:42+08:00">2019-02-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络技术/" itemprop="url" rel="index"><span itemprop="name">网络技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="随机模拟的基本方法又称为蒙特卡罗（Monte-Carlo）方法。"><a href="#随机模拟的基本方法又称为蒙特卡罗（Monte-Carlo）方法。" class="headerlink" title="随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。"></a><strong>随机模拟的基本方法又称为蒙特卡罗（Monte Carlo）方法。</strong></h5><p>是Velleman与Von Neumann等人在20世纪40年代为研制核武器提出来的，已大量地运用于计算机仿真试验。随机模拟的典型步骤： 1、根据问题构建模拟系统 2、仿真系统中各种分布的随机变量 3、运行模拟系统，进行统计测量 4、分析数据，输出结果 主要工具 基本工具：C、C++等编程模拟、matlab 网络模拟：OPNET Modeler、NS2：大型网络仿真</p>
+<h3 id="伪随机数"><a href="#伪随机数" class="headerlink" title="伪随机数"></a>伪随机数</h3><ul>
+<li><strong>伪随机数的产生：</strong>用户只需给定一个初始的 随机数（种子值），调用该算法，即可按某个固定的公式计算出下一个“随机”数。随后，以新产生出来的“随机”数作为种子，再计算出新的“随机”数。重复调用该算法即可产生出一系列的“随机”数，以满足系统仿真的需要。</li>
+<li>伪随机数本质上不是随机的。但只要计算公式选择得当，通过比较严格地统计检验，仍然可以产生出一系列近似于U(0,1)分布并且相对独立的随机数流，这种随机数流对于大多数仿真模型，是能满足需要的。因此，仍然是目前广泛应用的工程方法。</li>
+</ul>
+<p><strong>伪随机数产生方法</strong> 线性同余法 1）设置y0，即设置种子 2）yn=kyn-1(mod N)，un=yn/N 三组常见的参数 N=1010，k=7，周期≈5×107 （IBM随机数发生器）N=231，k=216+3，周期≈5×108 （ran0） N=231-1，k=75，周期≈2×109 <strong>泊松分布</strong>   <strong>正态分布</strong></p>
+<h3 id="实验平台"><a href="#实验平台" class="headerlink" title="实验平台"></a>实验平台</h3><p><img src="https://s1.ax1x.com/2018/05/11/CBZN0s.md.png" alt="CBZN0s.png"></p>
+<h3 id="实验平台介绍"><a href="#实验平台介绍" class="headerlink" title="实验平台介绍"></a>实验平台介绍</h3><blockquote>
+<p>实验平台包含的源文件 –StdAfx.cpp：VC工程自带文件，不能修改 –random.cpp和random.h：工程主文件，不能修改 –Scope.cpp和Scope.h ：画图程序，不能修改 –randomDlg.cpp和randomDlg.h：主界面程序，包括对各个按钮的动作的响应，还包括对各种随机变量的输入参数的设定 –MyRand.cpp和MyRand.h：各种分布的随机变量的产生程序，实验过程中主要完成MyRand.cpp中的函数即可</p>
+</blockquote>
+<p>我们只需要修改myrand.cpp中的代码即可 <strong>原始代码如下：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyRand.cpp: implementation of the CMyRand class.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"random.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyRand.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> THIS_FILE</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> THIS_FILE[]=__FILE__;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> new DEBUG_NEW</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Construction/Destruction</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">CMyRand::CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CMyRand::~CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CMyRand::MyRandInit(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	N = <span class="number">0x7FFFFFFF</span>; <span class="comment">//2^31-1</span></span><br><span class="line">	K = <span class="number">16807</span>;      <span class="comment">//7^5</span></span><br><span class="line">	seed = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，采用线性同余法，根据输入的种子数产生一个伪随机数，如果种子不变，</span></span><br><span class="line"><span class="comment">  则将可以重复调用产生一个伪随机序列</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  利用CMyRand类中定义的全局变量：S, K, N, Y。</span></span><br><span class="line"><span class="comment">  其中K和N为算法参数，S用于保存种子数，Y为产生的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::MyRand(<span class="keyword">unsigned</span> <span class="keyword">int</span> seed)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//添加伪随机数产生代码</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生一个在min~max范围内精度为4位小数的平均分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::AverageRandom(<span class="keyword">double</span> min,<span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加均匀分布随机变量产生代码</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，在min 到max 范围内产生正态分布的随机数</span></span><br><span class="line"><span class="comment">miu,最大概率密度处的随机变量，即产生的随机数中,概率最大的那个</span></span><br><span class="line"><span class="comment">sigma</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::NormalRandom(<span class="keyword">double</span> miu, <span class="keyword">double</span> sigma, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加正态分布随机变量产生代码</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生指数分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::ExpRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult = <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加指数分布随机变量产生代码</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生泊松分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::PoisonRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> dResult = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加泊松分布随机变量产生代码</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数功能，计算任意分布的随机过程的均值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::Ex(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> Ex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加均值计算代码</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Ex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，计算随机过程的自相关序列</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span>* CMyRand::Rx(<span class="keyword">double</span> lambda, <span class="keyword">int</span> points)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> m,I;</span><br><span class="line">	<span class="keyword">double</span> *Rx = (<span class="keyword">double</span>*)<span class="built_in">malloc</span>((<span class="number">2</span>*points+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">double</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加自相关序列产生代码</span></span><br><span class="line">	<span class="comment">//产生的自相关序列存入Rx中，Rx可当作数组使用</span></span><br><span class="line">	<span class="comment">//不要在本函数中释放该数组!</span></span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Rx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改后的代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyRand.cpp: implementation of the CMyRand class.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"random.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyRand.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> THIS_FILE</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> THIS_FILE[]=__FILE__;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> new DEBUG_NEW</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Construction/Destruction</span></span><br><span class="line"><span class="comment">//////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">CMyRand::CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CMyRand::~CMyRand()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CMyRand::MyRandInit(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	N = <span class="number">0x7FFFFFFF</span>; <span class="comment">//2^31-1</span></span><br><span class="line">	K = <span class="number">16807</span>;      <span class="comment">//7^5</span></span><br><span class="line">	seed = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，采用线性同余法，根据输入的种子数产生一个伪随机数，如果种子不变，</span></span><br><span class="line"><span class="comment">  则将可以重复调用产生一个伪随机序列</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  利用CMyRand类中定义的全局变量：S, K, N, Y。</span></span><br><span class="line"><span class="comment">  其中K和N为算法参数，S用于保存种子数，Y为产生的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::MyRand(<span class="keyword">unsigned</span> <span class="keyword">int</span> seed)</span><br><span class="line">&#123;   <span class="keyword">if</span>(S==seed)</span><br><span class="line">      Y=K*Y%N;</span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">	 &#123; </span><br><span class="line">		 S=seed;</span><br><span class="line">		 Y=K*seed%N;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加伪随机数产生代码</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生一个在min~max范围内精度为4位小数的平均分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::AverageRandom(<span class="keyword">double</span> min,<span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line">	dResult=(<span class="keyword">double</span>)MyRand(seed)/N;</span><br><span class="line">	dResult=dResult*(max-min)+min;</span><br></pre></td></tr></table></figure>
+
+<p>​    
+        //添加均匀分布随机变量产生代码</p>
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，在min 到max 范围内产生正态分布的随机数</span></span><br><span class="line"><span class="comment">miu,最大概率密度处的随机变量，即产生的随机数中,概率最大的那个</span></span><br><span class="line"><span class="comment">sigma</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::NormalRandom(<span class="keyword">double</span> miu, <span class="keyword">double</span> sigma, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult;</span><br><span class="line"></span><br><span class="line">	dResult = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++)</span><br><span class="line">		 dResult+=AverageRandom(min,max);</span><br><span class="line">	     dResult=(dResult<span class="number">-6</span>)/(max-min);</span><br><span class="line">		 dResult=dResult*sigma+miu;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<pre><code>//添加正态分布随机变量产生代码</code></pre><p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生指数分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::ExpRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> dResult = <span class="number">0.0</span>;</span><br><span class="line">	<span class="keyword">while</span>(dResult&lt;<span class="number">0.01</span>)</span><br><span class="line">	&#123;  dResult=AverageRandom(min,max);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	dResult=<span class="number">-1.0</span>*<span class="built_in">log</span>(dResult)/lambda;</span><br></pre></td></tr></table></figure>
+
+<p>​    
+        //添加指数分布随机变量产生代码</p>
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数功能，产生泊松分布的随机数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> CMyRand::PoisonRandom(<span class="keyword">double</span> lambda, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> dResult = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> u=AverageRandom(min,max);</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> p=<span class="built_in">exp</span>(<span class="number">-1</span>*lambda);</span><br><span class="line">	<span class="keyword">double</span> F=p;</span><br><span class="line">	<span class="keyword">while</span>(u&gt;=F)</span><br><span class="line">	&#123; p=lambda*p/(i+<span class="number">1</span>);</span><br><span class="line">	  F+=p;</span><br><span class="line">	  i++;</span><br><span class="line">	&#125;</span><br><span class="line">	dResult=i;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//添加泊松分布随机变量产生代码</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> dResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数功能，计算任意分布的随机过程的均值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span> CMyRand::Ex(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">double</span> Ex = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> m;</span><br><span class="line">	<span class="keyword">double</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (m=<span class="number">0</span>;m&lt;<span class="number">1000</span>;m++)</span><br><span class="line">	&#123; sum+=NormalRandom(<span class="number">0</span>,<span class="number">1.4</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">	 </span><br><span class="line">	&#125;</span><br><span class="line">     Ex=sum/m;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<pre><code>//添加均值计算代码</code></pre><p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span> Ex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数功能，计算随机过程的自相关序列</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">double</span>* CMyRand::Rx(<span class="keyword">double</span> lambda, <span class="keyword">int</span> points)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> m,I=<span class="number">5</span>;</span><br><span class="line">	<span class="keyword">double</span> *Rx = (<span class="keyword">double</span>*)<span class="built_in">malloc</span>((<span class="number">2</span>*points+<span class="number">1</span>)*<span class="keyword">sizeof</span>(<span class="keyword">double</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加自相关序列产生代码</span></span><br><span class="line">	<span class="comment">//产生的自相关序列存入Rx中，Rx可当作数组使用</span></span><br><span class="line">	<span class="comment">//不要在本函数中释放该数组!</span></span><br><span class="line">   <span class="keyword">for</span>(m=-points;m&lt;points;m++)</span><br><span class="line">   &#123;  Rx[(m+points)]=I*I*<span class="built_in">exp</span>(<span class="number">-2</span>*lambda*<span class="built_in">abs</span>(m));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> Rx;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s1.ax1x.com/2018/05/21/C26nG8.jpg" alt> 提供源代码和流程图 <strong>最终的代码随机模拟结果如图（上为随机数，下为分布曲线）</strong> <img src="https://s1.ax1x.com/2018/05/21/C26URU.png" alt="C26URU.png"> <img src="https://s1.ax1x.com/2018/05/21/C26JI0.png" alt="C26JI0.png"> <img src="https://s1.ax1x.com/2018/05/21/C26BL9.png" alt="C26BL9.png"> <img src="https://s1.ax1x.com/2018/05/21/C26Gaq.png" alt="C26Gaq.png"> <img src="https://s1.ax1x.com/2018/05/21/C26rZR.png" alt="C26rZR.png"> <img src="https://s1.ax1x.com/2018/05/21/C26tiV.png" alt="C26tiV.png"> <img src="https://s1.ax1x.com/2018/05/21/C26NGT.png" alt="C26NGT.png"> <img src="https://s1.ax1x.com/2018/05/21/C26azF.png" alt="C26azF.png"> <img src="https://s1.ax1x.com/2018/05/21/C26wM4.png" alt="C26wM4.png"> <img src="https://s1.ax1x.com/2018/05/21/C260sJ.png" alt="C260sJ.png"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/05/11/verilog-e8-af-ad-e8-a8-80-e5-b0-86-e5-ad-a6-e5-8f-b7-e8-be-93-e5-85-a5-e5-88-b0ip-e5-86-85-e6-a0-b8-e4-b8-ad/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1344,182 +1587,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://landers1037.top/2018/04/25/e5-b0-8f-e8-af-b4-e5-90-af-e6-a5-94-e5-ad-90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Landers">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/Landers.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Landers1037">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/25/e5-b0-8f-e8-af-b4-e5-90-af-e6-a5-94-e5-ad-90/" class="post-title-link" itemprop="url">启 楔子</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-04-25 23:11:04" itemprop="dateCreated datePublished" datetime="2018-04-25T23:11:04+08:00">2018-04-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-02 13:53:24" itemprop="dateModified" datetime="2019-02-02T13:53:24+08:00">2019-02-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/启-连载小说/" itemprop="url" rel="index"><span itemprop="name">启 连载小说</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>​    人们永远都在想着，在那遥远的迷离的星空之外是什么？所以古往今来总有这各种各样的人仰望星空，想要从中得到答案。 这个故事发生在很遥远的时代，或者说就发生在刚才的一瞬间，因为这一切东西都不是由时间来主宰的，在星空之外没有时间的界限，只有一个个在救赎中忏悔的罪人。 世界观简介： 一个完全虚构的世界，却又无限地逼近现实，在这样的一个世界里，科技已经发展到了探索星空的地步，可是人类一直无法深入宇宙，总是有着一种力量冥冥中阻止着一切探究本源的发生。这个世界里面没有所谓的子宇宙，平行世界，多样化的空间以及多元宇宙，这里是一个全新的世界，并且在这样的一个世界里我们探索世界的本质，发现星空之外的秘密。</p>
-<hr>
-<p>很早以前就想写一部科幻的（臆想）简单易懂阐述自己宇宙观的小说了，最近腾出点时间起笔，文笔不行请多关照。 </p>
-<p>原文链接：<a href="https://www.jianshu.com/p/c669e52a9681" target="_blank" rel="noopener">https://www.jianshu.com/p/c669e52a9681</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1568,7 +1635,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">199</span>
+                    <span class="site-state-item-count">200</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
