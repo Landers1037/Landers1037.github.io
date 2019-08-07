@@ -6,6 +6,17 @@
     <content type="text"><![CDATA[这是我记录学习点滴，记录生活，享受乐趣的地方感谢你的到来！我的邮箱：liaorenj@gmail.com 我的主页：Landers 我的GitHub：前往 给我留言： 留言箱 我的电报：@Greatpipi 🍉此置顶文章，没有使用置顶插件，只是日期改为了2333年强行变为最新文章，不是服务器的时间出错了]]></content>
   </entry>
   <entry>
+    <title><![CDATA[js添加分享按钮]]></title>
+    <url>%2F2019%2F08%2F07%2Fjs-qqshare%2F</url>
+    <content type="text"><![CDATA[使用原生js和jQuery为网页添加qq分享按钮 调用了官方的分享api 12345678910111213141516171819202122232425262728&lt;script&gt; function qqFriend() &#123; var p = &#123; /*获取URL，可加上来自分享到QQ标识，方便统计*/ url: 'http://www.xxx.com', desc: '', /*分享标题(可选)*/ title: '个人主页', /*分享摘要(可选)*/ summary: '一个神奇的地方', /*分享图片(可选)*/ pics: '', /*视频地址(可选)*/ flash: '', /*分享来源(可选) 如：QQ分享*/ site: '', style: '201', width: 32, height: 32&#125;; var s = []; for(var i in p) &#123; s.push(i + '=' + encodeURIComponent(p[i] || '')); &#125; var url = "http://connect.qq.com/widget/shareqq/index.html?" + s.join('&amp;'); window.open(url);&#125;&lt;/script&gt; 使用jQuery和share.js引入jQuery.js和social-share.js 123&lt;script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;&lt;script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"&gt;&lt;/script&gt;&lt;link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet"&gt; 新建div容器初始化 1&lt;div class="social-share"&gt;&lt;/div&gt; 默认类为social-share时不需要添加配置 如果需要禁用部分按钮，使用data-disabled参数 1&lt;div class="social-share" data-disabled="google,diandian,douban,wechat,linkedin"&gt;&lt;/div&gt; 更多参见官方文档和源码 share.js]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[javascript动态显示块元素]]></title>
     <url>%2F2019%2F08%2F03%2Fjs-hide-div%2F</url>
     <content type="text"><![CDATA[块元素需要在加载时使用动画可以使用JavaScript实现原生js写法繁琐，使用jQuery实现 首先引入jQuery 1&lt;script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt; 设置需要加载动画的元素块id1234&lt;div id="test" class="test"&gt; &lt;span&gt;加载动画&lt;/span&gt;&lt;/div&gt;&lt;a id="button"&gt;点击显示&lt;/a&gt; 设置div块的初始样式1234.test&#123; display: none; width: 200px;&#125; js代码123$("#button").hover(function&#123; $("#test").toggle(); &#125;); 上面代码实现的是鼠标移动到标签a上时id为&quot;test&quot;的块显示，移开时隐藏 改为点击 123$("#button").click(function&#123; $("#test").toggle(); &#125;); 效果原生的JavaScript支持的效果有show(),hide(),fadein(),fadeup(),fadedown(),slide()等 可以更改为滑入效果 123$("#button").hover(function&#123; $("#test").slideDown(); &#125;); 添加参数，可以修改动画的速度 slideDown(1000)表示整个动画耗时1000毫秒]]></content>
