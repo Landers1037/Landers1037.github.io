@@ -1,12 +1,10 @@
 # Landers的博客
 
-![](./images/snap.png)
+## 个人博客的备份站点
 
-## 采用hexo的静态页面生成
+预览：[我的博客](http://blog.lrenj.top/)
 
-预览：[我的博客](https://landers1037.top/)
-
-博客主题：[archer](https://github.com/fi3ework/hexo-theme-archer)
+使用 Vue，Gin
 
 我的Gmail：liaorenj@gmail.com
 
