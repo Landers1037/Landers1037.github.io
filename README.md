@@ -2,7 +2,7 @@
 
 ## 个人博客的备份站点
 
-预览：[我的博客](http://blog.lrenj.top/)
+预览：[我的博客](https://blog.renj.io)
 
 使用 Vue，Gin
 
