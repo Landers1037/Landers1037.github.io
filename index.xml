@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Resume Renj.io</title>
+    <link>http://me.renj.io/</link>
+    <description>Recent content on Resume Renj.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language><atom:link href="http://me.renj.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello</title>
+      <link>http://me.renj.io/hello/</link>
+      <pubDate>Mon, 06 Sep 2021 22:18:52 +0800</pubDate>
+      
+      <guid>http://me.renj.io/hello/</guid>
+      <description>介绍 你好，我是廖仁杰，毕业于华中科技大学，电子信息与通信学院-电磁场与无线技术专业
+目前从事Golang开发，会一点点vue，python和rust
+ 我的个人网站 renj.io 我的博客 blog.renj.io 我的一些项目 mgek apps  工作经历  2019 青岛市中电41所实习 2020 华为技术有限公司  我的项目    项目 描述 技术栈     毕业设计-nms系统 智慧教室IP广播管理系统 python, vue   MgekImgBed 轻量个人图床服务 python, electron   Blog 基于md的动态博客工具 go, python, vue, nginx   Dirichlet 微服务注册管控程序 go, gin, Kafka, redis   Plnack 基于gRPC的接口通信服务 go, gRPC    技能树 Go - gin - beego - docker(k8s) Python - flask - Django - scrapy - seleniums - pandas Javascript - vue - electron Rust - learning😝 </description>
+    </item>
+    
+  </channel>
+</rss>
